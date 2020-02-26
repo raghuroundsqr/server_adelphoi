@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Publishers</h2>
+    <ul>
+        {% for TestModels in object_list %}
+            <li>{{ TestModels.PrimaryRacecode}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
