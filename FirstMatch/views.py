@@ -2,19 +2,14 @@
 import json
 from django.http import JsonResponse, FileResponse
 from rest_framework.generics import ListCreateAPIView, UpdateAPIView, RetrieveUpdateAPIView, ListAPIView, \
-    RetrieveAPIView, \
-    RetrieveUpdateDestroyAPIView, CreateAPIView
-
+    RetrieveAPIView
 from .models import ModelTests, Adelphoi_Mapping, ProgramModel, \
-    ModelLocation, FacilityModel, LevelModel  # ,Mapping_Collection  #,ModelTestSub,,Ade_Mapping
+    ModelLocation, FacilityModel, LevelModel
 from django.views.decorators.csrf import csrf_exempt
-
 import pandas as pd
 import pickle
-
 from rest_framework.response import Response
-from .serializers import ModelTestsSerializers, LocationSerializer, ModelTestsSerializers_selected_program, \
-    ModelTestsSerializer_program_model_suggested, ProgramSerialzer, LocationSerialzer, ProgramLocationSerialzer, \
+from .serializers import ModelTestsSerializers, ProgramLocationSerialzer, \
     ProgramLevelSerialzer, \
     AdminInterface, FilterSerialzer, Adelphoi_placementSerializer, Adelphoi_referredSerializer, ProgramIndSerializer, \
     ProgramSerializer, LocationSerializer, LocationIndSerializer, Available_programSerializer, Program_PCRSerializer
@@ -24,13 +19,10 @@ from django.template import loader
 import os
 import weasyprint
 from datetime import datetime
-from weasyprint import HTML, CSS
+from weasyprint import CSS
 from django_filters import rest_framework as filters
 import logging
-from datetime import date
 
-# logging.basicConfig(filename='info_log.log', level=logging.INFO, filemode='a',
-#                     format='%(asctime)s %(process)d-%(name)-12s %(levelname)-8s -%(funcName)s  -  %(lineno)d     %(message)s')
 logging.basicConfig(filename='test_log.log', level=logging.INFO, filemode='a',
                     format='%(asctime)s %(process)d-%(name)-12s %(levelname)-8s -%(funcName)s  -  %(lineno)d     %(message)s')
 
@@ -43,7 +35,7 @@ def index(request, *args, **kwargs):
         '/home/ubuntu/Adelphoi/adelphoi-django/templates/index2.html')  # getting our template
     try:
         results = ModelTests.objects.filter(client_code=kwargs['pk'])[0]
-        logger.info('Pdf generation based on client_code')
+        logger.info('Pdf generation based on client_code %s', results)
     except:
         logger.info('ClientCode is not exists for PDF generation')
         return JsonResponse({"result": "ClientCode not exist"})
@@ -67,11 +59,10 @@ def index(request, *args, **kwargs):
         'recommende_level': results.client_selected_program
     }
     dir = r'/home/ubuntu/Adelphoi_outputfiles'
-    date_path = str(datetime.now().strftime('%Y-%m-%d'))  # _%H-%M-%S
+    date_path = str(datetime.now().strftime('%Y-%m-%d'))
     try:
         logger.info('directory is creating for pdf')
         os.makedirs(dir + '/' + 'outputfiles/' + date_path + '/' + str(results.client_code) + '/')
-        # print("came to directory")
     except:
         pass
     reportfilename = str(str(results.client_code) + ".pdf")
@@ -79,7 +70,6 @@ def index(request, *args, **kwargs):
     html = template.render(values)  # Renders the template with the context data.
     pdf = weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(
         stylesheets=[CSS('/home/ubuntu/Adelphoi/adelphoi-django/templates/index.css')], presentational_hints=True)
-    # pdf = weasyprint.HTML(html).write_pdf()
     open(pdf_file_path, 'wb').write(pdf)
     try:
         logger.info('Pdf file response')
@@ -91,7 +81,6 @@ def index(request, *args, **kwargs):
 
 class AdelphoiList(ListCreateAPIView):
     serializer_class = ModelTestsSerializers
-    # serializer_class =  ModelTestsSerializers_selected_program
     queryset = ModelTests.objects.all()
 
     def get(self, request):
@@ -101,16 +90,7 @@ class AdelphoiList(ListCreateAPIView):
     def post(self, request):
         serializer = self.get_serializer_class()
         serializer = serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)  # raise_exception=True
-        # from datetime import date
-        #
-        # def calculateAge(birthDate):
-        #     today = date.today()
-        #     age = today.year - birthDate.year - ((today.month, today.day) < (birthDate.month, birthDate.day))
-        #
-        #     return age
-        #
-        # age_yrs = calculateAge(serializer.validated_data.get('episode_start'))
+        serializer.is_valid(raise_exception=True)
         query_gender = Adelphoi_Mapping.objects.filter(gender=serializer.validated_data.get(
             'gender'))  # ,program_model_suggested = serializer.validated_data.get("program_model_suggested")
         suggested_programs = []
@@ -185,7 +165,7 @@ class AdelphoiList(ListCreateAPIView):
                   'FAST_FamilyTogetherScore': serializer.validated_data.get('FAST_FamilyTogetherScore'),
                   'FAST_CaregiverAdvocacyScore': serializer.validated_data.get('FAST_CaregiverAdvocacyScore')
                   }  #
-            logger.info("values are %s",dt)
+            logger.info("values are %s", dt)
             data = pd.DataFrame(dt, index=[0])
 
             # Impute empty values with mean values
@@ -210,11 +190,6 @@ class AdelphoiList(ListCreateAPIView):
                     data['Client self-harm'] = 0.4675  # 0.479452
                 else:
                     data['Client self-harm'] = 0.2026  # 0.197309
-            # if data['Abuse, or neglect'][0] is None:
-            #     if data['Gender'][0] == 1:
-            #         data['Abuse, or neglect'] = 0.613636
-            #     else:
-            #         data['Abuse, or neglect'] = 0.535398
             if data['CANS_LifeFunctioning'][0] is None:
                 if data['Gender'][0] == 1:
                     data['CANS_LifeFunctioning'] = 13.1038  # 12.945205
@@ -366,7 +341,7 @@ class AdelphoiList(ListCreateAPIView):
                             'Autism Diagnosis', 'Borderline Personality', 'Psychosis',
 
                             'Reactive Attachment Disorder',
-                            'Schizophrenia']  # 'Program',, 'Level_of_Care', 'FacilityType'
+                            'Schizophrenia']
 
             # converting float to integer
             for col in numeric_cols:
@@ -392,17 +367,16 @@ class AdelphoiList(ListCreateAPIView):
                              'CANS_YouthBehavior', 'CANS_YouthRisk', 'CANS_Trauma_Exp', 'Family support',
                              'Level of aggression', 'Fire setting',
                              'Abuse, or neglect', 'Screening tool for Trauma--Total score']
-            # 'AgeAtEnrollStart',
-            # 11/12/2019
+
             Xtest = pd.DataFrame(data[Feature_names])
             Xtest[dummies.columns] = dummies
 
             level_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_LC_13feb.sav",
-                                           "rb"))  # /home/ubuntu/Adelphoi/adelphoi-django/sources/LR_LC_23Dec.sav   # final_dt_48p_263r_2clases_smote.sav #dt_LR_Level_0.1
+                                           "rb"))
             program_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/DT_P_13feb.sav",
-                                             "rb"))  # /home/ubuntu/Adelphoi/adelphoi-django/sources/DT_P_23Dec.sav #dt_T_Program
+                                             "rb"))
             facility_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_FT_13feb.sav",
-                                              "rb"))  # /home/ubuntu/Adelphoi/adelphoi-django/sources/LR_FT_23Dec.sav#DT_FT_10Dec
+                                              "rb"))
             PC_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_PC_13feb.sav", "rb"))
 
             level_pred = level_model.predict(Xtest)
@@ -411,11 +385,9 @@ class AdelphoiList(ListCreateAPIView):
             query = Adelphoi_Mapping.objects.filter(program=program_pred,
                                                     gender=serializer.validated_data.get('gender'),
                                                     level_of_care=level_pred, facility_type=facility_preds)
-            # print(f"program_pred;;{program_pred},gender:{serializer.validated_data.get('gender')},level_of_care::{level_pred},facility_type::{facility_preds}")
 
             def program_condition(condition_program, level_pred, facility_preds):
                 logger.info('program_condition function')
-                # Xp is for PC_model
                 Xp = pd.DataFrame(data[['EpisodeNumber', 'Number of foster care placements', 'AgeAtEpisodeStart',
                                         'Number of prior placements \n(excluding shelter and detention)',
                                         'Number of prior treatment terminations (excluding shelter or detention)',
@@ -433,7 +405,6 @@ class AdelphoiList(ListCreateAPIView):
                 Xp['FacilityType'] = facility_preds
                 Xp[dummies.columns] = dummies
                 PC_proba = PC_model.predict_proba(Xp)
-                # Xp.to_csv('before_call.csv')
                 return round(PC_proba[0][1] * 100)
 
             program_list = []
@@ -443,7 +414,6 @@ class AdelphoiList(ListCreateAPIView):
             program_num = []
             if query.count() > 0:
                 if serializer.validated_data.get('gender') == 1:
-                    # print("loop1 Female")
                     logger.info('where Exclusionary_Criteria-False, gender-1,condition_program-3')
                     condition_program = 3
                     query2 = Adelphoi_Mapping.objects.filter(program=condition_program,
@@ -464,9 +434,6 @@ class AdelphoiList(ListCreateAPIView):
                         level_default.append(i.level_of_care)
                         facility_default.append(i.facility_type)
                     confidence = program_condition(condition_program, level_default[0], facility_default[0])
-                    # print(f"condition_program:::{condition_program},level_default:: {level_default},facility_default::{facility_default}")
-                    # confidence = program_condition(condition_program, level_pred, facility_preds)
-                    # print("confidence", confidence)
                     serializer.save(program=program_num[0], condition_program=condition_program,
                                     confidence=confidence, family_support=data['Family support'][0],
                                     level_of_aggression=data['Level of aggression'][0],
@@ -491,24 +458,22 @@ class AdelphoiList(ListCreateAPIView):
                                     FAST_FamilyTogetherScore=data['FAST_FamilyTogetherScore'][0],
                                     FAST_CaregiverAdvocacyScore=data['FAST_CaregiverAdvocacyScore'][0],
                                     inclusionary_criteria=serializer.validated_data.get(
-                                        'inclusionary_criteria'),model_program = program_type[0])  # confidence = PC_proba[0][1]*100
+                                        'inclusionary_criteria'),
+                                    model_program=program_type[0])  # confidence = PC_proba[0][1]*100
 
                     return Response(
                         {"model program": program_pred, "program": condition_program, "Level of care": level_pred,
                          "program_type": program_type,
                          "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                         "Confidence": confidence,"list_program_types":unique_list_programs})
+                         "Confidence": confidence, "list_program_types": unique_list_programs})
                 else:
                     if serializer.validated_data.get('inclusionary_criteria') == True:
-                        # print("loop2 Male and inclusionary")
                         logger.info(
                             'where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2')
                         condition_program = 2
                         query3 = Adelphoi_Mapping.objects.filter(program=condition_program,
                                                                  gender=serializer.validated_data.get('gender'),
                                                                  level_of_care=level_pred, facility_type=facility_preds)
-
-                        # print(f"befrore ::: program::{condition_program},level {level_pred}, facoility {facility_preds}")
                         for i in query3:
                             program_num.append(i.program)
                             program_list.append(i.program_name)
@@ -523,9 +488,6 @@ class AdelphoiList(ListCreateAPIView):
                             level_default.append(i.level_of_care)
                             facility_default.append(i.facility_type)
                         confidence = program_condition(condition_program, level_default[0], facility_default[0])
-                        # print(
-                        #     f"after::::condition_program:::{condition_program},level_default:: {level_default},facility_default::{facility_default}")
-                        # confidence = program_condition(condition_program, level_pred, facility_preds)
                         serializer.save(program=program_num[0], condition_program=condition_program,
                                         confidence=confidence,
                                         family_support=data['Family support'][0],
@@ -551,15 +513,14 @@ class AdelphoiList(ListCreateAPIView):
                                         FAST_FamilyTogetherScore=data['FAST_FamilyTogetherScore'][0],
                                         FAST_CaregiverAdvocacyScore=data['FAST_CaregiverAdvocacyScore'][0],
                                         inclusionary_criteria=serializer.validated_data.get(
-                                            'inclusionary_criteria'),model_program = program_type[0])
+                                            'inclusionary_criteria'), model_program=program_type[0])
                         return Response(
                             {"model program": program_pred, "program": condition_program, "Level of care": level_pred,
                              "program_type": program_type,
                              "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                             "Confidence": confidence,"list_program_types":unique_list_programs})
+                             "Confidence": confidence, "list_program_types": unique_list_programs})
                     else:
                         if program_pred == 2:
-                            # print("loop3 Male incluionary program_pred - 2")
                             drugUse = serializer.validated_data.get('drug_Use')
                             ylsSUBAB = serializer.validated_data.get('yls_Subab_Score')
                             alcholUSe = serializer.validated_data.get('alcohol_Use')
@@ -568,7 +529,6 @@ class AdelphoiList(ListCreateAPIView):
                             p13_model = pickle.load(
                                 open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_P13_13feb.sav", "rb"))
                             p13_model_preds = p13_model.predict(Xtest)
-                            # print("p13_model_preds:::",p13_model_preds)
                             if (drugUse == 0 and ylsSUBAB == 0 and alcholUSe == 0):
                                 condition_program = 3
                                 query6 = Adelphoi_Mapping.objects.filter(program=condition_program,
@@ -588,9 +548,6 @@ class AdelphoiList(ListCreateAPIView):
                                     level_default.append(i.level_of_care)
                                     facility_default.append(i.facility_type)
                                 confidence = program_condition(condition_program, level_default[0], facility_default[0])
-                                # print(
-                                #     f"condition_program:::{condition_program},level_default:: {level_default},facility_default::{facility_default}")
-                                # confidence = program_condition(condition_program, level_pred, facility_preds)
                                 serializer.save(program=condition_program, confidence=confidence,
                                                 family_support=data['Family support'][0],
                                                 level_of_aggression=data['Level of aggression'][0],
@@ -616,13 +573,13 @@ class AdelphoiList(ListCreateAPIView):
                                                 FAST_FamilyTogetherScore=data['FAST_FamilyTogetherScore'][0],
                                                 FAST_CaregiverAdvocacyScore=data['FAST_CaregiverAdvocacyScore'][0],
                                                 inclusionary_criteria=serializer.validated_data.get(
-                                                    'inclusionary_criteria'),model_program = program_type[0])
+                                                    'inclusionary_criteria'), model_program=program_type[0])
                                 return Response(
                                     {"model program": program_pred, "program": p13_model_preds,
                                      "Level of care": level_pred,
                                      "program_type": program_type,
                                      "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                                     "Confidence": confidence,"list_program_types":unique_list_programs
+                                     "Confidence": confidence, "list_program_types": unique_list_programs
                                      })
                             else:
                                 query4 = Adelphoi_Mapping.objects.filter(program=p13_model_preds,
@@ -642,9 +599,6 @@ class AdelphoiList(ListCreateAPIView):
                                     level_default.append(i.level_of_care)
                                     facility_default.append(i.facility_type)
                                 confidence = program_condition(p13_model_preds, level_default[0], facility_default[0])
-                                # print(
-                                #     f"condition_program:::{p13_model_preds},level_default:: {level_default},facility_default::{facility_default}")
-                                # confidence = program_condition(p13_model_preds, level_pred, facility_preds)
                                 serializer.save(program=p13_model_preds, confidence=confidence,
                                                 family_support=data['Family support'][0],
                                                 level_of_aggression=data['Level of aggression'][0],
@@ -670,20 +624,19 @@ class AdelphoiList(ListCreateAPIView):
                                                 FAST_FamilyTogetherScore=data['FAST_FamilyTogetherScore'][0],
                                                 FAST_CaregiverAdvocacyScore=data['FAST_CaregiverAdvocacyScore'][0],
                                                 inclusionary_criteria=serializer.validated_data.get(
-                                                    'inclusionary_criteria'),model_program = program_type[0])
+                                                    'inclusionary_criteria'), model_program=program_type[0])
 
                                 return Response(
                                     {"model program": program_pred, "program": p13_model_preds,
                                      "Level of care": level_pred,
                                      "program_type": program_type,
                                      "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                                     "Confidence": confidence,"list_program_types":unique_list_programs})
+                                     "Confidence": confidence, "list_program_types": unique_list_programs})
                         else:
                             query5 = Adelphoi_Mapping.objects.filter(program=program_pred,
                                                                      gender=serializer.validated_data.get('gender'),
                                                                      level_of_care=level_pred,
                                                                      facility_type=facility_preds)
-                            # print("loop4 ")
                             logger.info(
                                 'where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)')
                             for i in query5:
@@ -700,10 +653,6 @@ class AdelphoiList(ListCreateAPIView):
                                 level_default.append(i.level_of_care)
                                 facility_default.append(i.facility_type)
                             confidence = program_condition(program_pred, level_default[0], facility_default[0])
-                            # print(
-                            #     f"condition_program:::{program_pred},level_default:: {level_default},facility_default::{facility_default}")
-                            # confidence = program_condition(program_pred, level_pred, facility_preds)
-                            # print("confidence", confidence)
                             serializer.save(program=program_num[0], confidence=confidence,
                                             family_support=data['Family support'][0],
                                             level_of_aggression=data['Level of aggression'][0],
@@ -728,16 +677,15 @@ class AdelphoiList(ListCreateAPIView):
                                             FAST_FamilyTogetherScore=data['FAST_FamilyTogetherScore'][0],
                                             FAST_CaregiverAdvocacyScore=data['FAST_CaregiverAdvocacyScore'][0],
                                             inclusionary_criteria=serializer.validated_data.get(
-                                                'inclusionary_criteria'),model_program = program_type[0])
+                                                'inclusionary_criteria'), model_program=program_type[0])
                             return Response(
                                 {"model program": program_pred, "program": program_pred, "Level of care": level_pred,
                                  "program_type": program_type,
                                  "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                                 "Confidence": confidence,"list_program_types":unique_list_programs})
+                                 "Confidence": confidence, "list_program_types": unique_list_programs})
             else:
                 if serializer.validated_data.get('gender') == 1:
                     condition_program = 3
-                    # print("loop5 exit")
                     logger.info('where exit loop gender-1')
                     query6 = Adelphoi_Mapping.objects.filter(program=condition_program,
                                                              gender=serializer.validated_data.get('gender'),
@@ -756,9 +704,6 @@ class AdelphoiList(ListCreateAPIView):
                         level_default.append(i.level_of_care)
                         facility_default.append(i.facility_type)
                     confidence = program_condition(condition_program, level_default[0], facility_default[0])
-                    # print(f"condition_program:::{condition_program},level_default:: {level_default},facility_default::{facility_default} ")
-                    # confidence = program_condition(condition_program, level_pred, facility_preds)
-                    # print("confidence", confidence)
                     serializer.save(program=program_num[0], condition_program=condition_program, confidence=confidence,
                                     family_support=data['Family support'][0],
                                     level_of_aggression=data['Level of aggression'][0],
@@ -783,27 +728,18 @@ class AdelphoiList(ListCreateAPIView):
                                     FAST_FamilyTogetherScore=data['FAST_FamilyTogetherScore'][0],
                                     FAST_CaregiverAdvocacyScore=data['FAST_CaregiverAdvocacyScore'][0],
                                     inclusionary_criteria=serializer.validated_data.get(
-                                        'inclusionary_criteria'),model_program = program_type[0])
+                                        'inclusionary_criteria'), model_program=program_type[0])
                     return Response(
                         {"model program": program_pred, "program": condition_program, "Level of care": level_pred,
                          "program_type": program_type,
                          "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                         "Confidence": confidence,"list_program_types":unique_list_programs})
+                         "Confidence": confidence, "list_program_types": unique_list_programs})
         else:
             serializer.save()
             return Response({"Result": "Thanx for registering with ADELPHOI"})
         return Response({"data": "Failure"})
 
 
-# class Adelphoi_placement(ListAPIView):
-#     def get(self, request, *args, **kwargs):
-#         mt: ModelTests = ModelTests.objects.filter(client_code=kwargs['pk'])
-#         if mt.exists():
-#             referred_program = mt.referred_program
-#             model_program = mt.model_program
-#             return Response({"Referred program":referred_program,"Model Program":model_program})
-#         else:
-#             return Response({"result":"client not exists"})
 class Adelphoi_placement(RetrieveAPIView):
     serializer_class = Adelphoi_placementSerializer
     queryset = ModelTests.objects.all()
@@ -812,13 +748,11 @@ class Adelphoi_placement(RetrieveAPIView):
 class AdelphoiSubmission(RetrieveUpdateAPIView):  # UpdateAPIView
 
     serializer_class = ProgramLevelSerialzer  # ModelTestsSerializers_selected_program, ModelTestsSerializer_program_model_suggested
-    # serializer_class = ModelTestsSerializer_program_model_suggested
     queryset = ModelTests.objects.all()
 
     def put(self, request, *args, **kwargs):
         mt: ModelTests = ModelTests.objects.filter(client_code=kwargs['pk'])[0]
-        # print(mt.program)
-        # print(mt.gender)
+
         logger.info('Using AdelphoiSubmission function ')
         suggested_programs2 = request.GET['suggested_programs']
         location = request.GET['location_names']
@@ -864,23 +798,6 @@ class AdelphoiSubmission(RetrieveUpdateAPIView):  # UpdateAPIView
         data = {"suggested_programs": suggested_programs}
         return Response(data)
 
-#
-# class Adelphoi_program(ListAPIView):
-#     def get(self, request, *args, **kwargs):
-#         mt: ModelTests = ModelTests.objects.filter(client_code=kwargs['pk'])[0]
-#         # print(mt.program)
-#         logger.info('Adelphoi_program--program search')
-#         query = Adelphoi_Mapping.objects.filter(
-#             gender=mt.gender)  # ,program_model_suggested = serializer.validated_data.get("program_model_suggested")
-#         suggested_programs = []
-#         for i in query:
-#             logger.info('Adelphoi_program--appending programs')
-#             suggested_programs.append(i.program_model_suggested)
-#         data = {
-#             'program_model_suggested': suggested_programs,
-#         }
-#         return Response(data)
-
 
 class Adelphoi_program(ListAPIView):
     def get(self, request, *args, **kwargs):
@@ -902,13 +819,14 @@ class Adelphoi_program(ListAPIView):
                 data = {
                     'program_model_suggested': unique_list_programs,
                     'selected_program': selected_program,
-                    'selected_location':selected_location
+                    'selected_location': selected_location
                 }
                 return Response(data)
             else:
                 return Response({"result": "Client not exists"})
         except:
             return Response({"result": "failure"})
+
 
 class Adelphoi_referredprogram(UpdateAPIView):
     serializer_class = Adelphoi_referredSerializer
@@ -938,8 +856,6 @@ class Adelphoi_location(ListAPIView):
             gender_list = []
             for i in mt:
                 gender_list.append(i.gender)
-            # query = Adelphoi_Mapping.objects.filter(
-            #     program_type=referred_program)  # ,program_model_suggested = serializer.validated_data.get("program_model_suggested")
             query = Adelphoi_Mapping.objects.filter(
                 program_type=referred_program)  # program_name=referred_program, gender=gender_list[0]
             suggested_location = []
@@ -995,7 +911,6 @@ class AdelphoiResult(UpdateAPIView):  # UpdateAPIView
                 return Response({"Response": "not found"})
             mt.client_selected_level = int(selected_level[0])
             mt.client_selected_facility = int(selected_facility[0])
-            # mt.client_selected_program = int(selected_program[0])
             mt.client_selected_program = client_selected_program
             mt.client_selected_locations = client_selected_location
             mt.save()
@@ -1022,8 +937,6 @@ class ProgramCompletionLevel(RetrieveUpdateAPIView):  # UpdateAPIView
             mt.program_significantly_modified = serializer.validated_data.get('program_significantly_modified')
             logger.info('ProgramCompletionLevel---Program_Completion,Returned_to_Care is saved')
             mt.save()
-            # else:
-            #     return Response({"result":"Client no exists"})
             return Response({"data": "success"})
         else:
             logger.info('ProgramCompletionLevel---ClientCode not exists')
@@ -1148,9 +1061,11 @@ class ProgramModify(RetrieveUpdateAPIView):
         serializer = self.get_serializer_class()
         serializer = serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        result = serializer.validated_data.get('program_name')
         mt: ProgramModel = ProgramModel.objects.filter(program=kwargs['pk']).first()
-        mt.program_name = serializer.validated_data.get('program_name')
+        mt.program_name = result
         mt.save()
+        Adelphoi_Mapping.objects.filter(program=kwargs['pk']).update(program_name=result)
         logger.info('ProgramModify--Program name change')
         return Response({"program_id": mt.program, "Result": "Program name is modified"})
 
@@ -1354,11 +1269,7 @@ class RecommndedProgramPCR(UpdateAPIView):
         Xp['FacilityType'] = facility_preds
         Xp[dummies.columns] = dummies
         PC_proba = PC_model.predict_proba(Xp)
-        # print(f"condition_program:::{condition_program},level_default:: {level_pred},facility_default::{facility_preds} ")
-        # Xp.to_csv(("after_check.csv"))
         result = round(PC_proba[0][1] * 100)
         mt.confidence = result
         mt.save()
-        # serializer.save(confidence=result)
-        # serializer.save(condition_program=condition_program, confidence=result)
         return Response({"pcr": result})
