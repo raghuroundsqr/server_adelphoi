@@ -1,6 +1,6 @@
 from rest_framework import serializers
 # from rest_framework import ModelTests
-from .models import ModelTests,Adelphoi_Mapping,ProgramModel,ModelLocation
+from .models import ModelTests,Adelphoi_Mapping,ProgramModel,ModelLocation,ReferralSource
 
 class ModelTestsSerializers(serializers.ModelSerializer):
 
@@ -8,7 +8,7 @@ class ModelTestsSerializers(serializers.ModelSerializer):
         model = ModelTests
         # fields ='__all__'
         exclude = ['modified_date', 'program','model_program', 'confidence','level_of_care','facility_type','client_selected_program','client_selected_level','client_selected_facility','client_selected_locations',
-                   'Program_Completion', 'Returned_to_Care','condition_program','referred_program'] #,,'client_selected_program','client_selected_level','client_selected_facility'
+                   'Program_Completion', 'Returned_to_Care','condition_program','referred_program','roc_confidence'] #,,'client_selected_program','client_selected_level','client_selected_facility'
 
 class Adelphoi_placementSerializer(serializers.ModelSerializer):
     class Meta:
@@ -82,11 +82,20 @@ class ProgramIndSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProgramModel
         fields = ['program','program_name']
+class ReferralIndSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=ReferralSource
+        fields = ['referral_code','referral_name']
 
 class ProgramSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProgramModel
         fields = ['program_name']
+
+class refferalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ReferralSource
+        fields = ['referral_name']
 class LocationIndSerializer(serializers.ModelSerializer):
     class Meta:
         model = ModelLocation

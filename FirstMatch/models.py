@@ -6,6 +6,7 @@ from django.urls import reverse
 # Create your models here.
 from django.contrib.postgres.fields import ArrayField
 from jsonfield import JSONField
+
 class ModelTests(models.Model):
 
 
@@ -19,8 +20,8 @@ class ModelTests(models.Model):
     #                 (4, 'Others'))
     LS_CHOICES = ((1, 'voluntary'),
                   (2, 'Dependent'),
-                  (3, 'Voluntary Delinquent'),
-                  (4, 'Dependent Delinquent'),
+                  # (3, 'Voluntary Delinquent'),
+                  # (4, 'Dependent Delinquent'),
                   (5, 'Delinquent'))
     REF_CHOICES = (
         (1, 'Adams'), (2, 'Allegheny'), (3, 'Beaver'), (4, 'Bedford'), (5, 'Berks'),
@@ -34,9 +35,9 @@ class ModelTests(models.Model):
         (39, 'Armstrong'),
         (40, 'Columbia'), (41, 'Crawford'), (42, 'Cayahoga OH'), (43, 'Franklin OH'), (44, 'Greene'), (45, 'Indiana'),
         (46, 'Lawrence'),(47,'MH'),(48, 'Mckean'), (49, 'Mercer'), (50, 'outside tri-county'), (51, 'Northampton'), (52, 'Pike'),
-        (53, 'Schukill'),
+        (53, 'Schuylkill'),
         (54, 'Somerset'), (55, 'Union'), (56, 'Venango'),(57,'Fulton'),(59,'WV'),(60,'SE PA'))
-    CYF_CHOICES = ((1, 'CYF'), (2, 'Juvenile Justice'))
+    CYF_CHOICES = ((0,'None'),(1, 'CYF'), (2, 'Juvenile Justice'))
     no_or_yes = ((0, 'no'), (1, 'yes'))
     Termination_av = ((0, 'no'), (1, 'unknown'), (2, 'one'), (3, 'two or more'))
     complaint = ((0, 'no'), (1, 'yes'), (9, 'N / A'))
@@ -75,7 +76,7 @@ class ModelTests(models.Model):
     age = models.IntegerField(db_column='Age',null=True)
     gender = models.IntegerField(db_column='Gender', choices=GENDER_CHOICES)
     primary_language = models.IntegerField(db_column='primary_language', choices=primary_lang_choices)
-    RefSourceCode = models.IntegerField(db_column='RefSourceCode', choices=REF_CHOICES)
+    RefSourceCode = models.IntegerField(db_column='RefSourceCode') #, choices=REF_CHOICES
     ls_type = models.IntegerField(db_column='LS_Type', choices=LS_CHOICES)
     CYF_code = models.IntegerField(db_column='CYF_code', choices=CYF_CHOICES)
     #placement History
@@ -182,6 +183,8 @@ class ModelTests(models.Model):
     referred_program = models.CharField(db_column='referred_program',max_length=100,choices = referred_program_choices)#,choices = referred_program_choices,null = True
     inclusionary_criteria = models.BooleanField(db_column='inclusionary_criteria', default=True)
     condition_program = models.IntegerField(db_column='condition_program')
+
+    roc_confidence = models.IntegerField(db_column='roc_confidence')
     # client_selected_program = models.CharField(max_length=10,choices=program_choices)
     #
     # client_selected_level = models.CharField(max_length=10,choices=level_choices)
@@ -260,5 +263,9 @@ class LevelModel(models.Model):
 class FacilityModel(models.Model):
     facility_type = models.IntegerField(db_column='facility_type',unique=True)
     facility_names = models.CharField(db_column='facility_names',max_length=100)
+
+class ReferralSource(models.Model):
+    referral_code=models.IntegerField(db_column='referral_code',unique=True)
+    referral_name=models.CharField(db_column='referral_name',max_length=100)
 
 

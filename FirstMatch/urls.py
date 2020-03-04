@@ -2,7 +2,7 @@ from django.contrib import admin
 # from  import views
 
 from django.urls import path
-from . import views
+from . import views,pdf_generation
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from rest_framework_swagger.views import get_swagger_view
@@ -10,7 +10,8 @@ from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='Adelphoi API documnetation')
 urlpatterns = [
     path('documentation/', schema_view),  # swagger_documentation
-    path('index/<pk>/',views.index),
+    # path('index/<pk>/',views.index),
+    # path('index/<pk>/',pdf_generation.index),
     path('list_view/', views.AdelphoiList.as_view()),
     path('result/<pk>/', views.Adelphoi_placement.as_view()),
     path('location/<pk>/', views.Adelphoi_location.as_view()),  # w
@@ -29,7 +30,10 @@ urlpatterns = [
     path('program_pcr/<pk>/',views.RecommndedProgramPCR.as_view()),
     #path('render_pdf/<pk>/',views.render_pdf),
     path('dataSave',views.dataSave),
-    path('program/<pk>/', views.Adelphoi_program.as_view())
+    path('program/<pk>/', views.Adelphoi_program.as_view()),
+    path('referral_list',views.Refferal_list.as_view()),
+    path('referral_save',views.referralSave),
+    path('referral_modify/<pk>/',views.referralModify.as_view())
 
     # path('program/<pk>/',views.Adelphoi_program.as_view()), #w
     # path('admins/', views.AdminUpdate.as_view()), #<int:gender>

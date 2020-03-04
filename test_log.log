@@ -8560,3 +8560,470 @@ Version: 1.2.36
 2020-02-26 11:33:24,441 26903-weasyprint   WARNING  -validation_error  -  89     Ignored `font-size:11` at 1:1, invalid value.
 2020-02-26 11:33:24,442 26903-weasyprint   WARNING  -validation_error  -  89     Ignored `font-size:11` at 1:1, invalid value.
 2020-02-26 11:33:24,529 26903-FirstMatch.views INFO     -index  -  85     Pdf file response
+2020-03-02 11:42:38,091 2512-FirstMatch.views INFO     -get  -  87     get method for AdelphoiList
+2020-03-02 11:42:56,863 2512-FirstMatch.views INFO     -post  -  106     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 11:42:56,863 2512-FirstMatch.views INFO     -post  -  168     values are {'Gender': 2, 'AgeAtEnrollStart': 25, 'CYF_code': 2, 'LS_Type': 4, 'EpisodeNumber': 601, 'RefSourceName': 56, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 33, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 335, 'Length of time since living at home': 2, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 17, 'Compliant with medication': 1, 'Significant mental health symptoms': 59, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 30, 'YLS_FamCircumstances_Score': 36, 'YLS_Edu_Employ_Score': 49, 'YLS_Peer_Score': 25, 'YLS_Subab_Score': 68, 'YLS_Leisure_Score': 2, 'YLS_Personality_Score': 48, 'YLS_Attitude_Score': 52, 'Client self-harm': 36, 'CANS_LifeFunctioning': 32, 'CANS_YouthStrengths': 33, 'CANS_CareGiverStrengths': 92, 'CANS_Culture': 48, 'CANS_YouthBehavior': 22, 'CANS_YouthRisk': 63, 'CANS_Trauma_Exp': 21, 'Family support': 9, 'Level of aggression': 72, 'Fire setting': 63, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 53, 'FAST_FamilyTogetherScore': 60, 'FAST_CaregiverAdvocacyScore': 88}
+2020-03-02 11:42:57,442 2512-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 375, in post
+    "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_LC_13feb.sav'
+2020-03-02 11:43:36,351 2512-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 11:44:28,679 14984-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 11:46:32,773 14444-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 11:47:08,589 14884-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 11:47:19,314 10916-FirstMatch.views INFO     -post  -  106     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 11:47:19,314 10916-FirstMatch.views INFO     -post  -  168     values are {'Gender': 2, 'AgeAtEnrollStart': 25, 'CYF_code': 2, 'LS_Type': 4, 'EpisodeNumber': 601, 'RefSourceName': 56, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 33, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 335, 'Length of time since living at home': 2, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 17, 'Compliant with medication': 1, 'Significant mental health symptoms': 59, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 30, 'YLS_FamCircumstances_Score': 36, 'YLS_Edu_Employ_Score': 49, 'YLS_Peer_Score': 25, 'YLS_Subab_Score': 68, 'YLS_Leisure_Score': 2, 'YLS_Personality_Score': 48, 'YLS_Attitude_Score': 52, 'Client self-harm': 36, 'CANS_LifeFunctioning': 32, 'CANS_YouthStrengths': 33, 'CANS_CareGiverStrengths': 92, 'CANS_Culture': 48, 'CANS_YouthBehavior': 22, 'CANS_YouthRisk': 63, 'CANS_Trauma_Exp': 21, 'Family support': 9, 'Level of aggression': 72, 'Fire setting': 63, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 53, 'FAST_FamilyTogetherScore': 60, 'FAST_CaregiverAdvocacyScore': 88}
+2020-03-02 11:47:20,200 10916-FirstMatch.views INFO     -post  -  482     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 11:47:20,222 10916-FirstMatch.views INFO     -program_condition  -  400     program_condition function
+2020-03-02 11:52:31,481 10916-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 11:53:06,652 14716-FirstMatch.views INFO     -post  -  57     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 11:53:06,653 14716-FirstMatch.views INFO     -post  -  119     values are {'Gender': 2, 'AgeAtEnrollStart': 29, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 28, 'RefSourceName': 45, 'Number of foster care placements': 1, 'AgeAtEpisodeStart': 6, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 77, 'Length of time since living at home': 1, 'Termination directly to AV': 2, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 0, 'Drug Use': 0, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 81, 'Compliant with medication': 1, 'Significant mental health symptoms': 36, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 55, 'YLS_FamCircumstances_Score': 74, 'YLS_Edu_Employ_Score': 39, 'YLS_Peer_Score': 64, 'YLS_Subab_Score': 18, 'YLS_Leisure_Score': 25, 'YLS_Personality_Score': 32, 'YLS_Attitude_Score': 19, 'Client self-harm': 18, 'CANS_LifeFunctioning': 69, 'CANS_YouthStrengths': 32, 'CANS_CareGiverStrengths': 55, 'CANS_Culture': 79, 'CANS_YouthBehavior': 12, 'CANS_YouthRisk': 43, 'CANS_Trauma_Exp': 37, 'Family support': 82, 'Level of aggression': 86, 'Fire setting': 88, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 30, 'FAST_FamilyTogetherScore': 16, 'FAST_CaregiverAdvocacyScore': 19}
+2020-03-02 11:53:07,469 14716-FirstMatch.views INFO     -post  -  604     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-02 11:53:07,486 14716-FirstMatch.views INFO     -program_condition  -  351     program_condition function
+2020-03-02 11:53:50,939 14716-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\AdelphoiProject\settings.py changed, reloading.
+2020-03-02 11:54:05,177 6888-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\AdelphoiProject\settings.py changed, reloading.
+2020-03-02 11:56:40,739 8704-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\AdelphoiProject\settings.py changed, reloading.
+2020-03-02 12:00:02,147 12832-FirstMatch.views INFO     -get  -  38     get method for AdelphoiList
+2020-03-02 12:00:10,014 12832-FirstMatch.views INFO     -post  -  57     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 12:00:10,014 12832-FirstMatch.views INFO     -post  -  119     values are {'Gender': 2, 'AgeAtEnrollStart': 67, 'CYF_code': 2, 'LS_Type': 2, 'EpisodeNumber': 963, 'RefSourceName': 9, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 60, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 470, 'Length of time since living at home': 2, 'Termination directly to AV': 2, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 0, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 3, 'Animal cruelty': 1, 'Number of prior hospitalizations': 45, 'Compliant with medication': 9, 'Significant mental health symptoms': 57, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 96, 'YLS_FamCircumstances_Score': 98, 'YLS_Edu_Employ_Score': 81, 'YLS_Peer_Score': 88, 'YLS_Subab_Score': 99, 'YLS_Leisure_Score': 28, 'YLS_Personality_Score': 24, 'YLS_Attitude_Score': 93, 'Client self-harm': 46, 'CANS_LifeFunctioning': 73, 'CANS_YouthStrengths': 10, 'CANS_CareGiverStrengths': 94, 'CANS_Culture': 74, 'CANS_YouthBehavior': 42, 'CANS_YouthRisk': 18, 'CANS_Trauma_Exp': 95, 'Family support': 97, 'Level of aggression': 28, 'Fire setting': 35, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 70, 'FAST_FamilyTogetherScore': 13, 'FAST_CaregiverAdvocacyScore': 57}
+2020-03-02 12:00:10,844 12832-FirstMatch.views INFO     -post  -  433     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 12:00:10,872 12832-FirstMatch.views INFO     -program_condition  -  351     program_condition function
+2020-03-02 12:16:00,112 12832-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\models.py changed, reloading.
+2020-03-02 12:31:33,402 10248-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 12:35:11,717 13436-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\urls.py changed, reloading.
+2020-03-02 12:35:15,948 15120-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-02 12:36:55,046 15120-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\models.py changed, reloading.
+2020-03-02 12:37:43,788 6428-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-02 12:53:21,604 6428-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 12:56:00,726 13328-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 13:22:47,430 13156-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:06:58,288 11644-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:19:30,992 5568-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:20:05,168 14972-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-02 14:20:14,919 14972-django.request WARNING  -log_response  -  228     Not Found: /referral_list/
+2020-03-02 14:20:25,699 14972-django.request WARNING  -log_response  -  228     Not Found: /first_match/referral_list/
+2020-03-02 14:21:29,268 14972-django.request WARNING  -log_response  -  228     Not Found: /first_match/referral_save/
+2020-03-02 14:21:32,153 14972-FirstMatch.views INFO     -referralSave  -  1288     programSave---Method not alloed
+2020-03-02 14:34:03,798 14972-FirstMatch.views INFO     -referralSave  -  1285     referralSave---Referral id error
+2020-03-02 14:34:57,223 14972-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:35:20,128 12032-FirstMatch.views INFO     -referralSave  -  1285     referralSave---Referral id error
+2020-03-02 14:36:39,029 12032-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:37:02,309 15572-FirstMatch.views INFO     -referralSave  -  1286     referralSave---Referral id error
+2020-03-02 14:37:27,868 15572-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:37:44,570 14232-FirstMatch.views INFO     -referralSave  -  1287     referralSave---Referral id error
+2020-03-02 14:37:54,333 14232-FirstMatch.views INFO     -referralSave  -  1287     referralSave---Referral id error
+2020-03-02 14:39:11,413 14232-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:39:32,836 15740-FirstMatch.views INFO     -referralSave  -  1287     referralSave---Referral id error
+2020-03-02 14:40:27,493 15740-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:40:32,230 13644-FirstMatch.views INFO     -referralSave  -  1286     referralSave---Referral id error
+2020-03-02 14:42:23,495 13644-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:43:07,730 15880-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:43:55,251 11280-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:44:42,187 10544-FirstMatch.views INFO     -referralSave  -  1287     referralSave---Referral id error
+2020-03-02 14:47:02,396 10544-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:49:02,856 7560-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:49:08,298 8864-FirstMatch.views INFO     -referralSave  -  1283     referralSave---referral saved based on id
+2020-03-02 14:50:06,842 8864-django.request WARNING  -log_response  -  228     Method Not Allowed: /first_match/referral_modify/105/
+2020-03-02 14:50:18,185 8864-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/referral_modify/105/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 1305, in put
+    Adelphoi_Mapping.objects.filter(referral_code=kwargs['pk']).update(referral_name=result)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1318, in _add_q
+    split_subq=split_subq, simple_col=simple_col,
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1190, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1049, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1420, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'referral_code' into field. Choices are: _id, default_level_facility, facility_names, facility_type, gender, gender_name, level_names, level_of_care, location, location_names, program, program_model_suggested, program_name, program_type
+2020-03-02 14:51:14,886 8864-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/referral_modify/105/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 1305, in put
+    Adelphoi_Mapping.objects.filter(referral_code=kwargs['pk']).update(referral_name=result)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1318, in _add_q
+    split_subq=split_subq, simple_col=simple_col,
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1190, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1049, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\query.py", line 1420, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'referral_code' into field. Choices are: _id, default_level_facility, facility_names, facility_type, gender, gender_name, level_names, level_of_care, location, location_names, program, program_model_suggested, program_name, program_type
+2020-03-02 14:52:15,041 8864-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:52:23,972 12756-FirstMatch.views INFO     -put  -  1306     referralModify--Referral name change
+2020-03-02 14:53:36,566 12756-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:53:43,061 10208-FirstMatch.views INFO     -put  -  1307     referralModify--Referral name change
+2020-03-02 14:53:55,363 10208-django.request WARNING  -log_response  -  228     Bad Request: /first_match/referral_modify/105/
+2020-03-02 14:54:11,165 10208-FirstMatch.views INFO     -put  -  1307     referralModify--Referral name change
+2020-03-02 14:54:49,672 10208-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 14:54:56,788 7956-FirstMatch.views INFO     -put  -  1306     referralModify--Referral name change
+2020-03-02 15:30:04,995 7956-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:30:41,438 6412-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:30:59,011 14668-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:31:17,996 15604-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:31:30,685 11480-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:31:40,714 15744-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:32:22,772 4864-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:32:51,245 13032-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:33:02,760 11784-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-02 15:33:31,692 11784-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 15:33:31,692 11784-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 88, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 518, 'RefSourceName': 41, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 89, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 538, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 28, 'Compliant with medication': 9, 'Significant mental health symptoms': 16, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 81, 'YLS_FamCircumstances_Score': 62, 'YLS_Edu_Employ_Score': 76, 'YLS_Peer_Score': 66, 'YLS_Subab_Score': 50, 'YLS_Leisure_Score': 89, 'YLS_Personality_Score': 44, 'YLS_Attitude_Score': 31, 'Client self-harm': 72, 'CANS_LifeFunctioning': 82, 'CANS_YouthStrengths': 61, 'CANS_CareGiverStrengths': 33, 'CANS_Culture': 28, 'CANS_YouthBehavior': 28, 'CANS_YouthRisk': 76, 'CANS_Trauma_Exp': 69, 'Family support': 35, 'Level of aggression': 15, 'Fire setting': 65, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 44, 'FAST_FamilyTogetherScore': 11, 'FAST_CaregiverAdvocacyScore': 50}
+2020-03-02 15:33:51,193 11784-FirstMatch.views INFO     -post  -  605     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-02 15:33:51,229 11784-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 15:45:17,548 11784-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:45:25,891 13064-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 15:45:25,892 13064-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 18, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 99, 'RefSourceName': 15, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 86, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 153, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 49, 'Compliant with medication': 9, 'Significant mental health symptoms': 88, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 89, 'YLS_FamCircumstances_Score': 46, 'YLS_Edu_Employ_Score': 98, 'YLS_Peer_Score': 43, 'YLS_Subab_Score': 58, 'YLS_Leisure_Score': 13, 'YLS_Personality_Score': 95, 'YLS_Attitude_Score': 46, 'Client self-harm': 29, 'CANS_LifeFunctioning': 28, 'CANS_YouthStrengths': 22, 'CANS_CareGiverStrengths': 43, 'CANS_Culture': 46, 'CANS_YouthBehavior': 57, 'CANS_YouthRisk': 3, 'CANS_Trauma_Exp': 73, 'Family support': 75, 'Level of aggression': 6, 'Fire setting': 16, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 99, 'FAST_FamilyTogetherScore': 56, 'FAST_CaregiverAdvocacyScore': 90}
+2020-03-02 15:45:26,956 13064-FirstMatch.views INFO     -post  -  441     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 15:45:26,977 13064-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 15:45:28,873 13064-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 459, in post
+    confidence = program_condition(condition_program, level_default[0], facility_default[0])
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 371, in program_condition
+    if PC_proba>0.5:
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2020-03-02 15:46:11,422 13064-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:46:25,342 16300-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 15:46:25,343 16300-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 18, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 99, 'RefSourceName': 15, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 86, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 153, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 49, 'Compliant with medication': 9, 'Significant mental health symptoms': 88, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 89, 'YLS_FamCircumstances_Score': 46, 'YLS_Edu_Employ_Score': 98, 'YLS_Peer_Score': 43, 'YLS_Subab_Score': 58, 'YLS_Leisure_Score': 13, 'YLS_Personality_Score': 95, 'YLS_Attitude_Score': 46, 'Client self-harm': 29, 'CANS_LifeFunctioning': 28, 'CANS_YouthStrengths': 22, 'CANS_CareGiverStrengths': 43, 'CANS_Culture': 46, 'CANS_YouthBehavior': 57, 'CANS_YouthRisk': 3, 'CANS_Trauma_Exp': 73, 'Family support': 75, 'Level of aggression': 6, 'Fire setting': 16, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 99, 'FAST_FamilyTogetherScore': 56, 'FAST_CaregiverAdvocacyScore': 90}
+2020-03-02 15:46:26,624 16300-FirstMatch.views INFO     -post  -  441     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 15:46:26,688 16300-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 15:46:27,955 16300-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 459, in post
+    confidence = program_condition(condition_program, level_default[0], facility_default[0])
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 371, in program_condition
+    if PC_proba>(0.5):
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2020-03-02 15:47:01,944 16300-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:47:23,480 15636-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 15:47:23,481 15636-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 18, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 99, 'RefSourceName': 15, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 86, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 153, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 49, 'Compliant with medication': 9, 'Significant mental health symptoms': 88, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 89, 'YLS_FamCircumstances_Score': 46, 'YLS_Edu_Employ_Score': 98, 'YLS_Peer_Score': 43, 'YLS_Subab_Score': 58, 'YLS_Leisure_Score': 13, 'YLS_Personality_Score': 95, 'YLS_Attitude_Score': 46, 'Client self-harm': 29, 'CANS_LifeFunctioning': 28, 'CANS_YouthStrengths': 22, 'CANS_CareGiverStrengths': 43, 'CANS_Culture': 46, 'CANS_YouthBehavior': 57, 'CANS_YouthRisk': 3, 'CANS_Trauma_Exp': 73, 'Family support': 75, 'Level of aggression': 6, 'Fire setting': 16, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 99, 'FAST_FamilyTogetherScore': 56, 'FAST_CaregiverAdvocacyScore': 90}
+2020-03-02 15:47:24,485 15636-FirstMatch.views INFO     -post  -  441     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 15:47:24,504 15636-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 15:47:25,399 15636-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 422, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1334, in execute_sql
+    for sql, params in self.as_sql():
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1278, in as_sql
+    for obj in self.query.objs
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1278, in <listcomp>
+    for obj in self.query.objs
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1277, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1218, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\fields\__init__.py", line 793, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\fields\__init__.py", line 788, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'tuple'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 485, in post
+    'inclusionary_criteria'), model_program=program_type[0])
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 213, in save
+    self.instance = self.create(validated_data)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 951, in create
+    raise TypeError(msg)
+TypeError: Got a `TypeError` when calling `ModelTests.objects.create()`. This may be because you have a writable field on the serializer class that is not a valid argument to `ModelTests.objects.create()`. You may need to make the field read-only, or override the ModelTestsSerializers.create() method to handle this correctly.
+Original exception was:
+ Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 932, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 422, in create
+    obj.save(force_insert=True, using=self.db)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 741, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 779, in save_base
+    force_update, using, update_fields,
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 870, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\base.py", line 908, in _do_insert
+    using=using, raw=raw)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 1186, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1334, in execute_sql
+    for sql, params in self.as_sql():
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1278, in as_sql
+    for obj in self.query.objs
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1278, in <listcomp>
+    for obj in self.query.objs
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1277, in <listcomp>
+    [self.prepare_value(field, self.pre_save_val(field, obj)) for field in fields]
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\sql\compiler.py", line 1218, in prepare_value
+    value = field.get_db_prep_save(value, connection=self.connection)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\fields\__init__.py", line 793, in get_db_prep_save
+    return self.get_db_prep_value(value, connection=connection, prepared=False)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\fields\__init__.py", line 788, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\fields\__init__.py", line 1825, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'tuple'
+
+2020-03-02 15:48:34,671 15636-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:49:54,370 5972-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:50:16,448 8584-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 15:50:16,448 8584-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 18, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 99, 'RefSourceName': 15, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 86, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 153, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 49, 'Compliant with medication': 9, 'Significant mental health symptoms': 88, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 89, 'YLS_FamCircumstances_Score': 46, 'YLS_Edu_Employ_Score': 98, 'YLS_Peer_Score': 43, 'YLS_Subab_Score': 58, 'YLS_Leisure_Score': 13, 'YLS_Personality_Score': 95, 'YLS_Attitude_Score': 46, 'Client self-harm': 29, 'CANS_LifeFunctioning': 28, 'CANS_YouthStrengths': 22, 'CANS_CareGiverStrengths': 43, 'CANS_Culture': 46, 'CANS_YouthBehavior': 57, 'CANS_YouthRisk': 3, 'CANS_Trauma_Exp': 73, 'Family support': 75, 'Level of aggression': 6, 'Fire setting': 16, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 99, 'FAST_FamilyTogetherScore': 56, 'FAST_CaregiverAdvocacyScore': 90}
+2020-03-02 15:50:17,322 8584-FirstMatch.views INFO     -post  -  441     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 15:50:17,342 8584-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 15:54:55,628 8584-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\models.py changed, reloading.
+2020-03-02 15:58:24,065 15144-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 15:58:53,344 15392-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 15:58:53,345 15392-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 18, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 99, 'RefSourceName': 15, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 86, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 153, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 49, 'Compliant with medication': 9, 'Significant mental health symptoms': 88, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 89, 'YLS_FamCircumstances_Score': 46, 'YLS_Edu_Employ_Score': 98, 'YLS_Peer_Score': 43, 'YLS_Subab_Score': 58, 'YLS_Leisure_Score': 13, 'YLS_Personality_Score': 95, 'YLS_Attitude_Score': 46, 'Client self-harm': 29, 'CANS_LifeFunctioning': 28, 'CANS_YouthStrengths': 22, 'CANS_CareGiverStrengths': 43, 'CANS_Culture': 46, 'CANS_YouthBehavior': 57, 'CANS_YouthRisk': 3, 'CANS_Trauma_Exp': 73, 'Family support': 75, 'Level of aggression': 6, 'Fire setting': 16, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 99, 'FAST_FamilyTogetherScore': 56, 'FAST_CaregiverAdvocacyScore': 90}
+2020-03-02 15:58:54,478 15392-FirstMatch.views INFO     -post  -  442     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 15:58:54,505 15392-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 15:58:54,522 15392-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 16:00:06,250 15392-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 16:00:14,197 15352-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 16:00:14,198 15352-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 18, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 99, 'RefSourceName': 15, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 86, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 153, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 49, 'Compliant with medication': 9, 'Significant mental health symptoms': 88, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 89, 'YLS_FamCircumstances_Score': 46, 'YLS_Edu_Employ_Score': 98, 'YLS_Peer_Score': 43, 'YLS_Subab_Score': 58, 'YLS_Leisure_Score': 13, 'YLS_Personality_Score': 95, 'YLS_Attitude_Score': 46, 'Client self-harm': 29, 'CANS_LifeFunctioning': 28, 'CANS_YouthStrengths': 22, 'CANS_CareGiverStrengths': 43, 'CANS_Culture': 46, 'CANS_YouthBehavior': 57, 'CANS_YouthRisk': 3, 'CANS_Trauma_Exp': 73, 'Family support': 75, 'Level of aggression': 6, 'Fire setting': 16, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 99, 'FAST_FamilyTogetherScore': 56, 'FAST_CaregiverAdvocacyScore': 90}
+2020-03-02 16:00:15,661 15352-FirstMatch.views INFO     -post  -  443     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 16:00:15,678 15352-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 16:00:15,689 15352-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 16:44:57,061 15352-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 16:49:32,276 14688-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 17:43:32,917 5820-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-02 17:44:14,081 13492-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-02 17:44:25,856 13492-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 17:44:25,856 13492-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 92, 'CYF_code': 2, 'LS_Type': 4, 'EpisodeNumber': 187, 'RefSourceName': 54, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 38, 'Number of prior placements \n(excluding shelter and detention)': 1, 'Number of prior treatment terminations (excluding shelter or detention)': 492, 'Length of time since living at home': 2, 'Termination directly to AV': 3, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 56, 'Compliant with medication': 1, 'Significant mental health symptoms': 62, 'Severe mental health symptoms': 3, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 91, 'YLS_FamCircumstances_Score': 27, 'YLS_Edu_Employ_Score': 39, 'YLS_Peer_Score': 47, 'YLS_Subab_Score': 89, 'YLS_Leisure_Score': 95, 'YLS_Personality_Score': 100, 'YLS_Attitude_Score': 72, 'Client self-harm': 49, 'CANS_LifeFunctioning': 34, 'CANS_YouthStrengths': 34, 'CANS_CareGiverStrengths': 77, 'CANS_Culture': 54, 'CANS_YouthBehavior': 36, 'CANS_YouthRisk': 94, 'CANS_Trauma_Exp': 12, 'Family support': 56, 'Level of aggression': 65, 'Fire setting': 75, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 19, 'FAST_FamilyTogetherScore': 61, 'FAST_CaregiverAdvocacyScore': 67}
+2020-03-02 17:44:40,582 13492-FirstMatch.views INFO     -post  -  443     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-02 17:44:40,661 13492-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 17:44:40,754 13492-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 17:45:52,326 13492-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 17:45:52,326 13492-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 93, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 801, 'RefSourceName': 37, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 71, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 362, 'Length of time since living at home': 2, 'Termination directly to AV': 1, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 32, 'Compliant with medication': 9, 'Significant mental health symptoms': 64, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 16, 'YLS_FamCircumstances_Score': 43, 'YLS_Edu_Employ_Score': 44, 'YLS_Peer_Score': 49, 'YLS_Subab_Score': 15, 'YLS_Leisure_Score': 91, 'YLS_Personality_Score': 90, 'YLS_Attitude_Score': 30, 'Client self-harm': 7, 'CANS_LifeFunctioning': 46, 'CANS_YouthStrengths': 50, 'CANS_CareGiverStrengths': 64, 'CANS_Culture': 86, 'CANS_YouthBehavior': 51, 'CANS_YouthRisk': 8, 'CANS_Trauma_Exp': 62, 'Family support': 68, 'Level of aggression': 18, 'Fire setting': 41, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 54, 'FAST_FamilyTogetherScore': 7, 'FAST_CaregiverAdvocacyScore': 100}
+2020-03-02 17:45:52,390 13492-FirstMatch.views INFO     -post  -  617     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-02 17:45:52,415 13492-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 17:45:52,451 13492-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 17:50:11,114 13492-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-02 17:50:11,115 13492-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 93, 'CYF_code': 2, 'LS_Type': 5, 'EpisodeNumber': 801, 'RefSourceName': 37, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 71, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 362, 'Length of time since living at home': 2, 'Termination directly to AV': 1, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 32, 'Compliant with medication': 9, 'Significant mental health symptoms': 64, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 16, 'YLS_FamCircumstances_Score': 43, 'YLS_Edu_Employ_Score': 44, 'YLS_Peer_Score': 49, 'YLS_Subab_Score': 15, 'YLS_Leisure_Score': 91, 'YLS_Personality_Score': 90, 'YLS_Attitude_Score': 30, 'Client self-harm': 7, 'CANS_LifeFunctioning': 46, 'CANS_YouthStrengths': 50, 'CANS_CareGiverStrengths': 64, 'CANS_Culture': 86, 'CANS_YouthBehavior': 51, 'CANS_YouthRisk': 8, 'CANS_Trauma_Exp': 62, 'Family support': 68, 'Level of aggression': 18, 'Fire setting': 41, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 54, 'FAST_FamilyTogetherScore': 7, 'FAST_CaregiverAdvocacyScore': 100}
+2020-03-02 17:50:11,191 13492-FirstMatch.views INFO     -post  -  617     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-02 17:50:11,223 13492-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 17:50:11,250 13492-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-02 17:56:38,767 5820-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 14:18:29,528 224-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-03 14:18:33,380 224-django.request WARNING  -log_response  -  228     Not Found: /favicon.ico
+2020-03-03 14:18:39,696 224-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-03 14:18:39,697 224-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 8, 'CYF_code': 1, 'LS_Type': 2, 'EpisodeNumber': 732, 'RefSourceName': 4, 'Number of foster care placements': 1, 'AgeAtEpisodeStart': 36, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 487, 'Length of time since living at home': 1, 'Termination directly to AV': 2, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 0, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 60, 'Compliant with medication': 1, 'Significant mental health symptoms': 40, 'Severe mental health symptoms': 3, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 47, 'YLS_FamCircumstances_Score': 41, 'YLS_Edu_Employ_Score': 61, 'YLS_Peer_Score': 89, 'YLS_Subab_Score': 24, 'YLS_Leisure_Score': 33, 'YLS_Personality_Score': 96, 'YLS_Attitude_Score': 93, 'Client self-harm': 97, 'CANS_LifeFunctioning': 33, 'CANS_YouthStrengths': 63, 'CANS_CareGiverStrengths': 73, 'CANS_Culture': 6, 'CANS_YouthBehavior': 28, 'CANS_YouthRisk': 44, 'CANS_Trauma_Exp': 29, 'Family support': 3, 'Level of aggression': 24, 'Fire setting': 29, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 5, 'FAST_FamilyTogetherScore': 19, 'FAST_CaregiverAdvocacyScore': 17}
+2020-03-03 14:18:52,591 224-FirstMatch.views INFO     -post  -  617     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-03 14:18:52,609 224-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 14:18:52,669 224-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 14:19:57,480 224-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 14:21:01,523 10888-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 14:26:27,861 12384-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 14:26:41,850 6104-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-03 14:26:41,851 6104-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 88, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 110, 'RefSourceName': 99, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 87, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 956, 'Length of time since living at home': 1, 'Termination directly to AV': 1, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 0, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 40, 'Compliant with medication': 9, 'Significant mental health symptoms': 83, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 47, 'YLS_FamCircumstances_Score': 67, 'YLS_Edu_Employ_Score': 84, 'YLS_Peer_Score': 3, 'YLS_Subab_Score': 83, 'YLS_Leisure_Score': 31, 'YLS_Personality_Score': 55, 'YLS_Attitude_Score': 19, 'Client self-harm': 73, 'CANS_LifeFunctioning': 92, 'CANS_YouthStrengths': 75, 'CANS_CareGiverStrengths': 40, 'CANS_Culture': 24, 'CANS_YouthBehavior': 24, 'CANS_YouthRisk': 22, 'CANS_Trauma_Exp': 100, 'Family support': 75, 'Level of aggression': 83, 'Fire setting': 14, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 50, 'FAST_FamilyTogetherScore': 67, 'FAST_CaregiverAdvocacyScore': 13}
+2020-03-03 14:26:42,826 6104-FirstMatch.views INFO     -post  -  446     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-03 14:26:42,854 6104-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 14:26:42,874 6104-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 14:27:05,660 6104-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-03 14:27:05,661 6104-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 40, 'CYF_code': 2, 'LS_Type': 2, 'EpisodeNumber': 890, 'RefSourceName': 65, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 5, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 736, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 87, 'Compliant with medication': 9, 'Significant mental health symptoms': 62, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 87, 'YLS_FamCircumstances_Score': 89, 'YLS_Edu_Employ_Score': 67, 'YLS_Peer_Score': 9, 'YLS_Subab_Score': 76, 'YLS_Leisure_Score': 37, 'YLS_Personality_Score': 62, 'YLS_Attitude_Score': 11, 'Client self-harm': 2, 'CANS_LifeFunctioning': 28, 'CANS_YouthStrengths': 64, 'CANS_CareGiverStrengths': 54, 'CANS_Culture': 58, 'CANS_YouthBehavior': 25, 'CANS_YouthRisk': 15, 'CANS_Trauma_Exp': 88, 'Family support': 73, 'Level of aggression': 87, 'Fire setting': 74, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 25, 'FAST_FamilyTogetherScore': 29, 'FAST_CaregiverAdvocacyScore': 87}
+2020-03-03 14:27:05,737 6104-FirstMatch.views INFO     -post  -  446     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-03 14:27:05,761 6104-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 14:27:05,778 6104-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 14:27:34,579 6104-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-03 14:27:34,579 6104-FirstMatch.views INFO     -post  -  120     values are {'Gender': 1, 'AgeAtEnrollStart': 43, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 857, 'RefSourceName': 73, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 80, 'Number of prior placements \n(excluding shelter and detention)': 1, 'Number of prior treatment terminations (excluding shelter or detention)': 135, 'Length of time since living at home': 2, 'Termination directly to AV': 2, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 0, 'Drug Use': 0, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 3, 'Animal cruelty': 1, 'Number of prior hospitalizations': 66, 'Compliant with medication': 1, 'Significant mental health symptoms': 57, 'Severe mental health symptoms': 1, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 21, 'YLS_FamCircumstances_Score': 70, 'YLS_Edu_Employ_Score': 75, 'YLS_Peer_Score': 48, 'YLS_Subab_Score': 77, 'YLS_Leisure_Score': 2, 'YLS_Personality_Score': 10, 'YLS_Attitude_Score': 67, 'Client self-harm': 13, 'CANS_LifeFunctioning': 6, 'CANS_YouthStrengths': 84, 'CANS_CareGiverStrengths': 1, 'CANS_Culture': 86, 'CANS_YouthBehavior': 20, 'CANS_YouthRisk': 95, 'CANS_Trauma_Exp': 55, 'Family support': 99, 'Level of aggression': 7, 'Fire setting': 100, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 33, 'FAST_FamilyTogetherScore': 68, 'FAST_CaregiverAdvocacyScore': 25}
+2020-03-03 14:27:34,649 6104-FirstMatch.views INFO     -post  -  388     where Exclusionary_Criteria-False, gender-1,condition_program-3
+2020-03-03 14:27:34,679 6104-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 14:27:34,696 6104-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 15:07:27,228 6104-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-03 15:07:34,627 6104-django.request WARNING  -log_response  -  228     Not Found: /
+2020-03-03 15:21:08,947 6104-django.request WARNING  -log_response  -  228     Method Not Allowed: /first_match/program_pcr/13/
+2020-03-03 15:23:49,162 6104-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 17:01:35,870 10984-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-03 17:01:43,787 10984-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-03 17:01:43,787 10984-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 79, 'CYF_code': 1, 'LS_Type': 2, 'EpisodeNumber': 727, 'RefSourceName': 88, 'Number of foster care placements': 1, 'AgeAtEpisodeStart': 91, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 279, 'Length of time since living at home': 2, 'Termination directly to AV': 1, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 6, 'Compliant with medication': 9, 'Significant mental health symptoms': 4, 'Severe mental health symptoms': 3, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 27, 'YLS_FamCircumstances_Score': 8, 'YLS_Edu_Employ_Score': 3, 'YLS_Peer_Score': 78, 'YLS_Subab_Score': 47, 'YLS_Leisure_Score': 12, 'YLS_Personality_Score': 69, 'YLS_Attitude_Score': 84, 'Client self-harm': 62, 'CANS_LifeFunctioning': 59, 'CANS_YouthStrengths': 11, 'CANS_CareGiverStrengths': 51, 'CANS_Culture': 60, 'CANS_YouthBehavior': 21, 'CANS_YouthRisk': 41, 'CANS_Trauma_Exp': 18, 'Family support': 39, 'Level of aggression': 84, 'Fire setting': 19, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 31, 'FAST_FamilyTogetherScore': 32, 'FAST_CaregiverAdvocacyScore': 84}
+2020-03-03 17:01:44,769 10984-FirstMatch.views INFO     -post  -  446     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-03 17:01:44,794 10984-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 17:01:44,813 10984-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-03 17:02:03,039 10984-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-03 17:02:13,481 10984-django.request WARNING  -log_response  -  228     Method Not Allowed: /first_match/program_pcr/71/
+2020-03-03 17:02:44,566 10984-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 17:02:49,640 5664-django.request WARNING  -log_response  -  228     Method Not Allowed: /first_match/program_pcr/71/
+2020-03-03 17:04:01,476 5664-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 17:04:13,860 5852-django.request WARNING  -log_response  -  228     Not Found: /first_match/index/501/
+2020-03-03 17:18:24,012 5852-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 17:18:49,381 13484-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-03 17:20:43,209 9408-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-04 11:52:46,162 16124-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/location/50/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\utils\datastructures.py", line 78, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'referred_program'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 837, in get
+    referred_program = request.GET['referred_program']
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\utils\datastructures.py", line 80, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'referred_program'
+2020-03-04 11:54:10,003 16124-FirstMatch.views INFO     -get  -  841     Adelphoi_location--List of locations

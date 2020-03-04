@@ -12,15 +12,15 @@ from rest_framework.response import Response
 from .serializers import ModelTestsSerializers, ProgramLocationSerialzer, \
     ProgramLevelSerialzer, \
     AdminInterface, FilterSerialzer, Adelphoi_placementSerializer, Adelphoi_referredSerializer, ProgramIndSerializer, \
-    ProgramSerializer, LocationSerializer, LocationIndSerializer, Available_programSerializer, Program_PCRSerializer, \
+    ProgramSerializer, LocationSerializer, LocationIndSerializer, Available_programSerializer, Program_PCRSerializer,\
     ReferralIndSerializer, refferalSerializer
 
 from django_filters.rest_framework import DjangoFilterBackend
-
+from django.template import loader
 import os
-# import weasyprint
+import weasyprint
 from datetime import datetime
-# from weasyprint import CSS
+from weasyprint import CSS
 from django_filters import rest_framework as filters
 import logging
 
@@ -29,6 +29,55 @@ logging.basicConfig(filename='test_log.log', level=logging.INFO, filemode='a',
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
+
+
+def index(request, *args, **kwargs):
+    template = loader.get_template(
+        '/home/ubuntu/Adelphoi/adelphoi-django/templates/index2.html')  # getting our template
+    try:
+        results = ModelTests.objects.filter(client_code=kwargs['pk'])[0]
+        logger.info('Pdf generation based on client_code %s', results)
+    except:
+        logger.info('ClientCode is not exists for PDF generation')
+        return JsonResponse({"result": "ClientCode not exist"})
+    if results.Exclusionary_Criteria == True:
+        exc_crt = "Reject"
+    else:
+        exc_crt = "Accept"
+    if len(results.client_selected_program) <= 0:
+        recommnded_program = None
+    else:
+        recommnded_program = results.client_selected_program
+    if results.confidence == None:
+        confidence_var = None
+    else:
+        confidence_var = str(results.confidence) + "%"
+    values = {
+        'name': results.name,
+        'refer_status': exc_crt,
+        'confidence': confidence_var,
+        'recommended_program': recommnded_program,
+        'recommende_level': results.client_selected_program
+    }
+    dir = r'/home/ubuntu/Adelphoi_outputfiles'
+    date_path = str(datetime.now().strftime('%Y-%m-%d'))
+    try:
+        logger.info('directory is creating for pdf')
+        os.makedirs(dir + '/' + 'outputfiles/' + date_path + '/' + str(results.client_code) + '/')
+    except:
+        pass
+    reportfilename = str(str(results.client_code) + ".pdf")
+    pdf_file_path = dir + '/' + 'outputfiles/' + date_path + '/' + str(results.client_code) + '/' + reportfilename
+    html = template.render(values)  # Renders the template with the context data.
+    pdf = weasyprint.HTML(string=html, base_url=request.build_absolute_uri()).write_pdf(
+        stylesheets=[CSS('/home/ubuntu/Adelphoi/adelphoi-django/templates/index.css')], presentational_hints=True)
+    open(pdf_file_path, 'wb').write(pdf)
+    try:
+        logger.info('Pdf file response')
+        return FileResponse(open(pdf_file_path, 'rb'), content_type='application/pdf')
+    except:
+        logger.info('error in generating PDF page')
+        return Response({"Response": "file not found"})
 
 
 class AdelphoiList(ListCreateAPIView):
@@ -49,7 +98,8 @@ class AdelphoiList(ListCreateAPIView):
         unique_list_programs = []
         if query_gender.count() > 0:
             for i in query_gender:
-                suggested_programs.append(i.program_model_suggested) #program_type
+                # suggested_programs.append(i.program_type)
+                suggested_programs.append(i.program_model_suggested)
             for i in suggested_programs:
                 if i not in unique_list_programs:
                     unique_list_programs.append(i)
@@ -235,35 +285,14 @@ class AdelphoiList(ListCreateAPIView):
                     data['Screening tool for Trauma--Total score'] = 14.7244  # 14.634409
 
             dummies = pd.DataFrame()
-            for column in ['Gender', 'LS_Type', 'CYF_code']:  #,'RefSourceName'
+            for column in ['Gender', 'LS_Type', 'CYF_code']:
                 dummies1 = pd.get_dummies(data[column], prefix=column)
                 dummies[dummies1.columns] = dummies1.copy(deep=False)
 
             cols = ['Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2', 'LS_Type_3',
                     'LS_Type_4',
                     'LS_Type_5',
-                    'CYF_code_1', 'CYF_code_2'] # 'RefSourceName_1', 'RefSourceName_2', 'RefSourceName_3',
-                    # 'RefSourceName_4', 'RefSourceName_5', 'RefSourceName_6', 'RefSourceName_7',
-                    # 'RefSourceName_8',
-                    # 'RefSourceName_9', 'RefSourceName_10',
-                    # 'RefSourceName_11', 'RefSourceName_12', 'RefSourceName_13', 'RefSourceName_14',
-                    # 'RefSourceName_15',
-                    # 'RefSourceName_16', 'RefSourceName_17', 'RefSourceName_18', 'RefSourceName_19',
-                    # 'RefSourceName_20',
-                    # 'RefSourceName_21', 'RefSourceName_22', 'RefSourceName_23', 'RefSourceName_24',
-                    # 'RefSourceName_25',
-                    # 'RefSourceName_26', 'RefSourceName_27', 'RefSourceName_28', 'RefSourceName_29',
-                    # 'RefSourceName_30',
-                    # 'RefSourceName_31', 'RefSourceName_32', 'RefSourceName_34', 'RefSourceName_35',
-                    # 'RefSourceName_36', 'RefSourceName_37', 'RefSourceName_38',
-                    # 'RefSourceName_39', 'RefSourceName_40', 'RefSourceName_41', 'RefSourceName_42',
-                    # 'RefSourceName_43', 'RefSourceName_44', 'RefSourceName_45', 'RefSourceName_46',
-                    # 'RefSourceName_47',
-                    # 'RefSourceName_48', 'RefSourceName_49', 'RefSourceName_50', 'RefSourceName_51',
-                    # 'RefSourceName_52',
-                    # 'RefSourceName_53', 'RefSourceName_54', 'RefSourceName_55', 'RefSourceName_56',
-                    # 'RefSourceName_57',
-                    # 'RefSourceName_59', 'RefSourceName_60'
+                    'CYF_code_1', 'CYF_code_2']
             for col in cols:
                 if col in dummies.columns:
                     print('present', col)
@@ -322,24 +351,14 @@ class AdelphoiList(ListCreateAPIView):
 
             Xtest = pd.DataFrame(data[Feature_names])
             Xtest[dummies.columns] = dummies
-            #### server####
-            # level_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_LC_13feb.sav",
-            #                                "rb"))
-            # program_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/DT_P_13feb.sav",
-            #                                  "rb"))
-            # facility_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_FT_13feb.sav",
-            #                                   "rb"))
-            # PC_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_PC_13feb.sav", "rb"))
-            ##################
-
-            level_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_LC_28feb.sav",
+            print("shape",Xtest.shape)
+            level_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_LR_LC_28feb.sav",
                                            "rb"))
-            program_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_DT_P_28feb.sav",
+            program_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_DT_P_28feb.sav",
                                              "rb"))
-            facility_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_FT_28feb.sav",
+            facility_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_LR_FT_28feb.sav",
                                               "rb"))
-            PC_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_PC_28feb.sav", "rb"))
-
+            PC_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_LR_PC_28feb.sav", "rb"))
 
             level_pred = level_model.predict(Xtest)
             program_pred = program_model.predict(Xtest)
@@ -367,20 +386,18 @@ class AdelphoiList(ListCreateAPIView):
                 Xp['FacilityType'] = facility_preds
                 Xp[dummies.columns] = dummies
                 PC_proba = PC_model.predict_proba(Xp)
-                print(PC_proba)
                 if PC_proba[0][1]>(0.5):
                     Xp['ProgramCompletion'] = 1
                 else:
                     Xp['ProgramCompletion'] = 0
-                roc_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_RC_28feb.sav", "rb"))
+                roc_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_LR_RC_28feb.sav", "rb"))
                 roc_result =roc_model.predict_proba(Xp)
-                print("roc_result",roc_result)
                 return [round(PC_proba[0][1] * 100),round(roc_result[0][1] * 100)]
 
             program_list = []
             level_list = []
             facility_names = []
-            program_type = []
+            # program_type = []
             program_num = []
             program_model_suggested_list = []
             if query.count() > 0:
@@ -396,9 +413,8 @@ class AdelphoiList(ListCreateAPIView):
                         program_list.append(i.program_name)
                         level_list.append(i.level_names)
                         facility_names.append(i.facility_names)
-                        program_model_suggested_list.append(i.program_model_suggested)
                         # program_type.append(i.program_type)
-
+                        program_model_suggested_list.append(i.program_model_suggested)
                     query_default = Adelphoi_Mapping.objects.filter(program_model_suggested=program_model_suggested_list[0],
                                                                     default_level_facility=True)
                     level_default = []
@@ -408,7 +424,7 @@ class AdelphoiList(ListCreateAPIView):
                         facility_default.append(i.facility_type)
                     confidence = program_condition(condition_program, level_default[0], facility_default[0])[0]
                     roc_confidence = program_condition(condition_program, level_default[0], facility_default[0])[1]
-                    serializer.save(roc_confidence = roc_confidence, program=program_num[0], condition_program=condition_program,
+                    serializer.save(roc_confidence = roc_confidence,program=program_num[0], condition_program=condition_program,
                                     confidence=confidence, family_support=data['Family support'][0],
                                     level_of_aggression=data['Level of aggression'][0],
                                     fire_setting=data['Fire setting'][0],
@@ -439,7 +455,7 @@ class AdelphoiList(ListCreateAPIView):
                         {"model program": program_pred, "program": condition_program, "Level of care": level_pred,
                          "program_type": program_model_suggested_list,
                          "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                         "Confidence": confidence, "Roc_confidence":roc_confidence,"list_program_types": unique_list_programs})
+                         "Confidence": confidence,"Roc_confidence":roc_confidence, "list_program_types": unique_list_programs})
                 else:
                     if serializer.validated_data.get('inclusionary_criteria') == True:
                         logger.info(
@@ -494,7 +510,7 @@ class AdelphoiList(ListCreateAPIView):
                             {"model program": program_pred, "program": condition_program, "Level of care": level_pred,
                              "program_type": program_model_suggested_list,
                              "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                             "Confidence": confidence,"Roc_confidence":roc_confidence, "list_program_types": unique_list_programs})
+                             "Confidence": confidence,"Roc_confidence":roc_confidence,"list_program_types": unique_list_programs})
                     else:
                         if program_pred == 2:
                             drugUse = serializer.validated_data.get('drug_Use')
@@ -502,10 +518,8 @@ class AdelphoiList(ListCreateAPIView):
                             alcholUSe = serializer.validated_data.get('alcohol_Use')
                             logger.info(
                                 'where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-2')
-                            ##server
-                            # p13_model = pickle.load(
-                            #     open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_P13_13feb.sav", "rb"))
-                            p13_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_P13_28feb.sav", "rb"))
+                            p13_model = pickle.load(
+                                open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_LR_P13_28feb.sav", "rb"))
                             p13_model_preds = p13_model.predict(Xtest)
                             if (drugUse == 0 and ylsSUBAB == 0 and alcholUSe == 0):
                                 condition_program = 3
@@ -527,7 +541,7 @@ class AdelphoiList(ListCreateAPIView):
                                     level_default.append(i.level_of_care)
                                     facility_default.append(i.facility_type)
                                 confidence = program_condition(condition_program, level_default[0], facility_default[0])[0]
-                                roc_confidence=program_condition(condition_program, level_default[0], facility_default[0])[1]
+                                roc_confidence = program_condition(condition_program, level_default[0], facility_default[0])[1]
                                 serializer.save(roc_confidence=roc_confidence,program=condition_program, confidence=confidence,
                                                 family_support=data['Family support'][0],
                                                 level_of_aggression=data['Level of aggression'][0],
@@ -626,7 +640,7 @@ class AdelphoiList(ListCreateAPIView):
                                 program_list.append(i.program_name)
                                 level_list.append(i.level_names)
                                 facility_names.append(i.facility_names)
-                                #
+                                # program_type.append(i.program_type)
                                 program_model_suggested_list.append(i.program_model_suggested)
                             query_default = Adelphoi_Mapping.objects.filter(program_model_suggested=program_model_suggested_list[0],
                                                                             default_level_facility=True)
@@ -666,7 +680,7 @@ class AdelphoiList(ListCreateAPIView):
                                 {"model program": program_pred, "program": program_pred, "Level of care": level_pred,
                                  "program_type": program_model_suggested_list,
                                  "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                                 "Confidence": confidence,"Roc_confidence":roc_confidence, "list_program_types": unique_list_programs})
+                                 "Confidence": confidence,"Roc_confidence":roc_confidence,"list_program_types": unique_list_programs})
             else:
                 if serializer.validated_data.get('gender') == 1:
                     condition_program = 3
@@ -679,7 +693,7 @@ class AdelphoiList(ListCreateAPIView):
                         program_list.append(i.program_name)
                         level_list.append(i.level_names)
                         facility_names.append(i.facility_names)
-                        #
+                        # program_type.append(i.program_type)
                         program_model_suggested_list.append(i.program_model_suggested)
                     query_default = Adelphoi_Mapping.objects.filter(program_model_suggested=program_model_suggested_list[0],
                                                                     default_level_facility=True)
@@ -719,7 +733,7 @@ class AdelphoiList(ListCreateAPIView):
                         {"model program": program_pred, "program": condition_program, "Level of care": level_pred,
                          "program_type": program_model_suggested_list,
                          "Facility Type": facility_preds, "gender": serializer.validated_data.get('gender'),
-                         "Confidence": confidence,"Roc_confidence":roc_confidence,"list_program_types": unique_list_programs})
+                         "Confidence": confidence,"Roc_confidence":roc_confidence, "list_program_types": unique_list_programs})
         else:
             serializer.save()
             return Response({"Result": "Thanx for registering with ADELPHOI"})
@@ -944,6 +958,7 @@ class AdminUpdate(ListCreateAPIView):
 
 class SearchFilter(filters.FilterSet):
     name = filters.CharFilter(field_name="name", lookup_expr='icontains')
+
     class Meta:
         model = ModelTests
         fields = ['client_code', 'name']
@@ -1055,17 +1070,6 @@ class ProgramModify(RetrieveUpdateAPIView):
         return Response({"program_id": mt.program, "Result": "Program name is modified"})
 
 
-#
-#
-# # to get Referral list
-# class referral_list(ListAPIView):
-#     serializer_class = ProgramIndSerializer
-#     queryset = ReferralModel.objects.all()
-#
-#
-
-
-
 # to daa locations to list
 @csrf_exempt
 def loactionSave(request):
@@ -1172,9 +1176,6 @@ class RecommndedProgramPCR(UpdateAPIView):
         try:
             mt: ModelTests = ModelTests.objects.filter(client_code=kwargs['pk'])[0]
             client_selected_program = serializer.validated_data.get('client_selected_program')
-
-            print(mt.gender)
-
             query_loc_facility = Adelphoi_Mapping.objects.filter(gender=mt.gender, program_model_suggested=client_selected_program,
                                                                  default_level_facility=True)
 
@@ -1188,10 +1189,9 @@ class RecommndedProgramPCR(UpdateAPIView):
             level_pred = level_of_care_values[0]
             facility_preds = facility_values[0]
             condition_program = program_value[0]
-
             if condition_program > 3:
                 result = 0
-                return Response({"pcr": result,"roc_confidence":result})
+                return Response({"pcr": result, "Roc_confidence": result})
             else:
 
                 dt = {'EpisodeNumber': mt.episode_number,
@@ -1205,8 +1205,7 @@ class RecommndedProgramPCR(UpdateAPIView):
                       'Hist of prior program SAO': mt.hist_of_prior_program_SAO,
                       'Death Silblings': mt.death_Silblings, 'Alcohol Use': mt.alcohol_Use, 'Drug Use': mt.drug_Use,
                       'Incarcerated caregivers': mt.incarcerated_caregivers,
-                      'Incarcerated siblings': mt.incarcerated_siblings,
-                      'Number of prior AWOLS': mt.number_of_prior_AWOLS,
+                      'Incarcerated siblings': mt.incarcerated_siblings, 'Number of prior AWOLS': mt.number_of_prior_AWOLS,
                       'Animal cruelty': mt.animal_cruelty,
                       'Number of prior hospitalizations': mt.prior_hospitalizations,
                       'Compliant with medication': mt.compliant_with_meds,
@@ -1214,51 +1213,26 @@ class RecommndedProgramPCR(UpdateAPIView):
                       'Severe mental health symptoms': mt.severe_mental_health_symptoms,
                       'Autism Diagnosis': mt.autism_Diagnosis, 'Borderline Personality': mt.borderline_Personality,
                       'Psychosis': mt.psychosis,
-                      'Reactive Attachment Disorder': mt.reactive_Attachment_Disorder,
-                      'Schizophrenia': mt.schizophrenia,
+                      'Reactive Attachment Disorder': mt.reactive_Attachment_Disorder, 'Schizophrenia': mt.schizophrenia,
                       'Gender': mt.gender, 'LS_Type': mt.ls_type, 'CYF_code': mt.CYF_code}
-                      # ,'RefSourceName': mt.RefSourceCode}
 
                 data = pd.DataFrame(dt, index=[0])
 
                 dummies = pd.DataFrame()
-                for column in ['Gender', 'LS_Type', 'CYF_code']:  #, 'RefSourceName'
+                for column in ['Gender', 'LS_Type', 'CYF_code']:
                     dummies1 = pd.get_dummies(data[column], prefix=column)
                     dummies[dummies1.columns] = dummies1.copy(deep=False)
 
                 cols = ['Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2', 'LS_Type_3',
                         'LS_Type_4',
                         'LS_Type_5',
-                        'CYF_code_1', 'CYF_code_2'] #, 'RefSourceName_1', 'RefSourceName_2', 'RefSourceName_3',
-                        # 'RefSourceName_4', 'RefSourceName_5', 'RefSourceName_6', 'RefSourceName_7',
-                        # 'RefSourceName_8',
-                        # 'RefSourceName_9', 'RefSourceName_10',
-                        # 'RefSourceName_11', 'RefSourceName_12', 'RefSourceName_13', 'RefSourceName_14',
-                        # 'RefSourceName_15',
-                        # 'RefSourceName_16', 'RefSourceName_17', 'RefSourceName_18', 'RefSourceName_19',
-                        # 'RefSourceName_20',
-                        # 'RefSourceName_21', 'RefSourceName_22', 'RefSourceName_23', 'RefSourceName_24',
-                        # 'RefSourceName_25',
-                        # 'RefSourceName_26', 'RefSourceName_27', 'RefSourceName_28', 'RefSourceName_29',
-                        # 'RefSourceName_30',
-                        # 'RefSourceName_31', 'RefSourceName_32', 'RefSourceName_34', 'RefSourceName_35',
-                        # 'RefSourceName_36', 'RefSourceName_37', 'RefSourceName_38',
-                        # 'RefSourceName_39', 'RefSourceName_40', 'RefSourceName_41', 'RefSourceName_42',
-                        # 'RefSourceName_43', 'RefSourceName_44', 'RefSourceName_45', 'RefSourceName_46',
-                        # 'RefSourceName_47',
-                        # 'RefSourceName_48', 'RefSourceName_49', 'RefSourceName_50', 'RefSourceName_51',
-                        # 'RefSourceName_52',
-                        # 'RefSourceName_53', 'RefSourceName_54', 'RefSourceName_55', 'RefSourceName_56',
-                        # 'RefSourceName_57',
-                        # 'RefSourceName_59', 'RefSourceName_60'
+                        'CYF_code_1', 'CYF_code_2']
                 for col in cols:
                     if col in dummies.columns:
                         print('present', col)
                     else:
                         dummies[col] = 0
-                #server
-                #PC_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_PC_13feb.sav", "rb"))
-                PC_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_PC_28feb.sav","rb"))
+                PC_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_LR_PC_28feb.sav", "rb"))
 
                 Xp = pd.DataFrame(data[['EpisodeNumber', 'Number of foster care placements', 'AgeAtEpisodeStart',
                                         'Number of prior placements \n(excluding shelter and detention)',
@@ -1280,21 +1254,21 @@ class RecommndedProgramPCR(UpdateAPIView):
                     Xp['ProgramCompletion'] = 1
                 else:
                     Xp['ProgramCompletion'] = 0
-                roc_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_RC_28feb.sav",
+                roc_model = pickle.load(
+                    open("/home/ubuntu/Adelphoi/adelphoi-django/sources/R_LR_RC_28feb.sav",
                          "rb"))
                 roc_result = roc_model.predict_proba(Xp)
                 result = round(PC_proba[0][1] * 100)
-                roc_results =round(roc_result[0][1]*100)
+                roc_results = round(roc_result[0][1] * 100)
                 mt.confidence = result
                 mt.roc_confidence = roc_results
                 mt.save()
                 # serializer.save(confidence=result)
                 # serializer.save(condition_program=condition_program, confidence=result)
-                return Response({"pcr": result,"roc_confidence":roc_results})
+                return Response({"pcr": result, "Roc_confidence": roc_results})
         except:
             return Response({"result": "No combinations found!!"})
-
-# to get programs list
+# to get referral list
 class Refferal_list(ListAPIView):
     serializer_class = ReferralIndSerializer
     queryset = ReferralSource.objects.all()
