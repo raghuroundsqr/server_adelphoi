@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'rest_framework', #restframework
     'corsheaders', #new,
     'rest_framework_swagger', #swagger
-    'FirstMatch' #app
+    'FirstMatch', #app
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
