@@ -114,3 +114,11 @@ class Program_PCRSerializer(serializers.ModelSerializer):
         model = ModelTests
         fields = ['client_selected_program']
 
+class UpdateSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = ModelTests
+        exclude = ['client_code','modified_date', 'program', 'model_program', 'confidence', 'level_of_care', 'facility_type',
+                   'client_selected_program', 'client_selected_level', 'client_selected_facility',
+                   'client_selected_locations',
+                   'Program_Completion', 'Returned_to_Care','condition_program']
+

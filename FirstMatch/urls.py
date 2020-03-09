@@ -2,7 +2,7 @@ from django.contrib import admin
 # from  import views
 
 from django.urls import path
-from . import views,pdf_generation
+from . import views,pdf_generation,update_api
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from rest_framework_swagger.views import get_swagger_view
@@ -33,7 +33,8 @@ urlpatterns = [
     path('program/<pk>/', views.Adelphoi_program.as_view()),
     path('referral_list',views.Refferal_list.as_view()),
     path('referral_save',views.referralSave),
-    path('referral_modify/<pk>/',views.referralModify.as_view())
+    path('referral_modify/<pk>/',views.referralModify.as_view()),
+    path('latest_update/<pk>/',update_api.update_logic)
 
     # path('program/<pk>/',views.Adelphoi_program.as_view()), #w
     # path('admins/', views.AdminUpdate.as_view()), #<int:gender>
