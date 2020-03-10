@@ -2,8 +2,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import ModelTests,Adelphoi_Mapping
 from rest_framework.parsers import JSONParser
 from .serializers import UpdateSerializers
-from rest_framework.response import Response
-from django.http import HttpResponse,JsonResponse
+from django.http import JsonResponse
 import pandas as pd
 import pickle
 @csrf_exempt
@@ -22,7 +21,7 @@ def update_logic(request,pk):
                 for i in suggested_programs:
                     if i not in unique_list_programs:
                         unique_list_programs.append(i)
-            if serializer.validated_data.get('Exclusionary_Criteria') == False:
+            if not serializer.validated_data.get('Exclusionary_Criteria'):
                 # logger.info('AdelphoiList class where Exclusionary_Criteria is False')
                 dt = {'Gender': serializer.validated_data.get('gender'),
                       'AgeAtEnrollStart': serializer.validated_data.get('ageAtEnrollStart'),
@@ -328,6 +327,8 @@ def update_logic(request,pk):
                 program_type = []
                 program_num = []
                 program_model_suggested_list = []
+                unique_program_model_suggested_list = []
+
                 if query.count() > 0:
                     if serializer.validated_data.get('gender') == 1:
                         # logger.info('where Exclusionary_Criteria-False, gender-1,condition_program-3')
@@ -343,6 +344,9 @@ def update_logic(request,pk):
                             facility_names.append(i.facility_names)
                             program_model_suggested_list.append(i.program_model_suggested)
                             # program_type.append(i.program_type)
+                        for i in program_model_suggested_list:
+                            if i not in unique_program_model_suggested_list:
+                                unique_program_model_suggested_list.append(i)
 
                         query_default = Adelphoi_Mapping.objects.filter(
                             program_model_suggested=program_model_suggested_list[0],
@@ -386,7 +390,7 @@ def update_logic(request,pk):
                         return JsonResponse(
                             {"model program": int(program_pred[0]), "program": int(program_pred[0]),
                              "Level of care": int(level_pred[0]),
-                             "program_type": program_model_suggested_list,
+                             "program_type": unique_program_model_suggested_list, #program_model_suggested_list
                              "Facility Type": int(facility_preds[0]),
                              "gender": int(serializer.validated_data.get('gender')),
                              "Confidence": confidence, "Roc_confidence": roc_confidence,
@@ -407,6 +411,9 @@ def update_logic(request,pk):
                                 facility_names.append(i.facility_names)
                                 # program_type.append(i.program_type)
                                 program_model_suggested_list.append(i.program_model_suggested)
+                            for i in program_model_suggested_list:
+                                if i not in unique_program_model_suggested_list:
+                                    unique_program_model_suggested_list.append(i)
                             query_default = Adelphoi_Mapping.objects.filter(
                                 program_model_suggested=program_model_suggested_list[0],
                                 default_level_facility=True)
@@ -446,9 +453,9 @@ def update_logic(request,pk):
                                             inclusionary_criteria=serializer.validated_data.get(
                                                 'inclusionary_criteria'), model_program=program_model_suggested_list[0])
                             return JsonResponse(
-                                {"model program": int(program_pred[0]), "program": int(program_pred[0]),
+                                {"model program": int(program_pred[0]), "program": int(condition_program),
                                  "Level of care": int(level_pred[0]),
-                                 "program_type": program_model_suggested_list,
+                                 "program_type": unique_program_model_suggested_list,#program_model_suggested_list,
                                  "Facility Type": int(facility_preds[0]),
                                  "gender": int(serializer.validated_data.get('gender')),
                                  "Confidence": confidence, "Roc_confidence": roc_confidence,
@@ -475,6 +482,9 @@ def update_logic(request,pk):
                                         facility_names.append(i.facility_names)
                                         # program_type.append(i.program_type)
                                         program_model_suggested_list.append(i.program_model_suggested)
+                                    for i in program_model_suggested_list:
+                                        if i not in unique_program_model_suggested_list:
+                                            unique_program_model_suggested_list.append(i)
                                     query_default = Adelphoi_Mapping.objects.filter(
                                         program_model_suggested=program_model_suggested_list[0],
                                         default_level_facility=True)
@@ -518,9 +528,9 @@ def update_logic(request,pk):
                                                         'inclusionary_criteria'),
                                                     model_program=program_model_suggested_list[0])
                                     return JsonResponse(
-                                        {"model program": int(program_pred[0]), "program": int(program_pred[0]),
+                                        {"model program": int(program_pred[0]), "program": int(p13_model_preds),
                                          "Level of care": int(level_pred[0]),
-                                         "program_type": program_model_suggested_list,
+                                         "program_type": unique_program_model_suggested_list,#program_model_suggested_list,
                                          "Facility Type": int(facility_preds[0]),
                                          "gender": int(serializer.validated_data.get('gender')),
                                          "Confidence": confidence, "Roc_confidence": roc_confidence,
@@ -537,6 +547,9 @@ def update_logic(request,pk):
                                         facility_names.append(i.facility_names)
                                         # program_type.append(i.program_type)
                                         program_model_suggested_list.append(i.program_model_suggested)
+                                    for i in program_model_suggested_list:
+                                        if i not in unique_program_model_suggested_list:
+                                            unique_program_model_suggested_list.append(i)
                                     query_default = Adelphoi_Mapping.objects.filter(
                                         program_model_suggested=program_model_suggested_list[0],
                                         default_level_facility=True)
@@ -581,9 +594,9 @@ def update_logic(request,pk):
                                                     model_program=program_model_suggested_list[0])
 
                                     return JsonResponse(
-                                        {"model program": int(program_pred[0]), "program": int(program_pred[0]),
+                                        {"model program": int(program_pred[0]), "program": int(p13_model_preds),
                                          "Level of care": int(level_pred[0]),
-                                         "program_type": program_model_suggested_list,
+                                         "program_type": unique_program_model_suggested_list,#program_model_suggested_list,
                                          "Facility Type": int(facility_preds[0]),
                                          "gender": int(serializer.validated_data.get('gender')),
                                          "Confidence": confidence, "Roc_confidence": roc_confidence,
@@ -602,6 +615,9 @@ def update_logic(request,pk):
                                     facility_names.append(i.facility_names)
                                     #
                                     program_model_suggested_list.append(i.program_model_suggested)
+                                for i in program_model_suggested_list:
+                                    if i not in unique_program_model_suggested_list:
+                                        unique_program_model_suggested_list.append(i)
                                 query_default = Adelphoi_Mapping.objects.filter(
                                     program_model_suggested=program_model_suggested_list[0],
                                     default_level_facility=True)
@@ -643,7 +659,7 @@ def update_logic(request,pk):
                                                 model_program=program_model_suggested_list[0])
                                 return JsonResponse({"model program": int(program_pred[0]), "program": int(program_pred[0]),
                                      "Level of care": int(level_pred[0]),
-                                     "program_type": program_model_suggested_list,
+                                     "program_type": unique_program_model_suggested_list,#program_model_suggested_list,
                                      "Facility Type": int(facility_preds[0]), "gender": int(serializer.validated_data.get('gender')),
                                      "Confidence": confidence, "Roc_confidence": roc_confidence,
                                      "list_program_types": unique_list_programs})
@@ -662,6 +678,9 @@ def update_logic(request,pk):
                             facility_names.append(i.facility_names)
                             #
                             program_model_suggested_list.append(i.program_model_suggested)
+                        for i in program_model_suggested_list:
+                            if i not in unique_program_model_suggested_list:
+                                unique_program_model_suggested_list.append(i)
                         query_default = Adelphoi_Mapping.objects.filter(
                             program_model_suggested=program_model_suggested_list[0],
                             default_level_facility=True)
@@ -698,9 +717,9 @@ def update_logic(request,pk):
                                         FAST_CaregiverAdvocacyScore=data['FAST_CaregiverAdvocacyScore'][0],
                                         inclusionary_criteria=serializer.validated_data.get(
                                             'inclusionary_criteria'), model_program=program_model_suggested_list[0])
-                        return JsonResponse({"model program": int(program_pred[0]), "program": int(program_pred[0]),
+                        return JsonResponse({"model program": int(program_pred[0]), "program": int(condition_program),
                                              "Level of care": int(level_pred[0]),
-                                             "program_type": program_model_suggested_list,
+                                             "program_type": unique_program_model_suggested_list,#program_model_suggested_list,
                                              "Facility Type": int(facility_preds[0]),
                                              "gender": int(serializer.validated_data.get('gender')),
                                              "Confidence": confidence, "Roc_confidence": roc_confidence,

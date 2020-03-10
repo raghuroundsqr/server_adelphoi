@@ -9,11 +9,10 @@ from django.views.decorators.csrf import csrf_exempt
 import pandas as pd
 import pickle
 from rest_framework.response import Response
-from .serializers import ModelTestsSerializers, ProgramLocationSerialzer, \
-    ProgramLevelSerialzer, \
-    AdminInterface, FilterSerialzer, Adelphoi_placementSerializer, Adelphoi_referredSerializer, ProgramIndSerializer, \
-    ProgramSerializer, LocationSerializer, LocationIndSerializer, Available_programSerializer, Program_PCRSerializer, \
-    ReferralIndSerializer, refferalSerializer
+from .serializers import (ModelTestsSerializers, ProgramLocationSerialzer,ProgramLevelSerialzer,AdminInterface,
+                          FilterSerialzer, Adelphoi_placementSerializer, Adelphoi_referredSerializer,
+                          ProgramIndSerializer,ProgramSerializer, LocationSerializer, LocationIndSerializer,
+                          Available_programSerializer,Program_PCRSerializer,ReferralIndSerializer, refferalSerializer)
 
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -29,7 +28,6 @@ logging.basicConfig(filename='test_log.log', level=logging.INFO, filemode='a',
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
-
 
 class AdelphoiList(ListCreateAPIView):
     serializer_class = ModelTestsSerializers
@@ -208,11 +206,11 @@ class AdelphoiList(ListCreateAPIView):
                     data['YLS_Peer_Score'] = 2.8947  # 2.833333
                 else:
                     data['YLS_Peer_Score'] = 1.9462  # 1.944444
-            if data['YLS_Subab_Score'][0] is None:
-                if data['Gender'][0] == 1:
-                    data['YLS_Subab_Score'] = 2.1578  # 2.166667
-                else:
-                    data['YLS_Subab_Score'] = 1.301  # 1.311111
+            # if data['YLS_Subab_Score'][0] is None:
+            #     if data['Gender'][0] == 1:
+            #         data['YLS_Subab_Score'] = 2.1578  # 2.166667
+            #     else:
+            #         data['YLS_Subab_Score'] = 1.301  # 1.311111
             if data['YLS_Leisure_Score'][0] is None:
                 if data['Gender'][0] == 1:
                     data['YLS_Leisure_Score'] = 1.943  # 1.944444
@@ -233,6 +231,13 @@ class AdelphoiList(ListCreateAPIView):
                     data['Screening tool for Trauma--Total score'] = 14.7555  # 14.595238
                 else:
                     data['Screening tool for Trauma--Total score'] = 14.7244  # 14.634409
+            if data['alcohol Use'] & data['Drug Use'] == 0:
+                data['YLS_Subab_Score'] = 0
+            elif data['YLS_Subab_Score'][0] is None:
+                if data['Gender'][0] == 1:
+                    data['YLS_Subab_Score'] = 2.1578  # 2.166667
+                else:
+                    data['YLS_Subab_Score'] = 1.301  # 1.311111
 
             dummies = pd.DataFrame()
             for column in ['Gender', 'LS_Type', 'CYF_code']:  #,'RefSourceName'
@@ -322,6 +327,7 @@ class AdelphoiList(ListCreateAPIView):
 
             Xtest = pd.DataFrame(data[Feature_names])
             Xtest[dummies.columns] = dummies
+            print("columns", Xtest.columns)
             #### server####
             # level_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_LC_13feb.sav",
             #                                "rb"))
@@ -886,7 +892,7 @@ class AdelphoiResult(UpdateAPIView):  # UpdateAPIView
             selected_program = []
             selected_level = []
             selected_facility = []
-            query_location = Adelphoi_Mapping.objects.filter(program_type=client_selected_program)
+            query_location = Adelphoi_Mapping.objects.filter(program_model_suggested=client_selected_program)
             if query_location.count() > 0:
                 for q in query_location:
                     location_names.append(q.location_names)
@@ -1042,6 +1048,13 @@ class ProgramModify(RetrieveUpdateAPIView):
     serializer_class = ProgramSerializer
     queryset = ProgramModel.objects.all()
 
+    def delete(self, request, *args, **kwargs):
+        try:
+            ProgramModel.objects.filter(program=kwargs['pk']).delete()
+            return Response({"result":'deleted'})
+        except:
+            return Response({"result": 'no program id found'})
+
     def put(self, request, *args, **kwargs):
         serializer = self.get_serializer_class()
         serializer = serializer(data=request.data)
@@ -1098,6 +1111,13 @@ class Location_list(ListAPIView):
 class LocationModify(RetrieveUpdateAPIView):
     serializer_class = LocationSerializer
     queryset = ModelLocation.objects.all()
+
+    def delete(self, request, *args, **kwargs):
+        try:
+            ModelLocation.objects.filter(location=kwargs['pk']).delete()
+            return Response({"result":'deleted'})
+        except:
+            return Response({"result": 'no location id found'})
 
     def put(self, request, *args, **kwargs):
         serializer = self.get_serializer_class()
@@ -1324,6 +1344,13 @@ def referralSave(request):
 class referralModify(RetrieveUpdateAPIView):
     serializer_class = refferalSerializer
     queryset = ReferralSource.objects.all()
+
+    def delete(self, request, *args, **kwargs):
+        try:
+            ReferralSource.objects.filter(referral_code=kwargs['pk']).delete()
+            return Response({"result":'deleted'})
+        except:
+            return Response({"result": 'no program id found'})
 
     def put(self, request, *args, **kwargs):
         serializer = self.get_serializer_class()
