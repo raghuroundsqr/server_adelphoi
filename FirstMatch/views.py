@@ -337,7 +337,9 @@ class AdelphoiList(ListCreateAPIView):
             # PC_model = pickle.load(open("/home/ubuntu/Adelphoi/adelphoi-django/sources/LR_PC_13feb.sav", "rb"))
             ##################
 
-            level_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_LC_28feb.sav",
+            level_model = pickle.load(
+                open("D:/Production_26022020/adelphoi-django/server_adelphoi/"
+                     "sources/new_pickles/R_LR_LC_28feb.sav",
                                            "rb"))
             program_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_DT_P_28feb.sav",
                                              "rb"))
@@ -380,7 +382,7 @@ class AdelphoiList(ListCreateAPIView):
                 roc_model = pickle.load(open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_RC_28feb.sav", "rb"))
                 roc_result =roc_model.predict_proba(Xp)
                 print("roc_result",roc_result)
-                return [round(PC_proba[0][1] * 100),round(roc_result[0][1] * 100)]
+                return [round(PC_proba[0][1] * 100),round(roc_result[0][0] * 100)]
 
             program_list = []
             level_list = []
@@ -1303,7 +1305,7 @@ class RecommndedProgramPCR(UpdateAPIView):
                          "rb"))
                 roc_result = roc_model.predict_proba(Xp)
                 result = round(PC_proba[0][1] * 100)
-                roc_results =round(roc_result[0][1]*100)
+                roc_results =round(roc_result[0][0]*100)
                 mt.confidence = result
                 mt.roc_confidence = roc_results
                 mt.save()
