@@ -64,10 +64,10 @@ class AdminInterface(serializers.ModelSerializer):
         fields = '__all__'
         # fields = ['gender','program']
 
-class LocationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ModelTests
-        fields = ['client_selected_locations']
+# class LocationSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = ModelTests
+#         fields = ['client_selected_locations']
 
 class PlacementSerializer(serializers.ModelSerializer):
     class Meta:

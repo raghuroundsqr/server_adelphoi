@@ -35,6 +35,7 @@
 #         confidence_var = str(results.confidence) + "%"
 #     values = {
 #         'name': results.name,
+#         'last_name':results.last_name,
 #         'refer_status': exc_crt,
 #         'confidence': confidence_var,
 #         'recommended_program': recommnded_program,

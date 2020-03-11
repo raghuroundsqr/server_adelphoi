@@ -1,5 +1,5 @@
 from django.views.decorators.csrf import csrf_exempt
-from .models import ModelTests,Adelphoi_Mapping
+from .models import ModelTests, Adelphoi_Mapping
 from rest_framework.parsers import JSONParser
 from .serializers import UpdateSerializers
 from django.http import JsonResponse

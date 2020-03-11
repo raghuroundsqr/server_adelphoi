@@ -1,10 +1,9 @@
 # Create your views here.
 import json
-from django.http import JsonResponse, FileResponse
-from rest_framework.generics import ListCreateAPIView, UpdateAPIView, RetrieveUpdateAPIView, ListAPIView, \
-    RetrieveAPIView
-from .models import ModelTests, Adelphoi_Mapping, ProgramModel, \
-    ModelLocation, FacilityModel, LevelModel, ReferralSource
+from django.http import JsonResponse
+from rest_framework.generics import (ListCreateAPIView, UpdateAPIView, RetrieveUpdateAPIView, ListAPIView,
+                                     RetrieveAPIView)
+from .models import(ModelTests, Adelphoi_Mapping, ProgramModel,ModelLocation, FacilityModel, LevelModel, ReferralSource)
 from django.views.decorators.csrf import csrf_exempt
 import pandas as pd
 import pickle

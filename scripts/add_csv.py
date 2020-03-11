@@ -1,4 +1,7 @@
 #>python manage.py runscript add_csv --script-args C:/Users/Raghu/Downloads/saturday_7_0.xlsx
+
+import numpy as np
+
 import pandas as pd
 from server_adelphoi.FirstMatch.models import ModelTests
 def run(*args):
@@ -86,6 +89,12 @@ def run(*args):
                     'Screening tool for Trauma--Total score']
     for col in numeric_cols:
         df[col] = df[col].fillna(0).astype(int)
+
+    now = pd.Timestamp('now')
+    df['DoB'] = pd.to_datetime(df['DoB'], format='%m%d%y')  # 1
+    df['DoB'] = df['DoB'].where(df['DoB'] < now, df['DoB'] - np.timedelta64(100, 'Y'))  # 2
+    df['Age'] = (now - df['DoB']).astype('<m8[Y]')  # 3
+    df['Age'] = df['Age'].astype('int')
 
     df_flt11 = df.select_dtypes(include=["float"])
     df[['Type of drugs listed','ClientDx', 'Level of care of previous termination']]=\
