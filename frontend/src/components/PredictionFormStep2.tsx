@@ -54,12 +54,31 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
           enableReinitialize
           onSubmit={async (values, helpers) => {
             await props.onFormSubmit(values);
-            // helpers.resetForm();
+            //helpers.resetForm();
           }}
         >
           {({ values, handleSubmit, handleChange }) => (
             <form name="newClientForm2" onSubmit={handleSubmit}>
               <h1 css={subHeading}>Assessment Scores</h1>
+              <div css={fieldRow}>
+                <div css={twoCol}>
+                  <label css={label}>YLS Prior/Current Offenses Score</label>
+                </div>
+                <div css={twoCol}>
+                  <input
+                    type="text"
+                    name="yls_PriorCurrentOffenses_Score"
+                    css={inputField}
+                    placeholder=""
+                    value={values.yls_PriorCurrentOffenses_Score || ""}
+                    onChange={handleChange}
+                  />
+                  <ErrorMessage
+                    component="span"
+                    name="yls_PriorCurrentOffenses_Score"
+                  />
+                </div>
+              </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Family Circumstances Score</label>
@@ -113,7 +132,7 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
-                  <label css={label}>YLS Subab Score</label>
+                  <label css={label}>YLS Substance Abuse Score</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -175,25 +194,7 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                   <ErrorMessage component="span" name="yls_Attitude_Score" />
                 </div>
               </div>
-              <div css={fieldRow}>
-                <div css={twoCol}>
-                  <label css={label}>YLS Prior/Current Offenses Score</label>
-                </div>
-                <div css={twoCol}>
-                  <input
-                    type="text"
-                    name="yls_PriorCurrentOffenses_Score"
-                    css={inputField}
-                    placeholder=""
-                    value={values.yls_PriorCurrentOffenses_Score || ""}
-                    onChange={handleChange}
-                  />
-                  <ErrorMessage
-                    component="span"
-                    name="yls_PriorCurrentOffenses_Score"
-                  />
-                </div>
-              </div>
+              
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>Family Support</label>

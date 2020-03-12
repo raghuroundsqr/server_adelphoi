@@ -4,6 +4,8 @@ import { withSnackbar, WithSnackbarProps } from "notistack";
 import { wrap, mainContent } from "../components/styles";
 import { AppState } from "../redux-modules/root";
 import * as program from "../redux-modules/program";
+import * as referral from "../redux-modules/referral";
+import ReferralList from "../components/ReferralList";
 import { ContainerProps } from "./Container";
 import * as client from "../redux-modules/client";
 import * as Types from "../api/definitions";
@@ -48,6 +50,8 @@ export interface ClientDetailsContainerProps
   clearClient: () => void;
   getProgramsForClient: (client_code: string) => Promise<void>;
   updateFormValues: (client_code: string, values: any) => void;
+  getReferral: () => Promise<void>;
+  Referral: Types.Referral[];
 }
 
 export class ClientDetailsContainer extends React.Component<
@@ -81,6 +85,7 @@ export class ClientDetailsContainer extends React.Component<
     this.setState({ isLoading: false });
     this.props.closeSnackbar();
     this.props.getAvailablePrograms();
+    this.props.getReferral();
   }
 
   searchClient = async (client_code: string, client_name: string) => {
@@ -95,14 +100,7 @@ export class ClientDetailsContainer extends React.Component<
     program: string | null,
     location: string | null
   ) => {
-    console.log(
-      client_code,
-      program_completion,
-      returned_to_care,
-      program_significantly_modified,
-      program,
-      location
-    );
+    console.log('update')
     try {
       this.setState({ isLoading: true });
 
@@ -141,6 +139,7 @@ export class ClientDetailsContainer extends React.Component<
   };
 
   submitProgram = async (client: Types.Client) => {
+    console.log('submit')
     // const { client: clientState } = this.props;
     // if (!clientState || !clientState.client) {
     //   return false;
@@ -181,7 +180,9 @@ export class ClientDetailsContainer extends React.Component<
   // };
 
   render() {
-    const { client: clientState } = this.props;
+    const { client: clientState,
+            referral: referralState} = this.props;
+    const referralList = (referralState && referralState.referralList) || [];
     const clientList = (clientState && clientState.clientList) || {};
     const { index } = this.props.match.params;
     return (
@@ -193,9 +194,10 @@ export class ClientDetailsContainer extends React.Component<
               onProgramSelect={this.getLocationsAndPcr}
               // onLocationSelect={this.saveProgramAndLocation}
               {...this.state}
+              Referral={referralList}
               onFormSubmit={this.updateProgramCompletion}
               program_completion_response={
-                this.state.program_completion_response
+              this.state.program_completion_response
               }
             />
           )}
@@ -208,11 +210,13 @@ export class ClientDetailsContainer extends React.Component<
 const mapStateToProps = (state: AppState) => {
   return {
     client: state.client,
-    program: state.program
+    program: state.program,
+    referral: state.referral
   };
 };
 
 const mapDispatchToProps = {
+  getReferral: referral.actions.getReferral,
   searchClient: client.actions.searchClient,
   updateProgramCompletion: client.actions.updateProgramCompletion,
   getAvailablePrograms: program.actions.getAvailablePrograms,

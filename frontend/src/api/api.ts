@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as Types from "./definitions";
 
-export const baseApiUrl = "http://13.232.1.126:8000/first_match";
+export const baseApiUrl = "http://13.233.251.14:8000/first_match";
 
 interface PredictionResponse {
   referred_program: string;
@@ -66,6 +66,56 @@ export const insertPrediction = async (client: Types.Client) => {
     return response;
   } catch (error) {
     console.error("api function insertPrediction error");
+    throwError(error);
+  }
+};
+export const fetchReferral = async () => {
+  try {
+    const response = await axios.get(`${baseApiUrl}/referral_list`);
+    const data = (response.data as unknown) as Types.Referral[];
+
+    return data;
+  } catch (error) {
+    console.error("api function fetchReferral error");
+    throwError(error);
+  }
+};
+
+export const fetchAvailableReferral = async () => {
+  try {
+    const response = await axios.get(`${baseApiUrl}/referral_list`);
+    const data = (response.data as unknown) as Types.Referral[];
+
+    return data;
+  } catch (error) {
+    console.error("api function fetchAvailableReferral error");
+    throwError(error);
+  }
+};
+
+export const createReferral = async (referral: Types.Referral) => {
+  try {
+    const response = await axios.post(`${baseApiUrl}/referral_save`, {
+      referral_name: referral.referral_name
+    });
+    return response.data;
+  } catch (error) {
+    console.error("api function createReferral error");
+    throwError(error);
+  }
+};
+
+export const updateReferral = async (referral: Types.Referral) => {
+  try {
+    const response = await axios.put(
+      `${baseApiUrl}/referral_modify/${referral.referral_code}/`,
+      {
+        referral_name: referral.referral_name
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("api function updateReferral error");
     throwError(error);
   }
 };

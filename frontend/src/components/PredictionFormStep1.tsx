@@ -20,6 +20,7 @@ import {
   inputField,
   label,
   fieldBox,
+  fieldBox1,
   selectField,
   datePicker
 } from "./styles";
@@ -27,6 +28,7 @@ import * as Types from "../api/definitions";
 import ErrorMessage from "./ErrorMessage";
 
 interface PredictionFormStep1Props {
+  Referral: Types.Referral[];
   client: Types.Client;
   onFormSubmit: (client: Types.Client) => void;
   isLoading: boolean;
@@ -84,6 +86,7 @@ const EpisodeStartPicker: React.FC<FormikProps<Types.Client> &
 
 const DobPicker: React.FC<FormikProps<Types.Client> & FieldProps> = props => {
   const { field, form, ...other } = props;
+  
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <KeyboardDatePicker
@@ -111,15 +114,18 @@ const DobPicker: React.FC<FormikProps<Types.Client> & FieldProps> = props => {
 };
 
 const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
+  const { Referral  } = props;
+ 
   const renderErrorNotification = () => {
     const { errors } = props;
-
+    
     if (!errors) {
       return null;
     }
     return <SnackNotification errors={errors} />;
   };
-
+  
+console.log(props.client.client_code,'client')
   return (
     <div css={wrap}>
       {renderErrorNotification()}
@@ -144,9 +150,8 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
               new Date(values.episode_start)
             );
             values.ageAtEpisodeStart = ageAtEp.toString() || "";
-            console.log(values.ageAtEpisodeStart);
             props.onFormSubmit(values);
-            // helpers.resetForm();
+            helpers.resetForm();
           }}
         >
           {({ values, handleSubmit, handleChange, errors }) => (
@@ -221,7 +226,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
               </div>
               <div css={fieldRow} style={{ flex: "2 1 auto" }}>
                 <div css={twoCol}>
-                  <label css={label}>DOB</label>
+                  <label css={label}>Date of Birth</label>
                   <Field css={datePicker} name="dob" component={DobPicker} />
                 </div>
                 <div css={twoCol}>
@@ -288,7 +293,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                 </div>
                 <div css={twoCol}>
                   <label css={label}>Referral Source</label>
-                  <select
+                  {/* <select
                     css={selectField}
                     name="RefSourceCode"
                     id="referrel_source"
@@ -376,6 +381,20 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                     <option value="59">WV</option>
 
                     <option value="38">York</option>
+                  </select> */}
+                  <select
+                    css={selectField}
+                    name="RefSourceCode"
+                    id="referrel_source"
+                    value={values.RefSourceCode || ""}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select</option>
+                    {Referral.map(p => (
+                      <option key={p.referral_code} value={p.referral_code}>
+                        {p.referral_name}
+                      </option>
+                    ))}
                   </select>
                   <ErrorMessage component="span" name="RefSourceCode" />
                 </div>
@@ -393,14 +412,14 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                     <option value="">Select</option>
                     <option value="1">Voluntary</option>
                     <option value="2">Dependant</option>
-                    <option value="3">Voluntary Delinquent</option>
-                    <option value="4">Dependant Delinquent</option>
+                    {/* <option value="3">Voluntary Delinquent</option>
+                    <option value="4">Dependant Delinquent</option> */}
                     <option value="5">Delinquent</option>
                   </select>
                   <ErrorMessage component="span" name="ls_type" />
                 </div>
                 <div css={twoCol}>
-                  <label css={label}>C & Y Involvement</label>
+                  <label css={label}>Secondary Involvement (Crossover Youth)</label>
                   <select
                     css={selectField}
                     name="CYF_code"
@@ -408,6 +427,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                     onChange={handleChange}
                   >
                     <option value="">Select</option>
+                    <option value="0">None</option>
                     <option value="1">CYF</option>
                     <option value="2">Juvenile Justice</option>
                   </select>
@@ -560,37 +580,41 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
-                  <label css={label}>
-                    Sexually Acting Out behaviors in Placement
-                  </label>
+                  <label css={label}> Sexually Acting Out behaviors in Placement</label>
+                  </div>
+				  <div css={twoCol}>
+          <div css={fieldBox1}>
+                    <input
+                      type="radio"
+                      onChange={handleChange}
+                      name="hist_of_prior_program_SAO"
+                      id="hist_of_prior_program_SAO-yes"
+                      value="1"
+                      checked={values.hist_of_prior_program_SAO === "1"}
+                    />{" "}
+                    <label htmlFor="hist_of_prior_program_SAO-yes">Yes</label>
+                  </div>
+                  <div css={fieldBox1}>
+                    <input
+                      type="radio"
+                      onChange={handleChange}
+                      name="hist_of_prior_program_SAO"
+                      id="hist_of_prior_program_SAO-no"
+                      value="0"
+                      checked={values.hist_of_prior_program_SAO === "0"}
+                    />{" "}
+                    <label htmlFor="hist_of_prior_program_SAO-no">No</label>
+                  </div>
+                  
+                  <ErrorMessage component="span" name="hist_of_prior_program_SAO" />
                 </div>
-                <div css={twoCol}>
-                  <input
-                    type="radio"
-                    onChange={handleChange}
-                    name="hist_of_prior_program_SAO"
-                    value="1"
-                    checked={values.hist_of_prior_program_SAO === "1"}
-                  />{" "}
-                  Yes
-                  <input
-                    type="radio"
-                    onChange={handleChange}
-                    name="hist_of_prior_program_SAO"
-                    value="0"
-                    checked={values.hist_of_prior_program_SAO === "0"}
-                  />{" "}
-                  No
                 </div>
-                <ErrorMessage
-                  component="span"
-                  name="hist_of_prior_program_SAO"
-                />
-              </div>
+                
+              
               <h1 css={subHeading}>Mental Health</h1>
               <div css={fieldRow}>
                 <div css={twoCol}>
-                  <label css={label}>Autism Dx</label>
+                  <label css={label}>Autism Diagnosis</label>
                   <div css={fieldBox}>
                     <input
                       type="radio"
@@ -647,7 +671,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
-                  <label css={label}>RAD</label>
+                  <label css={label}>Reactive Attachment Disorder</label>
                   <div css={fieldBox}>
                     <input
                       type="radio"
@@ -780,7 +804,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
-                  <label css={label}>Significant MH Symptoms Score</label>
+                  <label css={label}>Significant Mental Health Symptoms Score</label>
                   <input
                     css={inputField}
                     name="significant_mental_health_symptoms"
@@ -795,7 +819,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                   />
                 </div>
                 <div css={twoCol}>
-                  <label css={label}>Number of Prior MH Hospitalizations</label>
+                  <label css={label}>Number of Prior Mental Health Hospitalizations</label>
                   <input
                     css={inputField}
                     name="prior_hospitalizations"
@@ -864,7 +888,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
               </div>
               {!values.Exclusionary_Criteria && (
                 <div>
-                  <h1 css={subHeading}>Social/Family Hx</h1>
+                  <h1 css={subHeading}>Social/Family History</h1>
                   <div css={fieldRow}>
                     <div css={twoCol}>
                       <label css={label}>Incarcerated Caregiver</label>

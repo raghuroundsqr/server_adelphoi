@@ -127,12 +127,16 @@ export const actions = {
   ): ThunkAction<Promise<void>, AppState, null, AnyAction> {
     return async (dispatch, getState) => {
       const response = await fetchPcr(client_code, selected_program);
-      const pcr = response ? response.pcr : null;
-      if (pcr) {
+      //console.log('test')
+      const pcr: number | null = response ? response.pcr : null;
+      const roc: number | null = response ? response.Roc_confidence : null;
+      if (pcr !== null) {
         const cl: Types.Client = {
           ...getState().client!.client,
           Confidence: pcr,
-          confidence: pcr
+          confidence: pcr,
+          Roc_confidence: roc,
+          roc_confidence: roc
         };
         dispatch(update({ client: cl }));
         const clientList = getState().client?.clientList;
@@ -142,6 +146,8 @@ export const actions = {
             ...client,
             Confidence: pcr,
             confidence: pcr,
+            Roc_confidence: roc,
+          roc_confidence: roc,
             Program_Completion: 0,
             selected_program
           };
@@ -272,6 +278,7 @@ export const actions = {
           ...client,
           program_type: response.program_type || null,
           Confidence: response.Confidence || null,
+          Roc_confidence: response.Roc_confidence || null,
           referred_program: response.program_type || null,
           model_program: response.model_program || null,
           SuggestedPrograms: response.list_program_types || null

@@ -37,6 +37,7 @@ const formControl = css`
 `;
 
 interface ConfigurationFormProps {
+  referral: Types.Referral[];
   programs: Types.Program[];
   locations: Types.Location[];
   onFormSubmit: (configuration: Types.Configuration) => void;
@@ -47,7 +48,7 @@ interface ConfigurationFormProps {
 
 const ConfigurationForm: React.FC<ConfigurationFormProps> = props => {
   // const history = useHistory();
-  const { programs, locations, onFormSubmit } = props;
+  const { referral, programs, locations, onFormSubmit } = props;
   return (
     <div css={wrap}>
       <div css={mainContent}>

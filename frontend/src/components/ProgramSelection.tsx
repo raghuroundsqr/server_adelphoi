@@ -32,11 +32,13 @@ interface ProgramSelectionProps {
   isLoading: boolean;
   hasError: boolean;
   error: string;
+  
 }
 
 interface FormValues {
   Program: any;
   Confidence: string;
+  Roc_confidence: string;
   client_selected_location: string;
 }
 const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
@@ -55,6 +57,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
   const getInitialValues = () => {
     const { client } = props;
     let program = null;
+    
     if (client.client_selected_program) {
       program = {
         label: client.client_selected_program,
@@ -62,25 +65,25 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
         predicted: client.client_selected_program === client.program_type
       };
     }
-    console.log(program);
     return {
       Program: program,
       Confidence: client.Confidence,
+      Roc_confidence: client.Roc_confidence,
       client_selected_location: ""
     };
   };
-
+  
   const onProgramChange = (program: any) => {
     props.onProgramSelect(program.value);
   };
-
+  
   return (
     <div css={wrap}>
       <div css={mainContent}>
         <Backdrop css={backdrop} open={props.isLoading}>
           <CircularProgress color="inherit" />
         </Backdrop>
-        <h1 css={subHeading}>FM Prediction</h1>
+        <h1 css={subHeading}>FirstMatch Prediction</h1>
         <Formik
           initialValues={getInitialValues()}
           validate={values => {
@@ -127,10 +130,27 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
                     name="Confidence"
                     css={inputField}
                     placeholder=""
-                    value={values.Confidence || ""}
+                    value={values.Confidence === null ? "" : values.Confidence}
                     onChange={handleChange}
                   />
                   <ErrorMessage component="span" name="Confidence" />
+                </div>
+              </div>
+              <div css={fieldRow}>
+                <div css={twoCol}>
+                  <label css={label}>Remain Out of care Likelihood</label>
+                </div>
+                <div css={twoCol}>
+                  <input
+                    type="text"
+                    readOnly
+                    name="roc_confidence"
+                    css={inputField}
+                    placeholder=""
+                    value={values.Roc_confidence === null ? "" : values.Roc_confidence}
+                    onChange={handleChange}
+                  />
+                  <ErrorMessage component="span" name="roc_confidence" />
                 </div>
               </div>
               <div css={fieldRow}>
@@ -180,7 +200,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
                   variant="contained"
                   color="primary"
                 >
-                  Submit
+                  Continue
                 </Button>
               </div>
             </form>

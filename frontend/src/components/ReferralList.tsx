@@ -27,34 +27,34 @@ import {
 } from "./styles";
 import * as Types from "../api/definitions";
 
-interface ProgramListProps {
-  programList: Types.Program[];
+interface ReferralListProps {
+  referralList: Types.Referral[];
   isLoading: boolean;
   hasError: boolean;
   error: string;
-  createProgram: (program: Types.Program) => Promise<void>;
-  updateProgram: (program: Types.Program) => Promise<void>;
+  createReferral: (referral: Types.Referral) => Promise<void>;
+  updateReferral: (referral: Types.Referral) => Promise<void>;
 }
 
 interface FormValues {
-  program_name: string;
-  editing_program_name: string;
+  referral_name: string;
+  editing_referral_name: string;
 }
 
 const initialValues: FormValues = {
-  program_name: "",
-  editing_program_name: ""
+  referral_name: "",
+  editing_referral_name: ""
 };
 
-const ProgramList: React.FC<ProgramListProps> = props => {
+const ReferralList: React.FC<ReferralListProps> = props => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const [editingProgram, setEditingProgram] = useState<Types.Program | null>(
+  const [editingReferral, setEditingReferral] = useState<Types.Referral | null>(
     null
   );
 
   const renderCell = (
-    program: Types.Program,
+    referral: Types.Referral,
     values: FormValues,
     handleChange:
       | ((event: React.ChangeEvent<HTMLInputElement>) => void)
@@ -65,21 +65,23 @@ const ProgramList: React.FC<ProgramListProps> = props => {
       shouldValidate?: boolean | undefined
     ) => void
   ) => {
-    
-    if (editingProgram && editingProgram.program === program.program) {
+    if (
+      editingReferral &&
+      editingReferral.referral_code === referral.referral_code
+    ) {
       return (
         <React.Fragment>
           <TableCell>
             <input
               type="text"
-              name="editing_program_name"
+              name="editing_referral_name"
               css={inputField}
               style={{ width: "100%" }}
-              placeholder="Add program name"
-              value={values.editing_program_name || ""}
+              placeholder="Add referral name"
+              value={values.editing_referral_name || ""}
               onChange={handleChange}
             />
-            <ErrorMessage component="span" name="editing_program_name" />
+            <ErrorMessage component="span" name="editing_referral_name" />
           </TableCell>
           <TableCell>
             <Button
@@ -95,7 +97,7 @@ const ProgramList: React.FC<ProgramListProps> = props => {
               size="small"
               variant="contained"
               color="default"
-              onClick={() => setEditingProgram(null)}
+              onClick={() => setEditingReferral(null)}
             >
               cancel
             </Button>
@@ -105,14 +107,14 @@ const ProgramList: React.FC<ProgramListProps> = props => {
     }
     return (
       <React.Fragment>
-        <TableCell>{program.program_name}</TableCell>
+        <TableCell>{referral.referral_name}</TableCell>
         <TableCell>
           <Link
             onClick={() => {
-              setEditingProgram(program);
+              setEditingReferral(referral);
               setFieldValue(
-                "editing_program_name",
-                program.program_name,
+                "editing_referral_name",
+                referral.referral_name,
                 false
               );
             }}
@@ -126,7 +128,7 @@ const ProgramList: React.FC<ProgramListProps> = props => {
 
   // const history = useHistory();
   /** */
-  const { programList } = props;
+  const { referralList } = props;
   return (
     <div css={wrap}>
       <div css={mainContent}>
@@ -134,61 +136,61 @@ const ProgramList: React.FC<ProgramListProps> = props => {
           <CircularProgress color="inherit" />
         </Backdrop>
         <div>
-          <h1 css={subHeading}>Programs</h1>
+          <h1 css={subHeading}>Referral Sources</h1>
           <Formik
             initialValues={initialValues}
             enableReinitialize
             validate={values => {
               const errors: FormikErrors<FormValues> = {};
-              if (!editingProgram && !values.program_name) {
-                errors.program_name = "Required";
+              if (!editingReferral && !values.referral_name) {
+                errors.referral_name = "Required";
               }
-              if (editingProgram && !values.editing_program_name) {
-                errors.program_name = "Required";
+              if (editingReferral && !values.editing_referral_name) {
+                errors.referral_name = "Required";
               }
               return errors;
             }}
             onSubmit={async (values, helpers) => {
               try {
-                if (editingProgram) {
-                  const program: Types.Program = {
-                    program: editingProgram.program,
-                    program_name: values.editing_program_name
+                if (editingReferral) {
+                  const referral: Types.Referral = {
+                    referral_code: editingReferral.referral_code,
+                    referral_name: values.editing_referral_name
                   };
-                  await props.updateProgram(program);
-                  enqueueSnackbar("program updated successfully");
+                  await props.updateReferral(referral);
+                  enqueueSnackbar("Referral Source updated successfully");
                   helpers.resetForm();
-                  setEditingProgram(null);
+                  setEditingReferral(null);
                 } else {
-                  const program: Types.Program = {
-                    program: 0,
-                    program_name: values.program_name
+                  const referral: Types.Referral = {
+                    referral_code: 0,
+                    referral_name: values.referral_name
                   };
-                  await props.createProgram(program);
-                  enqueueSnackbar("program created successfully");
+                  await props.createReferral(referral);
+                  enqueueSnackbar("Referral Source created successfully");
                   helpers.resetForm();
                 }
               } catch (error) {
-                enqueueSnackbar("Could create/update program");
+                enqueueSnackbar("Could create/update Referral Source");
               }
             }}
           >
             {({ values, handleSubmit, handleChange, setFieldValue }) => (
-              <form name="ProgramForm" onSubmit={handleSubmit}>
+              <form name="ReferralForm" onSubmit={handleSubmit}>
                 <div css={fieldRow}>
                   <div css={twoCol}>
                     <input
                       type="text"
-                      name="program_name"
+                      name="referral_name"
                       css={inputField}
-                      placeholder="Add new program.."
-                      value={values.program_name || ""}
+                      placeholder="Add new Referral.."
+                      value={values.referral_name || ""}
                       onChange={e => {
-                        setEditingProgram(null);
+                        setEditingReferral(null);
                         handleChange(e);
                       }}
                     />
-                    <ErrorMessage component="span" name="program_name" />
+                    <ErrorMessage component="span" name="referral_name" />
                   </div>
 
                   <Button
@@ -201,19 +203,19 @@ const ProgramList: React.FC<ProgramListProps> = props => {
                   </Button>
                 </div>
 
-                <Table aria-label="programs table" css={dataTable}>
+                <Table aria-label="referral table" css={dataTable}>
                   <TableHead>
                     <TableRow css={tableHeader}>
                       <TableCell style={{ width: "600px" }}>
-                        Program Name
+                        Referral Source Name
                       </TableCell>
                       <TableCell>Edit</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {programList.length > 0 ? (
-                      programList.map(p => (
-                        <TableRow key={p.program} css={tableRow}>
+                    {referralList.length > 0 ? (
+                      referralList.map(p => (
+                        <TableRow key={p.referral_code} css={tableRow}>
                           {renderCell(p, values, handleChange, setFieldValue)}
                         </TableRow>
                       ))
@@ -236,4 +238,4 @@ const ProgramList: React.FC<ProgramListProps> = props => {
   );
 };
 
-export default ProgramList;
+export default ReferralList;
