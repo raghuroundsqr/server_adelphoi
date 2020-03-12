@@ -72,6 +72,7 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     placeholder=""
                     value={values.yls_PriorCurrentOffenses_Score || ""}
                     onChange={handleChange}
+                    
                   />
                   <ErrorMessage
                     component="span"

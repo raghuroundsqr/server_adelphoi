@@ -39,7 +39,7 @@ export interface Client {
   alcohol_Use: string | null;
   drug_Use: string | null;
   abuse_neglect: string | null;
-  yls_FamCircumstances_Score: string | null;
+  yls_FamCircumstances_Score: number | null;
   yls_Edu_Employ_Score: string | null;
   yls_Peer_Score: string | null;
   yls_Subab_Score: string | null;
