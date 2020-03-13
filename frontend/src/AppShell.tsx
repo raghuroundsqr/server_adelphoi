@@ -123,7 +123,7 @@ const AppShell: React.FC = ({ children }) => {
               onClick={() => {
                 history.push("/new-client");
               }}
-              href="#"
+              // href="#"
               css={menuButton}
               style={
                 match

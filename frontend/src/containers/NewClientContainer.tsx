@@ -135,7 +135,7 @@ export class NewClientContainer extends React.Component<
   };
 
   saveProgramAndLocation = async (selected_location: string) => {
-    console.log('four')
+    
     // const { history } = this.props;
     const { client: clientState } = this.props;
     if (!clientState || !clientState.client) {

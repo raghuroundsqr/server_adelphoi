@@ -127,7 +127,7 @@ export const actions = {
   ): ThunkAction<Promise<void>, AppState, null, AnyAction> {
     return async (dispatch, getState) => {
       const response = await fetchPcr(client_code, selected_program);
-      //console.log('test')
+    
       const pcr: number | null = response ? response.pcr : null;
       const roc: number | null = response ? response.Roc_confidence : null;
       if (pcr !== null) {
