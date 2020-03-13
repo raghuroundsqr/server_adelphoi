@@ -380,6 +380,7 @@ export const severe_mental_health_symptoms: ObjectLiteral = {
 };
 
 export const CYF_code: ObjectLiteral = {
+  "0": "None",
   "1": "CYF",
   "2": "Juvenile Justice"
 };
