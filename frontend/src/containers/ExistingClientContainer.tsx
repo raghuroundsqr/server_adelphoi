@@ -4,10 +4,12 @@ import { Switch, Route, RouteComponentProps } from "react-router-dom";
 import { withSnackbar, WithSnackbarProps } from "notistack";
 import { AppState } from "../redux-modules/root";
 import * as program from "../redux-modules/program";
+import * as referral from "../redux-modules/referral";
 import { ContainerProps } from "./Container";
 import * as client from "../redux-modules/client";
 import ClientSearch from "../components/ClientSearch";
 import ClientDetailsContainer from "./ClientDetailsContainer";
+//import ReferralList from "../components/ReferralList";
 
 interface MatchParams {
   index: string;
@@ -27,6 +29,7 @@ export interface ExistingClientContainerProp
     WithSnackbarProps {
   searchClient: (client_code: string, client_name: string) => void;
   getAvailablePrograms: () => Promise<void>;
+  getReferral: () => Promise<void>;
 }
 
 export class ExistingClientContainer extends React.Component<
@@ -49,6 +52,7 @@ export class ExistingClientContainer extends React.Component<
   componentDidMount() {
     this.props.closeSnackbar();
     this.props.getAvailablePrograms();
+    this.props.getReferral();
   }
 
   searchClient = async (client_code: string, client_name: string) => {
@@ -56,12 +60,13 @@ export class ExistingClientContainer extends React.Component<
   };
 
   render() {
-    const { client: clientState, program: programState } = this.props;
-
+    const { client: clientState, program: programState, referral: referralState } = this.props;
+     
+     const referralList = (referralState && referralState.referralList) || [];
     const clientList = (clientState && clientState.clientList) || {};
     // const availableProgramList =
     // (programState && programState.availableProgramList) || [];
-
+    
     return (
       <Switch>
         <Route exact path="/existing-client">
@@ -84,13 +89,15 @@ export class ExistingClientContainer extends React.Component<
 const mapStateToProps = (state: AppState) => {
   return {
     client: state.client,
-    program: state.program
+    program: state.program,
+    referral: state.referral
   };
 };
 
 const mapDispatchToProps = {
   searchClient: client.actions.searchClient,
-  getAvailablePrograms: program.actions.getAvailablePrograms
+  getAvailablePrograms: program.actions.getAvailablePrograms,
+  getReferral: referral.actions.getReferral
 };
 
 export default connect(

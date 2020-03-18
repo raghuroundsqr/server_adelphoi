@@ -14,6 +14,16 @@ export interface ClientState {
 export interface ConfigurationState {
   configuration: Types.Configuration;
 }
+export interface ReferralState {
+  referralList: Types.Referral[];
+  availableReferralList: Types.Referral[];
+}
+
+export const emptyReferral: Types.Referral = {
+  referral: "",
+  referral_name: ""
+};
+
 export interface ProgramState {
   programList: Types.Program[];
   availableProgramList: Types.Program[];

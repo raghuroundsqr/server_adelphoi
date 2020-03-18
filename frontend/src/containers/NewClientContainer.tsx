@@ -7,6 +7,8 @@ import { AppState } from "../redux-modules/root";
 import { ContainerProps } from "./Container";
 import * as client from "../redux-modules/client";
 import * as program from "../redux-modules/program";
+import * as referral from "../redux-modules/referral";
+import ReferralList from "../components/ReferralList";
 import PredictionFormStep1 from "../components/PredictionFormStep1";
 import PredictionFormStep2 from "../components/PredictionFormStep2";
 import ProgramSelection from "../components/ProgramSelection";
@@ -36,6 +38,8 @@ export interface NewClientContainerProp
   clearErrors: () => void;
   clearClient: () => void;
   getAvailablePrograms: () => Promise<void>;
+  getReferral: () => Promise<void>;
+  Referral: Types.Referral[];
 }
 
 export class NewClientContainer extends React.Component<
@@ -57,14 +61,16 @@ export class NewClientContainer extends React.Component<
   componentDidMount() {
     this.props.closeSnackbar();
     this.props.getAvailablePrograms();
+    this.props.getReferral();
   }
 
   saveClientStep1 = async (client: Types.Client) => {
     const { history } = this.props;
     this.props.clearErrors();
-    console.log(client);
+    
     // check excl criteria
     if (client.Exclusionary_Criteria) {
+      
       try {
         this.setState({ isLoading: true });
         this.props.saveClient(client, true, true);
@@ -86,6 +92,7 @@ export class NewClientContainer extends React.Component<
   };
 
   getLocationsAndPcr = async (selected_program: string) => {
+   
     const { client: clientState } = this.props;
     if (!clientState || !clientState.client) {
       return false;
@@ -100,6 +107,7 @@ export class NewClientContainer extends React.Component<
   };
 
   submitProgram = async (client: Types.Client) => {
+   
     // const { client: clientState } = this.props;
     // if (!clientState || !clientState.client) {
     //   return false;
@@ -111,7 +119,7 @@ export class NewClientContainer extends React.Component<
       return false;
     }
     try {
-      this.setState({ isLoading: true });
+      this.setState({ isLoading: true });  
       await this.props.submitPrediction(client);
     } catch (error) {
       let errorMessage: string = "An error occurred while saving.";
@@ -123,9 +131,11 @@ export class NewClientContainer extends React.Component<
       this.props.enqueueSnackbar(errorMessage);
     }
     this.setState({ isLoading: false });
+    //this.props.clearClient();
   };
 
   saveProgramAndLocation = async (selected_location: string) => {
+    
     // const { history } = this.props;
     const { client: clientState } = this.props;
     if (!clientState || !clientState.client) {
@@ -135,18 +145,23 @@ export class NewClientContainer extends React.Component<
     this.setState({ isLoading: true });
     await this.props.saveLocationAndProgram(selected_location);
     this.setState({ isLoading: false });
-    this.props.clearClient();
+    
     this.props.enqueueSnackbar("Data saved successfully.");
+    this.props.clearClient();
   };
+  
 
   saveClientStep2 = async (client: Types.Client) => {
+    
     const { history } = this.props;
     try {
       this.setState({ isLoading: true });
       this.props.saveClient(client);
       await this.props.insertClient(client);
       this.setState({ isLoading: false });
+      this.props.enqueueSnackbar("New Client Created Successfully.");
       history.push("/new-client/program-selection");
+      //this.props.clearClient();
     } catch (error) {
       console.log(error);
       this.setState({ isLoading: false });
@@ -155,10 +170,11 @@ export class NewClientContainer extends React.Component<
   };
 
   render() {
-    const { client: clientState, program: programState } = this.props;
+    const { client: clientState, program: programState, referral: referralState, } = this.props;
+    const referralList = (referralState && referralState.referralList) || [];
+    const { match: { params } } = this.props;
     let currentClient: Types.Client;
     currentClient = clientState ? clientState.client : Types.emptyClient;
-
     const availableProgramList =
       (programState && programState.availableProgramList) || [];
 
@@ -204,9 +220,10 @@ export class NewClientContainer extends React.Component<
         <Route exact path="/new-client">
           <PredictionFormStep1
             {...this.state}
+            Referral={referralList}
             client={currentClient}
             onFormSubmit={this.saveClientStep1}
-            errors={(clientState && clientState.errors) || undefined}
+            errors = {(clientState && clientState.errors) || undefined}
           />
         </Route>
       </Switch>
@@ -217,7 +234,8 @@ export class NewClientContainer extends React.Component<
 const mapStateToProps = (state: AppState) => {
   return {
     client: state.client,
-    program: state.program
+    program: state.program,
+    referral: state.referral
   };
 };
 
@@ -230,7 +248,8 @@ const mapDispatchToProps = {
   saveLocationAndProgram: client.actions.saveLocationAndProgram,
   clearErrors: client.actions.clearErrors,
   clearClient: client.actions.clear,
-  getAvailablePrograms: program.actions.getAvailablePrograms
+  getAvailablePrograms: program.actions.getAvailablePrograms,
+  getReferral: referral.actions.getReferral,
 };
 
 export default connect(

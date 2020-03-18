@@ -121,6 +121,14 @@ export const fieldBox = css`
   margin-right: 5px;
   width: 135px;
 `;
+export const fieldBox1 = css`
+  display: inline-block;
+  padding: 12px;
+  // border-bottom: 1px solid #8284e5;
+  // background-color: #f5f5f5;
+  margin-right: 5px;
+  width: 135px;
+`;
 
 export const radioBox = css`
   display: flex;

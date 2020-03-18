@@ -174,71 +174,51 @@ export const Step1ValidationSchema = Yup.object().shape({
     .nullable()
 });
 
-// unused - all fields on step2 are optional.
+// unused - all fields on step2 are optional. 
 export const Step2ValidationSchema = Yup.object().shape({
-  /*yls_FamCircumstances_Score: Yup.string()
-    .required("Required")
+   yls_FamCircumstances_Score: Yup.number().max(6, "Score range should be between 0-6")
+  .nullable(),
+   yls_Edu_Employ_Score: Yup.number().max(7, "Score range should be between 0-7")
+      .nullable(),
+  yls_Peer_Score: Yup.number().max(4, "Score range should be between 0-4")
     .nullable(),
-  yls_Edu_Employ_Score: Yup.string()
-    .required("Required")
+  yls_Subab_Score: Yup.number().max(5, "Score range should be between 0-5")
     .nullable(),
-  yls_Peer_Score: Yup.string()
-    .required("Required")
+  yls_Leisure_Score: Yup.number().max(3, "Score range should be between 0-3")
     .nullable(),
-  yls_Subab_Score: Yup.string()
-    .required("Required")
+  yls_Personality_Score: Yup.number().max(7, "Score range should be between 0-7")
     .nullable(),
-  yls_Leisure_Score: Yup.string()
-    .required("Required")
+  yls_Attitude_Score: Yup.number().max(5, "Score range should be between 0-5")
     .nullable(),
-  yls_Personality_Score: Yup.string()
-    .required("Required")
+  yls_PriorCurrentOffenses_Score: Yup.number().max(5, "Score range should be between 0-5")
     .nullable(),
-  yls_Attitude_Score: Yup.string()
-    .required("Required")
+  family_support: Yup.number().max(2, "Score range should be between 0-2")
     .nullable(),
-  yls_PriorCurrentOffenses_Score: Yup.string()
-    .required("Required")
+  fire_setting: Yup.number().max(3, "Score range should be between 0-3")
     .nullable(),
-  family_support: Yup.string()
-    .required("Required")
+  level_of_aggression: Yup.number().max(9, "Score range should be between 0-9")
     .nullable(),
-  fire_setting: Yup.string()
-    .required("Required")
+  client_self_harm: Yup.number().max(3, "Score range should be between 0-3")
     .nullable(),
-  level_of_aggression: Yup.string()
-    .required("Required")
+  Screening_tool_Trauma: Yup.number().max(40, "Score range should be between 0-40")
     .nullable(),
-  client_self_harm: Yup.string()
-    .required("Required")
+  cans_LifeFunctioning: Yup.number().max(39, "Score range should be between 0-39")
     .nullable(),
-  Screening_tool_Trauma: Yup.string()
-    .required("Required")
+  cans_YouthStrengths: Yup.number().max(33, "Score range should be between 0-33")
     .nullable(),
-  cans_LifeFunctioning: Yup.string()
-    .required("Required")
+  cans_CareGiverStrengths: Yup.number().max(54, "Score range should be between 0-54")
     .nullable(),
-  cans_YouthStrengths: Yup.string()
-    .required("Required")
+  cans_Culture: Yup.number().max(12, "Score range should be between 0-12")
     .nullable(),
-  cans_CareGiverStrengths: Yup.string()
-    .required("Required")
+  cans_YouthBehavior: Yup.number().max(30, "Score range should be between 0-30")
     .nullable(),
-  cans_Culture: Yup.string()
-    .required("Required")
+  cans_YouthRisk: Yup.number().max(36, "Score range should be between 0-36")
     .nullable(),
-  cans_YouthBehavior: Yup.string()
-    .required("Required")
+  cans_Trauma_Exp: Yup.number().max(36, "Score range should be between 0-36")
     .nullable(),
-  cans_YouthRisk: Yup.string()
-    .required("Required")
-    .nullable(),
-  cans_Trauma_Exp: Yup.string()
-    .required("Required")
-    .nullable()
-  referred_program: Yup.string()
-    .required("Required")
-    .nullable()*/
+  // referred_program: Yup.string()
+  //   .required("Required")
+  //   .nullable()
 });
 
 export const ConfigurationSchema = Yup.object().shape({
