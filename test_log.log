@@ -9027,3 +9027,1047 @@ Traceback (most recent call last):
     raise MultiValueDictKeyError(key)
 django.utils.datastructures.MultiValueDictKeyError: 'referred_program'
 2020-03-04 11:54:10,003 16124-FirstMatch.views INFO     -get  -  841     Adelphoi_location--List of locations
+2020-03-04 16:57:13,306 9780-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-04 16:57:33,685 9780-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-04 16:57:33,686 9780-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 75, 'CYF_code': 2, 'LS_Type': 2, 'EpisodeNumber': 182, 'RefSourceName': 40, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 86, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 888, 'Length of time since living at home': 2, 'Termination directly to AV': 1, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 0, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 18, 'Compliant with medication': 1, 'Significant mental health symptoms': 49, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 10, 'YLS_FamCircumstances_Score': 34, 'YLS_Edu_Employ_Score': 77, 'YLS_Peer_Score': 8, 'YLS_Subab_Score': 46, 'YLS_Leisure_Score': 22, 'YLS_Personality_Score': 10, 'YLS_Attitude_Score': 95, 'Client self-harm': 75, 'CANS_LifeFunctioning': 32, 'CANS_YouthStrengths': 59, 'CANS_CareGiverStrengths': 42, 'CANS_Culture': 91, 'CANS_YouthBehavior': 89, 'CANS_YouthRisk': 52, 'CANS_Trauma_Exp': 35, 'Family support': 83, 'Level of aggression': 19, 'Fire setting': 8, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 69, 'FAST_FamilyTogetherScore': 40, 'FAST_CaregiverAdvocacyScore': 94}
+2020-03-04 16:57:44,744 9780-FirstMatch.views INFO     -post  -  623     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-04 16:57:44,776 9780-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-04 16:57:44,818 9780-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-05 15:10:31,201 4284-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-05 15:10:59,268 4284-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-05 15:10:59,269 4284-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 40, 'CYF_code': 2, 'LS_Type': 2, 'EpisodeNumber': 407, 'RefSourceName': 86, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 56, 'Number of prior placements \n(excluding shelter and detention)': 1, 'Number of prior treatment terminations (excluding shelter or detention)': 527, 'Length of time since living at home': 2, 'Termination directly to AV': 3, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 1, 'Drug Use': 0, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 97, 'Compliant with medication': 1, 'Significant mental health symptoms': 50, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 42, 'YLS_FamCircumstances_Score': 86, 'YLS_Edu_Employ_Score': 7, 'YLS_Peer_Score': 28, 'YLS_Subab_Score': 31, 'YLS_Leisure_Score': 56, 'YLS_Personality_Score': 64, 'YLS_Attitude_Score': 100, 'Client self-harm': 95, 'CANS_LifeFunctioning': 63, 'CANS_YouthStrengths': 98, 'CANS_CareGiverStrengths': 67, 'CANS_Culture': 23, 'CANS_YouthBehavior': 2, 'CANS_YouthRisk': 76, 'CANS_Trauma_Exp': 36, 'Family support': 78, 'Level of aggression': 33, 'Fire setting': 17, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 23, 'FAST_FamilyTogetherScore': 72, 'FAST_CaregiverAdvocacyScore': 60}
+2020-03-05 15:11:14,329 4284-FirstMatch.views INFO     -post  -  446     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=true,condition_program-2
+2020-03-05 15:11:14,359 4284-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-05 15:11:14,439 4284-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-10 10:25:15,280 6376-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-10 10:25:24,037 6376-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-10 10:25:24,037 6376-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 53, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 412, 'RefSourceName': 9, 'Number of foster care placements': 1, 'AgeAtEpisodeStart': 72, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 428, 'Length of time since living at home': 1, 'Termination directly to AV': 1, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 0, 'Drug Use': 1, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 66, 'Compliant with medication': 9, 'Significant mental health symptoms': 17, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 31, 'YLS_FamCircumstances_Score': 14, 'YLS_Edu_Employ_Score': 52, 'YLS_Peer_Score': 80, 'YLS_Subab_Score': 33, 'YLS_Leisure_Score': 31, 'YLS_Personality_Score': 17, 'YLS_Attitude_Score': 38, 'Client self-harm': 23, 'CANS_LifeFunctioning': 34, 'CANS_YouthStrengths': 64, 'CANS_CareGiverStrengths': 72, 'CANS_Culture': 48, 'CANS_YouthBehavior': 16, 'CANS_YouthRisk': 36, 'CANS_Trauma_Exp': 49, 'Family support': 97, 'Level of aggression': 37, 'Fire setting': 70, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 97, 'FAST_FamilyTogetherScore': 79, 'FAST_CaregiverAdvocacyScore': 30}
+2020-03-10 10:25:40,732 6376-FirstMatch.views INFO     -post  -  624     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-10 10:25:40,751 6376-FirstMatch.views INFO     -program_condition  -  353     program_condition function
+2020-03-10 10:25:40,802 6376-FirstMatch.views INFO     -program_condition  -  353     program_condition function
+2020-03-10 10:25:54,364 6376-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-10 10:25:54,545 6376-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-10 10:25:58,761 17056-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-10 10:26:08,513 17056-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-10 10:26:08,514 17056-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 77, 'CYF_code': 2, 'LS_Type': 2, 'EpisodeNumber': 906, 'RefSourceName': 8, 'Number of foster care placements': 1, 'AgeAtEpisodeStart': 61, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 461, 'Length of time since living at home': 2, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 3, 'Animal cruelty': 1, 'Number of prior hospitalizations': 66, 'Compliant with medication': 9, 'Significant mental health symptoms': 6, 'Severe mental health symptoms': 3, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 77, 'YLS_FamCircumstances_Score': 43, 'YLS_Edu_Employ_Score': 8, 'YLS_Peer_Score': 59, 'YLS_Subab_Score': 5, 'YLS_Leisure_Score': 33, 'YLS_Personality_Score': 72, 'YLS_Attitude_Score': 65, 'Client self-harm': 5, 'CANS_LifeFunctioning': 5, 'CANS_YouthStrengths': 27, 'CANS_CareGiverStrengths': 13, 'CANS_Culture': 94, 'CANS_YouthBehavior': 77, 'CANS_YouthRisk': 66, 'CANS_Trauma_Exp': 14, 'Family support': 56, 'Level of aggression': 1, 'Fire setting': 94, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 64, 'FAST_FamilyTogetherScore': 86, 'FAST_CaregiverAdvocacyScore': 21}
+2020-03-10 10:26:09,366 17056-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 325, in post
+    print("shape", Xtest.colmns)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'colmns'
+2020-03-10 10:26:18,269 17056-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-10 10:26:30,189 13964-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-10 10:26:37,914 13964-FirstMatch.views INFO     -post  -  58     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-10 10:26:37,915 13964-FirstMatch.views INFO     -post  -  120     values are {'Gender': 2, 'AgeAtEnrollStart': 2, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 942, 'RefSourceName': 1, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 80, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 983, 'Length of time since living at home': 2, 'Termination directly to AV': 1, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 3, 'Animal cruelty': 1, 'Number of prior hospitalizations': 17, 'Compliant with medication': 1, 'Significant mental health symptoms': 99, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 80, 'YLS_FamCircumstances_Score': 87, 'YLS_Edu_Employ_Score': 23, 'YLS_Peer_Score': 9, 'YLS_Subab_Score': 31, 'YLS_Leisure_Score': 81, 'YLS_Personality_Score': 88, 'YLS_Attitude_Score': 60, 'Client self-harm': 4, 'CANS_LifeFunctioning': 66, 'CANS_YouthStrengths': 57, 'CANS_CareGiverStrengths': 19, 'CANS_Culture': 21, 'CANS_YouthBehavior': 50, 'CANS_YouthRisk': 9, 'CANS_Trauma_Exp': 60, 'Family support': 34, 'Level of aggression': 16, 'Fire setting': 15, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 30, 'FAST_FamilyTogetherScore': 100, 'FAST_CaregiverAdvocacyScore': 49}
+2020-03-10 10:26:39,230 13964-FirstMatch.views INFO     -post  -  624     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-10 10:26:39,252 13964-FirstMatch.views INFO     -program_condition  -  353     program_condition function
+2020-03-10 10:26:39,267 13964-FirstMatch.views INFO     -program_condition  -  353     program_condition function
+2020-03-10 10:31:35,915 13964-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-10 10:46:00,032 13224-FirstMatch.views INFO     -get  -  39     get method for AdelphoiList
+2020-03-10 10:46:08,919 13224-FirstMatch.views INFO     -get  -  793     Adelphoi_program--program search
+2020-03-10 10:49:47,384 13224-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-10 10:54:45,153 2428-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-10 10:56:06,810 15540-FirstMatch.views INFO     -get  -  792     Adelphoi_program--program search
+2020-03-10 11:56:50,366 15540-FirstMatch.views INFO     -get  -  38     get method for AdelphoiList
+2020-03-10 11:56:58,872 15540-FirstMatch.views INFO     -post  -  57     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-10 11:56:58,872 15540-FirstMatch.views INFO     -post  -  119     values are {'Gender': 2, 'AgeAtEnrollStart': 40, 'CYF_code': 1, 'LS_Type': 2, 'EpisodeNumber': 286, 'RefSourceName': 43, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 52, 'Number of prior placements \n(excluding shelter and detention)': 1, 'Number of prior treatment terminations (excluding shelter or detention)': 453, 'Length of time since living at home': 2, 'Termination directly to AV': 2, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 0, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 45, 'Compliant with medication': 9, 'Significant mental health symptoms': 41, 'Severe mental health symptoms': 1, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 88, 'YLS_FamCircumstances_Score': 49, 'YLS_Edu_Employ_Score': 97, 'YLS_Peer_Score': 14, 'YLS_Subab_Score': 70, 'YLS_Leisure_Score': 93, 'YLS_Personality_Score': 75, 'YLS_Attitude_Score': 35, 'Client self-harm': 81, 'CANS_LifeFunctioning': 35, 'CANS_YouthStrengths': 90, 'CANS_CareGiverStrengths': 57, 'CANS_Culture': 75, 'CANS_YouthBehavior': 72, 'CANS_YouthRisk': 46, 'CANS_Trauma_Exp': 95, 'Family support': 29, 'Level of aggression': 57, 'Fire setting': 48, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 4, 'FAST_FamilyTogetherScore': 37, 'FAST_CaregiverAdvocacyScore': 80}
+2020-03-10 11:57:00,133 15540-FirstMatch.views INFO     -post  -  623     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-10 11:57:00,155 15540-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-10 11:57:00,173 15540-FirstMatch.views INFO     -program_condition  -  352     program_condition function
+2020-03-11 10:22:31,752 17280-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/locations/22/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 1127, in put
+    mt.location_names = serializer.validated_data.get('location_names')
+AttributeError: 'NoneType' object has no attribute 'location_names'
+2020-03-11 10:23:02,876 17280-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\serializers.py changed, reloading.
+2020-03-11 10:23:08,036 10648-django.request WARNING  -log_response  -  228     Bad Request: /first_match/locations/22/
+2020-03-11 10:23:20,945 10648-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\serializers.py changed, reloading.
+2020-03-11 10:24:13,836 8812-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\serializers.py changed, reloading.
+2020-03-11 10:24:33,790 12680-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/locations/22/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 1127, in put
+    mt.location_names = serializer.validated_data.get('location_names')
+AttributeError: 'NoneType' object has no attribute 'location_names'
+2020-03-11 10:24:52,813 12680-FirstMatch.views INFO     -put  -  1129     LocationModify---locations modify
+2020-03-11 10:25:20,282 12680-FirstMatch.views INFO     -put  -  1129     LocationModify---locations modify
+2020-03-11 10:30:05,895 12680-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-11 10:34:54,436 10060-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\pdf_generation.py changed, reloading.
+2020-03-12 12:02:34,107 7716-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-12 12:02:59,640 3172-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-12 14:50:30,736 17772-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-12 15:00:16,575 16828-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-12 15:02:01,460 12988-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 11:54:49,872 3868-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/61/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 10, in update_logic
+    query = ModelTests.objects.get(pk=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 11:58:55,726 15464-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/61/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 10, in update_logic
+    query = ModelTests.objects.get(pk=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 12:00:25,031 15464-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 12:00:30,058 4312-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/61/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 10, in update_logic
+    query = ModelTests.objects.get(client_code=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 12:00:53,937 14124-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/61/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 10, in update_logic
+    query = ModelTests.objects.get(client_code=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 12:00:55,891 14124-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/61/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 10, in update_logic
+    query = ModelTests.objects.get(client_code=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 12:02:04,701 15736-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/61/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 11, in update_logic
+    query = ModelTests.objects.get(client_code=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 12:02:27,633 15736-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-16 12:03:22,524 11860-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/61/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 12:04:51,049 11860-FirstMatch.views INFO     -post  -  55     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-16 12:04:51,049 11860-FirstMatch.views INFO     -post  -  117     values are {'Gender': 2, 'AgeAtEnrollStart': 38, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 919, 'RefSourceName': 77, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 90, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 284, 'Length of time since living at home': 2, 'Termination directly to AV': 1, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 3, 'Animal cruelty': 1, 'Number of prior hospitalizations': 86, 'Compliant with medication': 1, 'Significant mental health symptoms': 10, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 69, 'YLS_FamCircumstances_Score': 18, 'YLS_Edu_Employ_Score': 57, 'YLS_Peer_Score': 17, 'YLS_Subab_Score': 30, 'YLS_Leisure_Score': 12, 'YLS_Personality_Score': 58, 'YLS_Attitude_Score': 13, 'Client self-harm': 73, 'CANS_LifeFunctioning': 9, 'CANS_YouthStrengths': 22, 'CANS_CareGiverStrengths': 71, 'CANS_Culture': 60, 'CANS_YouthBehavior': 30, 'CANS_YouthRisk': 95, 'CANS_Trauma_Exp': 8, 'Family support': 31, 'Level of aggression': 39, 'Fire setting': 19, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 47, 'FAST_FamilyTogetherScore': 57, 'FAST_CaregiverAdvocacyScore': 6}
+2020-03-16 12:04:51,995 11860-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2897, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol Use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 233, in post
+    if data['alcohol Use'] & data['Drug Use'] == 0:
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\frame.py", line 2995, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2899, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol Use'
+2020-03-16 12:08:09,528 7316-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 12:09:27,197 7316-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 12:10:54,641 5768-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 12:12:42,561 7576-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 393, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 12:14:40,181 7576-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 12:14:50,868 15112-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 393, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 12:14:59,669 15112-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 12:15:06,097 3480-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 393, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 12:15:19,883 3480-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 12:15:44,295 1840-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 391, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 12:22:50,217 15952-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 391, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 12:25:10,163 12640-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 391, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 12:29:29,279 12640-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 377, in update_logic
+    Xtest.to_csv("D:/Production_26022020/test.csv")
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\generic.py", line 3228, in to_csv
+    formatter.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\io\formats\csvs.py", line 183, in save
+    compression=self.compression,
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\io\common.py", line 399, in _get_handle
+    f = open(path_or_buf, mode, encoding=encoding, newline="")
+PermissionError: [Errno 13] Permission denied: 'D:/Production_26022020/test.csv'
+2020-03-16 12:29:31,383 12640-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 377, in update_logic
+    Xtest.to_csv("D:/Production_26022020/test.csv")
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\generic.py", line 3228, in to_csv
+    formatter.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\io\formats\csvs.py", line 183, in save
+    compression=self.compression,
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\io\common.py", line 399, in _get_handle
+    f = open(path_or_buf, mode, encoding=encoding, newline="")
+PermissionError: [Errno 13] Permission denied: 'D:/Production_26022020/test.csv'
+2020-03-16 12:31:33,702 12640-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 391, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 12:32:19,794 12992-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 12:33:08,825 12992-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 12:33:22,890 12992-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 12:33:28,013 12992-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 12:33:50,295 12992-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 14:05:46,480 13924-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 14:06:02,422 13924-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 14:06:30,086 10664-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:06:39,882 8860-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 14:07:07,617 8860-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:07:13,458 19160-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 966, in update_logic
+    serializer.save()
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 183, in save
+    'You cannot call `.save()` on a serializer with invalid data.'
+AssertionError: You cannot call `.save()` on a serializer with invalid data.
+2020-03-16 14:09:02,035 11668-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:09:33,608 11668-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:09:41,057 5848-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:10:01,756 5848-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:10:10,550 5848-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:34:07,472 5848-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:36:54,368 11360-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:37:22,689 11360-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:37:28,526 18260-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:37:55,225 13904-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:39:54,875 13904-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:39:59,636 18352-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:40:35,091 18352-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:41:17,781 14720-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:41:44,007 14720-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:41:59,878 3964-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view FirstMatch.update_api.update_logic didn't return an HttpResponse object. It returned None instead.
+2020-03-16 14:45:55,138 17092-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 390, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 14:47:46,811 17092-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:47:53,287 4504-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 390, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 14:49:06,243 4504-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:49:23,451 15288-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 14, in update_logic
+    print("gender", serializer.validated_data.get('gender'))
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 279, in validated_data
+    raise AssertionError(msg)
+AssertionError: You must call `.is_valid()` before accessing `.validated_data`.
+2020-03-16 14:49:48,036 15288-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 14:49:55,524 13092-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/97/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 392, in update_logic
+    level_pred = level_model.predict(Xtest)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 289, in predict
+    scores = self.decision_function(X)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\linear_model\base.py", line 265, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 542, in check_array
+    allow_nan=force_all_finite == 'allow-nan')
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\sklearn\utils\validation.py", line 56, in _assert_all_finite
+    raise ValueError(msg_err.format(type_err, X.dtype))
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-16 14:51:17,803 13092-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 14:59:50,809 1760-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-16 14:59:59,392 1760-FirstMatch.views INFO     -post  -  55     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-16 14:59:59,392 1760-FirstMatch.views INFO     -post  -  117     values are {'Gender': 2, 'AgeAtEnrollStart': 75, 'CYF_code': 2, 'LS_Type': 2, 'EpisodeNumber': 664, 'RefSourceName': 74, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 96, 'Number of prior placements \n(excluding shelter and detention)': 2, 'Number of prior treatment terminations (excluding shelter or detention)': 198, 'Length of time since living at home': 2, 'Termination directly to AV': 1, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 0, 'Drug Use': 1, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 2, 'Animal cruelty': 1, 'Number of prior hospitalizations': 12, 'Compliant with medication': 1, 'Significant mental health symptoms': 65, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 97, 'YLS_FamCircumstances_Score': 99, 'YLS_Edu_Employ_Score': 56, 'YLS_Peer_Score': 54, 'YLS_Subab_Score': 56, 'YLS_Leisure_Score': 73, 'YLS_Personality_Score': 33, 'YLS_Attitude_Score': 69, 'Client self-harm': 13, 'CANS_LifeFunctioning': 84, 'CANS_YouthStrengths': 32, 'CANS_CareGiverStrengths': 95, 'CANS_Culture': 80, 'CANS_YouthBehavior': 3, 'CANS_YouthRisk': 10, 'CANS_Trauma_Exp': 28, 'Family support': 56, 'Level of aggression': 93, 'Fire setting': 62, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 10, 'FAST_FamilyTogetherScore': 63, 'FAST_CaregiverAdvocacyScore': 49}
+2020-03-16 14:59:59,807 1760-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2897, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol Use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 233, in post
+    if data['alcohol Use'] & data['Drug Use'] == 0:
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\frame.py", line 2995, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2899, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol Use'
+2020-03-16 15:01:58,371 1760-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 15:02:01,768 6220-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-16 15:02:14,508 6220-FirstMatch.views INFO     -post  -  55     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-16 15:02:14,509 6220-FirstMatch.views INFO     -post  -  117     values are {'Gender': 2, 'AgeAtEnrollStart': 75, 'CYF_code': 2, 'LS_Type': 2, 'EpisodeNumber': 957, 'RefSourceName': 35, 'Number of foster care placements': 1, 'AgeAtEpisodeStart': 94, 'Number of prior placements \n(excluding shelter and detention)': 1, 'Number of prior treatment terminations (excluding shelter or detention)': 185, 'Length of time since living at home': 1, 'Termination directly to AV': 2, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 1, 'Alcohol Use': 0, 'Drug Use': 0, 'Incarcerated caregivers': 0, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 63, 'Compliant with medication': 9, 'Significant mental health symptoms': 67, 'Severe mental health symptoms': 4, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 76, 'YLS_FamCircumstances_Score': 100, 'YLS_Edu_Employ_Score': 40, 'YLS_Peer_Score': 38, 'YLS_Subab_Score': 28, 'YLS_Leisure_Score': 17, 'YLS_Personality_Score': 52, 'YLS_Attitude_Score': 93, 'Client self-harm': 75, 'CANS_LifeFunctioning': 97, 'CANS_YouthStrengths': 27, 'CANS_CareGiverStrengths': 3, 'CANS_Culture': 62, 'CANS_YouthBehavior': 50, 'CANS_YouthRisk': 7, 'CANS_Trauma_Exp': 85, 'Family support': 22, 'Level of aggression': 14, 'Fire setting': 90, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 63, 'FAST_FamilyTogetherScore': 84, 'FAST_CaregiverAdvocacyScore': 77}
+2020-03-16 15:02:14,940 6220-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2897, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol_Use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 233, in post
+    if data['alcohol_Use'] & data['drug_Use'] == 0:#if data['alcohol Use'] & data['Drug Use'] == 0:
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\frame.py", line 2995, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2899, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol_Use'
+2020-03-16 15:02:35,293 6220-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 15:02:43,748 5808-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-16 15:02:50,714 5808-FirstMatch.views INFO     -post  -  55     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-16 15:02:50,714 5808-FirstMatch.views INFO     -post  -  117     values are {'Gender': 2, 'AgeAtEnrollStart': 14, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 189, 'RefSourceName': 100, 'Number of foster care placements': 1, 'AgeAtEpisodeStart': 48, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 822, 'Length of time since living at home': 1, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 1, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 56, 'Compliant with medication': 1, 'Significant mental health symptoms': 18, 'Severe mental health symptoms': 3, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 86, 'YLS_FamCircumstances_Score': 27, 'YLS_Edu_Employ_Score': 41, 'YLS_Peer_Score': 50, 'YLS_Subab_Score': 43, 'YLS_Leisure_Score': 96, 'YLS_Personality_Score': 80, 'YLS_Attitude_Score': 57, 'Client self-harm': 3, 'CANS_LifeFunctioning': 48, 'CANS_YouthStrengths': 12, 'CANS_CareGiverStrengths': 1, 'CANS_Culture': 77, 'CANS_YouthBehavior': 66, 'CANS_YouthRisk': 97, 'CANS_Trauma_Exp': 91, 'Family support': 85, 'Level of aggression': 77, 'Fire setting': 9, 'Abuse, or neglect': 0, 'Screening tool for Trauma--Total score': 9, 'FAST_FamilyTogetherScore': 29, 'FAST_CaregiverAdvocacyScore': 51}
+2020-03-16 15:02:52,082 5808-FirstMatch.views INFO     -post  -  630     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-16 15:02:52,113 5808-FirstMatch.views INFO     -program_condition  -  359     program_condition function
+2020-03-16 15:02:52,207 5808-FirstMatch.views INFO     -program_condition  -  359     program_condition function
+2020-03-16 15:03:09,182 5808-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 15:07:05,275 9488-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/1/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 10, in update_logic
+    query = ModelTests.objects.get(pk=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 15:07:37,103 12120-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/1/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 10, in update_logic
+    query = ModelTests.objects.get(pk=pk)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\db\models\query.py", line 408, in get
+    self.model._meta.object_name
+FirstMatch.models.ModelTests.DoesNotExist: ModelTests matching query does not exist.
+2020-03-16 15:09:10,588 17076-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/latest_update/69/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py", line 15, in update_logic
+    if serializer.is_valid(raise_exception=True):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\serializers.py", line 243, in is_valid
+    raise ValidationError(self.errors)
+rest_framework.exceptions.ValidationError: {'roc_confidence': [ErrorDetail(string='This field is required.', code='required')]}
+2020-03-16 15:09:44,559 17076-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\serializers.py changed, reloading.
+2020-03-16 15:13:07,982 9448-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-16 15:13:33,553 9448-FirstMatch.views INFO     -post  -  55     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-16 15:13:33,553 9448-FirstMatch.views INFO     -post  -  117     values are {'Gender': 2, 'AgeAtEnrollStart': 76, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 963, 'RefSourceName': 25, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 76, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 792, 'Length of time since living at home': 2, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 0, 'Drug Use': 1, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 3, 'Animal cruelty': 1, 'Number of prior hospitalizations': 47, 'Compliant with medication': 1, 'Significant mental health symptoms': 47, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 19, 'YLS_FamCircumstances_Score': 49, 'YLS_Edu_Employ_Score': 21, 'YLS_Peer_Score': 25, 'YLS_Subab_Score': 88, 'YLS_Leisure_Score': 61, 'YLS_Personality_Score': 52, 'YLS_Attitude_Score': 34, 'Client self-harm': 90, 'CANS_LifeFunctioning': 8, 'CANS_YouthStrengths': 52, 'CANS_CareGiverStrengths': 1, 'CANS_Culture': 70, 'CANS_YouthBehavior': 43, 'CANS_YouthRisk': 75, 'CANS_Trauma_Exp': 48, 'Family support': 64, 'Level of aggression': 37, 'Fire setting': 7, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 64, 'FAST_FamilyTogetherScore': 2, 'FAST_CaregiverAdvocacyScore': 72}
+2020-03-16 15:13:33,921 9448-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2897, in get_loc
+    return self._engine.get_loc(key)
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol Use'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py", line 233, in post
+    if data['alcohol Use'] & data['Drug Use'] == 0:
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\frame.py", line 2995, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\pandas\core\indexes\base.py", line 2899, in get_loc
+    return self._engine.get_loc(self._maybe_cast_indexer(key))
+  File "pandas/_libs/index.pyx", line 107, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 131, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1607, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1614, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'alcohol Use'
+2020-03-16 15:13:57,235 9448-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 15:14:02,074 14536-FirstMatch.views INFO     -post  -  55     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-16 15:14:02,075 14536-FirstMatch.views INFO     -post  -  117     values are {'Gender': 2, 'AgeAtEnrollStart': 76, 'CYF_code': 1, 'LS_Type': 5, 'EpisodeNumber': 963, 'RefSourceName': 25, 'Number of foster care placements': 2, 'AgeAtEpisodeStart': 76, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 792, 'Length of time since living at home': 2, 'Termination directly to AV': 3, 'Death Caregiver': 1, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 0, 'Drug Use': 1, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 3, 'Animal cruelty': 1, 'Number of prior hospitalizations': 47, 'Compliant with medication': 1, 'Significant mental health symptoms': 47, 'Severe mental health symptoms': 2, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 19, 'YLS_FamCircumstances_Score': 49, 'YLS_Edu_Employ_Score': 21, 'YLS_Peer_Score': 25, 'YLS_Subab_Score': 88, 'YLS_Leisure_Score': 61, 'YLS_Personality_Score': 52, 'YLS_Attitude_Score': 34, 'Client self-harm': 90, 'CANS_LifeFunctioning': 8, 'CANS_YouthStrengths': 52, 'CANS_CareGiverStrengths': 1, 'CANS_Culture': 70, 'CANS_YouthBehavior': 43, 'CANS_YouthRisk': 75, 'CANS_Trauma_Exp': 48, 'Family support': 64, 'Level of aggression': 37, 'Fire setting': 7, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 64, 'FAST_FamilyTogetherScore': 2, 'FAST_CaregiverAdvocacyScore': 72}
+2020-03-16 15:14:03,540 14536-FirstMatch.views INFO     -post  -  630     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-16 15:14:03,571 14536-FirstMatch.views INFO     -program_condition  -  359     program_condition function
+2020-03-16 15:14:03,596 14536-FirstMatch.views INFO     -program_condition  -  359     program_condition function
+2020-03-16 15:14:11,389 14536-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-16 16:10:14,349 14536-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 16:10:53,081 16496-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-16 16:12:55,404 18760-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-16 16:13:03,357 13816-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-16 16:13:22,353 13816-FirstMatch.views INFO     -post  -  55     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-16 16:13:22,354 13816-FirstMatch.views INFO     -post  -  117     values are {'Gender': 2, 'AgeAtEnrollStart': 8, 'CYF_code': 1, 'LS_Type': 2, 'EpisodeNumber': 926, 'RefSourceName': 10, 'Number of foster care placements': 3, 'AgeAtEpisodeStart': 36, 'Number of prior placements \n(excluding shelter and detention)': 3, 'Number of prior treatment terminations (excluding shelter or detention)': 996, 'Length of time since living at home': 1, 'Termination directly to AV': 1, 'Death Caregiver': 0, 'Borderline IQ (below 70)': 1, 'Hist of prior program SAO': 1, 'Death Silblings': 0, 'Alcohol Use': 0, 'Drug Use': 0, 'Incarcerated caregivers': 1, 'Incarcerated siblings': 0, 'Number of prior AWOLS': 1, 'Animal cruelty': 1, 'Number of prior hospitalizations': 9, 'Compliant with medication': 9, 'Significant mental health symptoms': 82, 'Severe mental health symptoms': 1, 'Autism Diagnosis': 1, 'Borderline Personality': 1, 'Psychosis': 1, 'Reactive Attachment Disorder': 1, 'Schizophrenia': 1, 'YLS_PriorCurrentOffenses_Score': 79, 'YLS_FamCircumstances_Score': 12, 'YLS_Edu_Employ_Score': 81, 'YLS_Peer_Score': 19, 'YLS_Subab_Score': 90, 'YLS_Leisure_Score': 2, 'YLS_Personality_Score': 18, 'YLS_Attitude_Score': 48, 'Client self-harm': 42, 'CANS_LifeFunctioning': 41, 'CANS_YouthStrengths': 97, 'CANS_CareGiverStrengths': 30, 'CANS_Culture': 100, 'CANS_YouthBehavior': 18, 'CANS_YouthRisk': 30, 'CANS_Trauma_Exp': 83, 'Family support': 56, 'Level of aggression': 66, 'Fire setting': 44, 'Abuse, or neglect': 1, 'Screening tool for Trauma--Total score': 88, 'FAST_FamilyTogetherScore': 14, 'FAST_CaregiverAdvocacyScore': 9}
+2020-03-16 16:13:24,635 13816-FirstMatch.views INFO     -post  -  630     where Exclusionary_Criteria-False, gender-1,inclusionary_criteria=false,program_pred-(1,3)
+2020-03-16 16:13:24,669 13816-FirstMatch.views INFO     -program_condition  -  359     program_condition function
+2020-03-16 16:13:24,697 13816-FirstMatch.views INFO     -program_condition  -  359     program_condition function
+2020-03-17 10:50:58,843 9212-FirstMatch.views INFO     -get  -  36     get method for AdelphoiList
+2020-03-17 10:52:42,709 9212-FirstMatch.views INFO     -programSave  -  1031     programSave---Program saved based on id
+2020-03-17 10:53:35,676 9212-django.request WARNING  -log_response  -  228     Method Not Allowed: /first_match/program_list
+2020-03-17 10:54:55,595 9212-FirstMatch.views INFO     -put  -  1068     ProgramModify--Program name change
+2020-03-17 10:55:58,715 9212-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-17 10:56:17,971 17300-FirstMatch.views INFO     -programSave  -  1031     programSave---Program saved based on id
+2020-03-17 10:56:34,245 17300-django.request ERROR    -log_response  -  228     Internal Server Error: /first_match/programs/6/
+Traceback (most recent call last):
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Adelphoi\AdeplphoiEnv\AdelphoiENV\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+TypeError: delete() takes 1 positional argument but 2 were given
+2020-03-17 10:56:42,162 17300-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-17 10:59:29,639 16076-FirstMatch.views INFO     -loactionSave  -  1097     loactionSave---error location Id
+2020-03-17 11:01:32,852 16076-FirstMatch.views INFO     -loactionSave  -  1097     loactionSave---error location Id
+2020-03-17 11:02:35,164 16076-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-17 11:02:39,393 18776-FirstMatch.views INFO     -loactionSave  -  1094     loactionSave ---locations saved based on id
+2020-03-17 11:02:48,263 18776-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-17 11:04:08,325 8248-django.request WARNING  -log_response  -  228     Bad Request: /first_match/locations/22/
+2020-03-17 11:04:14,238 8248-FirstMatch.views INFO     -put  -  1130     LocationModify---locations modify
+2020-03-17 11:06:07,183 8248-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-17 11:13:59,995 13704-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\update_api.py changed, reloading.
+2020-03-17 11:26:25,314 15744-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-17 11:27:46,769 10692-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\pdf_generation.py changed, reloading.
+2020-03-17 14:51:16,264 8860-FirstMatch.views INFO     -get  -  50     get method for AdelphoiList
+2020-03-18 12:22:38,225 8860-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\serializers.py changed, reloading.
+2020-03-18 12:26:04,140 9852-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-18 12:34:10,077 12224-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
