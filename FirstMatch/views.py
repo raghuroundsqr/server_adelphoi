@@ -356,8 +356,8 @@ class AdelphoiList(ListCreateAPIView):
                     data[
                         'Screening tool for Trauma--Total score'
                     ] = 14.7244  # 14.634409
-            # if data['alcohol Use'] & data['Drug Use'] == 0:
-            #     data['YLS_Subab_Score'] = 0
+            # if data['Alcohol Use'][0] & data['Drug Use'][0] == 0:
+            #     data['YLS_Subab_Score'][0] = 0
             elif data['YLS_Subab_Score'][0] is None:
                 if data['Gender'][0] == 1:
                     data['YLS_Subab_Score'] = 2.1578  # 2.166667

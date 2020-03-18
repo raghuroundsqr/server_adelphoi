@@ -10071,3 +10071,71 @@ TypeError: delete() takes 1 positional argument but 2 were given
 2020-03-18 12:22:38,225 8860-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\serializers.py changed, reloading.
 2020-03-18 12:26:04,140 9852-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
 2020-03-18 12:34:10,077 12224-django.utils.autoreload INFO     -trigger_reload  -  217     D:\Production_26022020\adelphoi-django\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-18 14:28:16,453 2296-FirstMatch.views INFO     -post  -  75     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-18 14:28:16,453 2296-FirstMatch.views INFO     -post  -  235     values are {'Gender': 2, 'AgeAtEnrollStart': None, 'CYF_code': 0, 'LS_Type': 1, 'EpisodeNumber': 123, 'RefSourceName': 2, 'Number of foster care placements': 0, 'AgeAtEpisodeStart': None, 'Number of prior placements \n(excluding shelter and detention)': 0, 'Number of prior treatment terminations (excluding shelter or detention)': 1, 'Length of time since living at home': 0, 'Termination directly to AV': 0, 'Death Caregiver': None, 'Borderline IQ (below 70)': 0, 'Hist of prior program SAO': 0, 'Death Silblings': None, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': None, 'Incarcerated siblings': None, 'Number of prior AWOLS': 0, 'Animal cruelty': 0, 'Number of prior hospitalizations': None, 'Compliant with medication': 0, 'Significant mental health symptoms': 2, 'Severe mental health symptoms': 0, 'Autism Diagnosis': 0, 'Borderline Personality': 0, 'Psychosis': 0, 'Reactive Attachment Disorder': 0, 'Schizophrenia': 0, 'YLS_PriorCurrentOffenses_Score': None, 'YLS_FamCircumstances_Score': None, 'YLS_Edu_Employ_Score': None, 'YLS_Peer_Score': None, 'YLS_Subab_Score': None, 'YLS_Leisure_Score': None, 'YLS_Personality_Score': None, 'YLS_Attitude_Score': None, 'Client self-harm': None, 'CANS_LifeFunctioning': None, 'CANS_YouthStrengths': None, 'CANS_CareGiverStrengths': None, 'CANS_Culture': None, 'CANS_YouthBehavior': None, 'CANS_YouthRisk': None, 'CANS_Trauma_Exp': None, 'Family support': None, 'Level of aggression': None, 'Fire setting': None, 'Abuse, or neglect': None, 'Screening tool for Trauma--Total score': None, 'FAST_FamilyTogetherScore': None, 'FAST_CaregiverAdvocacyScore': 1}
+2020-03-18 14:28:17,671 2296-django.request ERROR    -log_response  -  222     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\RoundSqr\Projects\Adelphoi\server_adelphoi\FirstMatch\views.py", line 521, in post
+    level_pred = level_model.predict(Xtest)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\linear_model\_base.py", line 293, in predict
+    scores = self.decision_function(X)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\linear_model\_base.py", line 268, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\utils\validation.py", line 577, in check_array
+    _assert_all_finite(array,
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\utils\validation.py", line 57, in _assert_all_finite
+    raise ValueError(
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-18 14:28:56,353 2296-django.utils.autoreload INFO     -trigger_reload  -  217     D:\RoundSqr\Projects\Adelphoi\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-18 14:29:00,964 13552-FirstMatch.views INFO     -post  -  75     AdelphoiList class where Exclusionary_Criteria is False
+2020-03-18 14:29:00,965 13552-FirstMatch.views INFO     -post  -  235     values are {'Gender': 2, 'AgeAtEnrollStart': None, 'CYF_code': 0, 'LS_Type': 1, 'EpisodeNumber': 123, 'RefSourceName': 2, 'Number of foster care placements': 0, 'AgeAtEpisodeStart': None, 'Number of prior placements \n(excluding shelter and detention)': 0, 'Number of prior treatment terminations (excluding shelter or detention)': 1, 'Length of time since living at home': 0, 'Termination directly to AV': 0, 'Death Caregiver': None, 'Borderline IQ (below 70)': 0, 'Hist of prior program SAO': 0, 'Death Silblings': None, 'Alcohol Use': 1, 'Drug Use': 1, 'Incarcerated caregivers': None, 'Incarcerated siblings': None, 'Number of prior AWOLS': 0, 'Animal cruelty': 0, 'Number of prior hospitalizations': None, 'Compliant with medication': 0, 'Significant mental health symptoms': 2, 'Severe mental health symptoms': 0, 'Autism Diagnosis': 0, 'Borderline Personality': 0, 'Psychosis': 0, 'Reactive Attachment Disorder': 0, 'Schizophrenia': 0, 'YLS_PriorCurrentOffenses_Score': None, 'YLS_FamCircumstances_Score': None, 'YLS_Edu_Employ_Score': None, 'YLS_Peer_Score': None, 'YLS_Subab_Score': None, 'YLS_Leisure_Score': None, 'YLS_Personality_Score': None, 'YLS_Attitude_Score': None, 'Client self-harm': None, 'CANS_LifeFunctioning': None, 'CANS_YouthStrengths': None, 'CANS_CareGiverStrengths': None, 'CANS_Culture': None, 'CANS_YouthBehavior': None, 'CANS_YouthRisk': None, 'CANS_Trauma_Exp': None, 'Family support': None, 'Level of aggression': None, 'Fire setting': None, 'Abuse, or neglect': None, 'Screening tool for Trauma--Total score': None, 'FAST_FamilyTogetherScore': None, 'FAST_CaregiverAdvocacyScore': 1}
+2020-03-18 14:29:02,528 13552-django.request ERROR    -log_response  -  222     Internal Server Error: /first_match/list_view/
+Traceback (most recent call last):
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\RoundSqr\Projects\Adelphoi\server_adelphoi\FirstMatch\views.py", line 521, in post
+    level_pred = level_model.predict(Xtest)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\linear_model\_base.py", line 293, in predict
+    scores = self.decision_function(X)
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\linear_model\_base.py", line 268, in decision_function
+    X = check_array(X, accept_sparse='csr')
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\utils\validation.py", line 577, in check_array
+    _assert_all_finite(array,
+  File "C:\Users\Adinarayana\VENVs\adelphoi\lib\site-packages\sklearn\utils\validation.py", line 57, in _assert_all_finite
+    raise ValueError(
+ValueError: Input contains NaN, infinity or a value too large for dtype('float64').
+2020-03-18 14:30:22,101 13552-django.utils.autoreload INFO     -trigger_reload  -  217     D:\RoundSqr\Projects\Adelphoi\server_adelphoi\FirstMatch\views.py changed, reloading.
