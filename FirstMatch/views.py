@@ -25,7 +25,6 @@ from .serializers import (
 from django_filters.rest_framework import DjangoFilterBackend
 from AdelphoiProject.settings import SOURCE_DIR
 
-
 # import os
 # import weasyprint
 # from datetime import datetime
@@ -371,10 +370,11 @@ class AdelphoiList(ListCreateAPIView):
                 dummies1 = pd.get_dummies(data[column], prefix=column)
                 dummies[dummies1.columns] = dummies1.copy(deep=False)
 
-            cols = ['Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
+            cols = [
+                'Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
                 'LS_Type_3', 'LS_Type_4', 'LS_Type_5', 'CYF_code_0',
                 'CYF_code_1', 'CYF_code_2'
-                    ]
+                ]
             # 'RefSourceName_1', 'RefSourceName_2', 'RefSourceName_3',
             # 'RefSourceName_4', 'RefSourceName_5', 'RefSourceName_6',
             # 'RefSourceName_7', 'RefSourceName_8', 'RefSourceName_9',
@@ -1807,8 +1807,7 @@ class RecommndedProgramPCR(UpdateAPIView):
                 cols = [
                     'Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
                     'LS_Type_3', 'LS_Type_4', 'LS_Type_5',
-                    'CYF_code_0','CYF_code_1',
-                    'CYF_code_2'
+                    'CYF_code_0', 'CYF_code_1', 'CYF_code_2'
                 ]
                 # , 'RefSourceName_1', 'RefSourceName_2', 'RefSourceName_3',
                 # 'RefSourceName_4', 'RefSourceName_5', 'RefSourceName_6',
@@ -1902,7 +1901,7 @@ class RecommndedProgramPCR(UpdateAPIView):
                 )
                 roc_result = roc_model.predict_proba(Xp)
                 result = round(PC_proba[0][1] * 100)
-                roc_results =round(roc_result[0][1]*100)
+                roc_results = round(roc_result[0][1]*100)
                 mt.confidence = result
                 mt.roc_confidence = roc_results
                 mt.save()
@@ -1993,5 +1992,3 @@ class referralModify(RetrieveUpdateAPIView):
                 "Result": "Referral name is modified"
             }
         )
-
-# test

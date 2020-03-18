@@ -151,11 +151,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 SOURCE_DIR = os.path.join(BASE_DIR, 'sources')
 
-
-
-REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'}
-
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
-
