@@ -1,4 +1,5 @@
 # Create your views here.
+import os
 import json
 from django.http import JsonResponse
 from rest_framework.generics import (
@@ -22,6 +23,7 @@ from .serializers import (
 )
 
 from django_filters.rest_framework import DjangoFilterBackend
+from AdelphoiProject.settings import SOURCE_DIR
 
 # import os
 # import weasyprint
@@ -354,7 +356,7 @@ class AdelphoiList(ListCreateAPIView):
                     data[
                         'Screening tool for Trauma--Total score'
                     ] = 14.7244  # 14.634409
-            if data['alcohol Use'] & data['Drug Use'] == 0:
+            if data['Alcohol Use'][0] & data['Drug Use'][0] == 0:
                 data['YLS_Subab_Score'] = 0
             elif data['YLS_Subab_Score'][0] is None:
                 if data['Gender'][0] == 1:
@@ -492,33 +494,29 @@ class AdelphoiList(ListCreateAPIView):
 
             level_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_LR_LC_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_LR_LC_28feb.sav"),
                     "rb"
                 )
             )
             program_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_DT_P_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_DT_P_28feb.sav"),
                     "rb"
                 )
             )
             facility_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_LR_FT_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_LR_FT_28feb.sav"),
                     "rb"
                 )
             )
             PC_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_LR_PC_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_LR_PC_28feb.sav"),
                     "rb"
                 )
             )
-
+            print("Xtest", Xtest)
             level_pred = level_model.predict(Xtest)
             program_pred = program_model.predict(Xtest)
             facility_preds = facility_model.predict(Xtest)
@@ -572,9 +570,11 @@ class AdelphoiList(ListCreateAPIView):
                     Xp['ProgramCompletion'] = 0
                 roc_model = pickle.load(
                     open(
-                        "D:/Production_26022020/adelphoi-django/"
-                        "server_adelphoi/sources/new_pickles/"
-                        "R_LR_RC_28feb.sav",
+                        os.path.join(
+                            SOURCE_DIR,
+                            "new_pickles",
+                            "R_LR_RC_28feb.sav"
+                        ),
                         "rb"
                     )
                 )
@@ -809,9 +809,11 @@ class AdelphoiList(ListCreateAPIView):
                             # )
                             p13_model = pickle.load(
                                 open(
-                                    "D:/Production_26022020/adelphoi-django/"
-                                    "server_adelphoi/sources/new_pickles/"
-                                    "R_LR_P13_28feb.sav",
+                                    os.path.join(
+                                        SOURCE_DIR,
+                                        "new_pickles",
+                                        "R_LR_P13_28feb.sav"
+                                    ),
                                     "rb"
                                 )
                             )
@@ -1203,7 +1205,7 @@ class AdelphoiList(ListCreateAPIView):
                     })
         else:
             serializer.save()
-            return Response({"Result": "Thanx for registering with ADELPHOI"})
+            return Response({"Result": "Thank you for registering with ADELPHOI"})
         return Response({"data": "Failure"})
 
 
@@ -1841,9 +1843,11 @@ class RecommndedProgramPCR(UpdateAPIView):
                 # )
                 PC_model = pickle.load(
                     open(
-                        "D:/Production_26022020/adelphoi-django/"
-                        "server_adelphoi/sources/new_pickles/"
-                        "R_LR_PC_28feb.sav",
+                        os.path.join(
+                            SOURCE_DIR,
+                            "new_pickles",
+                            "R_LR_PC_28feb.sav",
+                        ),
                         "rb"
                     )
                 )
@@ -1886,9 +1890,11 @@ class RecommndedProgramPCR(UpdateAPIView):
                     Xp['ProgramCompletion'] = 0
                 roc_model = pickle.load(
                     open(
-                        "D:/Production_26022020/adelphoi-django/"
-                        "server_adelphoi/sources/new_pickles/"
-                        "R_LR_RC_28feb.sav",
+                        os.path.join(
+                            SOURCE_DIR,
+                            "new_pickles",
+                            "R_LR_RC_28feb.sav"
+                        ),
                         "rb"
                     )
                 )
