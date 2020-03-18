@@ -7,6 +7,7 @@
 # from weasyprint import CSS
 # from rest_framework.response import Response
 # import logging
+# from AdelphoiProject.settings import STATICFILES_DIRS
 # logging.basicConfig(
 #     filename='test_log.log',
 #     level=logging.INFO,
@@ -50,16 +51,16 @@
 #         'recommended_program': recommnded_program,
 #         'recommende_level': results.client_selected_program
 #     }
-#     dir = r'/home/ubuntu/Adelphoi_outputfiles'
+#     dirs = os.path.join(BASE_DIR,"Adelphoi_outputfiles")
 #     date_path = str(datetime.now().strftime('%Y-%m-%d'))
 #     try:
 #         logger.info('directory is creating for pdf')
-#         os.makedirs(dir + '/' + 'outputfiles/' + date_path + '/' +
+#         os.makedirs(dirs + '/' + 'outputfiles/' + date_path + '/' +
 #                     str(results.client_code) + '/')
 #     except:
 #         pass
 #     reportfilename = str(str(results.client_code) + ".pdf")
-#     pdf_file_path = dir + '/' + 'outputfiles/' + date_path + '/'
+#     pdf_file_path = dirs + '/' + 'outputfiles/' + date_path + '/'
 #     pdf_file_path += str(results.client_code) + '/' + reportfilename
 #     html = template.render(
 #         values
@@ -69,7 +70,7 @@
 #         base_url=request.build_absolute_uri()
 #     ).write_pdf(
 #         stylesheets=[
-#             CSS('/home/ubuntu/Adelphoi/adelphoi-django/templates/index.css')
+#             CSS(os.path.join(STATICFILES_DIRS,"index.css"))
 #         ],
 #         presentational_hints=True
 #     )

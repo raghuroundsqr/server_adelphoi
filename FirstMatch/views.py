@@ -25,6 +25,7 @@ from .serializers import (
 from django_filters.rest_framework import DjangoFilterBackend
 from AdelphoiProject.settings import SOURCE_DIR
 
+
 # import os
 # import weasyprint
 # from datetime import datetime
@@ -356,8 +357,8 @@ class AdelphoiList(ListCreateAPIView):
                     data[
                         'Screening tool for Trauma--Total score'
                     ] = 14.7244  # 14.634409
-            # if data['alcohol Use'] & data['Drug Use'] == 0:
-            #     data['YLS_Subab_Score'] = 0
+            # if data['Alcohol Use'][0] & data['Drug Use'][0] == 0:
+            #     data['YLS_Subab_Score'][0] = 0
             elif data['YLS_Subab_Score'][0] is None:
                 if data['Gender'][0] == 1:
                     data['YLS_Subab_Score'] = 2.1578  # 2.166667
@@ -371,9 +372,8 @@ class AdelphoiList(ListCreateAPIView):
                 dummies[dummies1.columns] = dummies1.copy(deep=False)
 
             cols = ['Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
-                    'LS_Type_3', 'LS_Type_4', 'LS_Type_5',
-                    'CYF_code_0','CYF_code_1',
-                    'CYF_code_2'
+                'LS_Type_3', 'LS_Type_4', 'LS_Type_5', 'CYF_code_0',
+                'CYF_code_1', 'CYF_code_2'
                     ]
             # 'RefSourceName_1', 'RefSourceName_2', 'RefSourceName_3',
             # 'RefSourceName_4', 'RefSourceName_5', 'RefSourceName_6',
@@ -400,6 +400,7 @@ class AdelphoiList(ListCreateAPIView):
                     print('present', col)
                 else:
                     dummies[col] = 0
+            data.fillna(0, inplace=True)
             numeric_cols = [
                 'Gender', 'LS_Type', 'CYF_code', 'RefSourceName',
                 'EpisodeNumber', 'Number of foster care placements',
@@ -517,7 +518,6 @@ class AdelphoiList(ListCreateAPIView):
                     "rb"
                 )
             )
-
             level_pred = level_model.predict(Xtest)
             program_pred = program_model.predict(Xtest)
             facility_preds = facility_model.predict(Xtest)
@@ -1993,5 +1993,3 @@ class referralModify(RetrieveUpdateAPIView):
                 "Result": "Referral name is modified"
             }
         )
-
-# test
