@@ -42,6 +42,7 @@ interface FormValues {
   client_selected_location: string;
 }
 const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
+ 
   const [clientCode, setClientCode] = useState<string | null>(null);
   const history = useHistory();
   const programOptions = props.client.SuggestedPrograms
@@ -101,88 +102,14 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
           }}
         >
           {({ values, handleSubmit, handleChange }) => (
+           
             <form name="submitPredictionForm" onSubmit={handleSubmit}>
-              <div css={fieldRow}>
-                <div css={twoCol}>
-                  <label css={label}>Program</label>
-                </div>
-                <div css={twoCol}>
-                  <Dropdown
-                    name="Program"
-                    options={programOptions}
-                    onChange={onProgramChange}
-                    defaultValue={programOptions.find(
-                      p => p.value === props.client.client_selected_program
-                    )}
-                    value={values.Program || null}
-                  />
-                </div>
-              </div>
-
-              <div css={fieldRow}>
-                <div css={twoCol}>
-                  <label css={label}>Program Completion Likelihood</label>
-                </div>
-                <div css={twoCol}>
-                  <input
-                    type="text"
-                    readOnly
-                    name="Confidence"
-                    css={inputField}
-                    placeholder=""
-                    value={values.Confidence === null ? "" : values.Confidence}
-                    onChange={handleChange}
-                  />
-                  <ErrorMessage component="span" name="Confidence" />
-                </div>
-              </div>
-              <div css={fieldRow}>
-                <div css={twoCol}>
-                  <label css={label}>Remain Out of care Likelihood</label>
-                </div>
-                <div css={twoCol}>
-                  <input
-                    type="text"
-                    readOnly
-                    name="roc_confidence"
-                    css={inputField}
-                    placeholder=""
-                    value={values.Roc_confidence === null ? "" : values.Roc_confidence}
-                    onChange={handleChange}
-                  />
-                  <ErrorMessage component="span" name="roc_confidence" />
-                </div>
-              </div>
-              <div css={fieldRow}>
-                <div css={twoCol}>
-                  <label css={label}>Location</label>
-                </div>
-                <div css={twoCol}>
-                  <select
-                    css={selectField}
-                    name="client_selected_location"
-                    value={values.client_selected_location}
-                    onChange={handleChange}
-                  >
-                    <option value="">Select</option>
-                    {props.client.SuggestedLocations &&
-                      props.client.SuggestedLocations.map(loc => (
-                        <option key={loc} value={loc}>
-                          {loc}
-                        </option>
-                      ))}
-                  </select>
-                  <ErrorMessage
-                    component="span"
-                    name="client_selected_location"
-                  />
-                </div>
-              </div>
-              <div
+              {clientCode && (
+                <div
                 css={fieldRow}
                 style={{ justifyContent: "flex-end", alignItems: "center" }}
               >
-                {clientCode && (
+                Prediction program for client {props.client.name} has been created with client-id {props.client.client_code}.
                   <a
                     css={[txtDetail]}
                     style={{ display: "flex", marginRight: 15 }}
@@ -191,21 +118,109 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
                     onClick={() => history.push("/new-client")}
                     href={`${baseApiUrl}/index/${clientCode}`}
                   >
-                    <PictureAsPdfIcon /> Download Report
+                    <PictureAsPdfIcon /> Download Report 
                   </a>
+                  </div>
                 )}
-                <Button
-                  type="submit"
-                  size="large"
-                  variant="contained"
-                  color="primary"
+                {!clientCode && (
+                  <div>
+                  <div css={fieldRow}>
+                  <div css={twoCol}>
+                    <label css={label}>Program</label>
+                  </div>
+                  <div css={twoCol}>
+                    <Dropdown
+                      name="Program"
+                      options={programOptions}
+                      onChange={onProgramChange}
+                      defaultValue={programOptions.find(
+                        p => p.value === props.client.client_selected_program
+                      )}
+                      value={values.Program || null}
+                    />
+                  </div>
+                </div>
+  
+                <div css={fieldRow}>
+                  <div css={twoCol}>
+                    <label css={label}>Program Completion Likelihood</label>
+                  </div>
+                  <div css={twoCol}>
+                    <input
+                      type="text"
+                      readOnly
+                      name="Confidence"
+                      css={inputField}
+                      placeholder=""
+                      value={values.Confidence === null ? "" : values.Confidence}
+                      onChange={handleChange}
+                    />
+                    <ErrorMessage component="span" name="Confidence" />
+                  </div>
+                </div>
+                <div css={fieldRow}>
+                  <div css={twoCol}>
+                    <label css={label}>Remain Out of care Likelihood</label>
+                  </div>
+                  <div css={twoCol}>
+                    <input
+                      type="text"
+                      readOnly
+                      name="roc_confidence"
+                      css={inputField}
+                      placeholder=""
+                      value={values.Roc_confidence === null ? "" : values.Roc_confidence}
+                      onChange={handleChange}
+                    />
+                    <ErrorMessage component="span" name="roc_confidence" />
+                  </div>
+                </div>
+                <div css={fieldRow}>
+                  <div css={twoCol}>
+                    <label css={label}>Location</label>
+                  </div>
+                  <div css={twoCol}>
+                    <select
+                      css={selectField}
+                      name="client_selected_location"
+                      value={values.client_selected_location}
+                      onChange={handleChange}
+                    >
+                      <option value="">Select</option>
+                      {props.client.SuggestedLocations &&
+                        props.client.SuggestedLocations.map(loc => (
+                          <option key={loc} value={loc}>
+                            {loc}
+                          </option>
+                        ))}
+                    </select>
+                    <ErrorMessage
+                      component="span"
+                      name="client_selected_location"
+                    />
+                  </div>
+                </div>
+                <div
+                  css={fieldRow}
+                  style={{ justifyContent: "flex-end", alignItems: "center" }}
                 >
-                  Continue
-                </Button>
-              </div>
+                  
+                  <Button
+                    type="submit"
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                  >
+                    Continue
+                  </Button>
+                </div>
+                </div>
+                )}
+              
             </form>
           )}
         </Formik>
+       
       </div>
       {/* MAIN CONTENT */}
     </div>

@@ -100,7 +100,7 @@ export class ClientDetailsContainer extends React.Component<
     program: string | null,
     location: string | null
   ) => {
-    console.log('update')
+    
     try {
       this.setState({ isLoading: true });
 
@@ -139,7 +139,7 @@ export class ClientDetailsContainer extends React.Component<
   };
 
   submitProgram = async (client: Types.Client) => {
-    console.log('submit')
+   
     // const { client: clientState } = this.props;
     // if (!clientState || !clientState.client) {
     //   return false;

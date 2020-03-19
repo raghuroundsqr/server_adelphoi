@@ -147,7 +147,7 @@ export class NewClientContainer extends React.Component<
     this.setState({ isLoading: false });
     
     this.props.enqueueSnackbar("Data saved successfully.");
-    this.props.clearClient();
+    //this.props.clearClient();
   };
   
 
@@ -177,7 +177,7 @@ export class NewClientContainer extends React.Component<
     currentClient = clientState ? clientState.client : Types.emptyClient;
     const availableProgramList =
       (programState && programState.availableProgramList) || [];
-
+  
     return (
       <Switch>
         <Route exact path="/new-client/program-selection">
@@ -221,7 +221,7 @@ export class NewClientContainer extends React.Component<
           <PredictionFormStep1
             {...this.state}
             Referral={referralList}
-            client={currentClient}
+            client={currentClient.model_program ? Types.emptyClient : currentClient}
             onFormSubmit={this.saveClientStep1}
             errors = {(clientState && clientState.errors) || undefined}
           />

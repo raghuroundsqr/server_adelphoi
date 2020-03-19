@@ -125,7 +125,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
     return <SnackNotification errors={errors} />;
   };
   
-console.log(props.client.client_code,'client')
+
   return (
     <div css={wrap}>
       {renderErrorNotification()}
