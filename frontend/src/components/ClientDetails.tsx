@@ -88,7 +88,7 @@ const ClientDetails: React.FC<ClientDetailsProps> = props => {
       !predicted_program ||
       predicted_program === props.client.selected_program
     ) {
-      setPredictedProgram(props.client.selected_program);
+      setPredictedProgram(props.client.model_program);
     }
   }, [props.client.selected_program]);
   useEffect(() => {
@@ -128,7 +128,7 @@ const ClientDetails: React.FC<ClientDetailsProps> = props => {
   
 })
   
- 
+ console.log(props.client,'suggested')
   const programOptions = props.client.SuggestedPrograms
     ? props.client.SuggestedPrograms.map(p => {
       return {
@@ -765,7 +765,7 @@ const ClientDetails: React.FC<ClientDetailsProps> = props => {
                   options={programOptions}
                   onChange={(p: any) => onProgramChange(p, values)}
                   defaultValue={programOptions.find(
-                    p => p.value === predicted_program
+                    p => p.value === predicted_program  
                   )}
                   value={values.Program || null}
                 />
