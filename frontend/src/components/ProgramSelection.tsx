@@ -109,7 +109,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
                 css={fieldRow}
                 style={{ justifyContent: "flex-end", alignItems: "center" }}
               >
-                Prediction program for client {props.client.name} has been created with client-id {props.client.client_code}.
+                Prediction program for client {props.client.name} has been created with client-id {props.client.client_code}. 
                   <a
                     css={[txtDetail]}
                     style={{ display: "flex", marginRight: 15 }}
@@ -122,7 +122,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
                   </a>
                   </div>
                 )}
-                {!clientCode && (
+                {!clientCode && ( 
                   <div>
                   <div css={fieldRow}>
                   <div css={twoCol}>
@@ -211,7 +211,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
                     variant="contained"
                     color="primary"
                   >
-                    Continue
+                    Submit
                   </Button>
                 </div>
                 </div>
