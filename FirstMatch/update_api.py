@@ -11,7 +11,7 @@ def update_logic(request,pk):
     if request.method == 'PUT':
         data = JSONParser().parse(request)
         serializer = UpdateSerializers(query, data=data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             query_gender = Adelphoi_Mapping.objects.filter(
                 gender=serializer.validated_data.get('gender'))
             suggested_programs = []
@@ -297,7 +297,7 @@ def update_logic(request,pk):
                     dummies[dummies1.columns] = dummies1.copy(deep=False)
 
                 cols = ['Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
-                        'LS_Type_3','LS_Type_4','LS_Type_5','CYF_code_1',
+                        'LS_Type_3','LS_Type_4','LS_Type_5','CYF_code_0','CYF_code_1',
                         'CYF_code_2']
                 for col in cols:
                     if col in dummies.columns:
@@ -374,17 +374,16 @@ def update_logic(request,pk):
                 Xtest[dummies.columns] = dummies
 
                 level_model = pickle.load(
-                    open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_LC_28feb.sav",
-                         "rb"))
+                    open(os.path.join(SOURCE_DIR, "new_pickles","R_LR_LC_11march.sav","rb")))
                 program_model = pickle.load(
-                    open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_DT_P_28feb.sav",
-                         "rb"))
+                    open(os.path.join(SOURCE_DIR, "new_pickles","R_DT_P_11march.sav",
+                         "rb")))
                 facility_model = pickle.load(
-                    open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_FT_28feb.sav",
-                         "rb"))
+                    open(os.path.join(SOURCE_DIR, "new_pickles","R_LR_FT_11march.sav",
+                         "rb")))
                 PC_model = pickle.load(
-                    open("D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_PC_28feb.sav",
-                         "rb"))
+                    open(os.path.join(SOURCE_DIR, "new_pickles","R_LR_PC_11march.sav",
+                         "rb")))
 
                 level_pred = level_model.predict(Xtest)
                 program_pred = program_model.predict(Xtest)
@@ -431,11 +430,11 @@ def update_logic(request,pk):
                     else:
                         Xp['ProgramCompletion'] = 0
                     roc_model = pickle.load(open(
-                        "D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_RC_28feb.sav",
-                        "rb"))
+                        os.path.join(SOURCE_DIR, "new_pickles","R_LR_RC_11march.sav",
+                        "rb")))
                     roc_result = roc_model.predict_proba(Xp)
                     print("roc_result", roc_result)
-                    return [round(PC_proba[0][1] * 100), round(roc_result[0][0] * 100)]
+                    return [round(PC_proba[0][1] * 100), round(roc_result[0][1] * 100)]
 
                 program_list = []
                 level_list = []
@@ -582,8 +581,8 @@ def update_logic(request,pk):
                                 ylsSUBAB = serializer.validated_data.get('yls_Subab_Score')
                                 alcholUSe = serializer.validated_data.get('alcohol_Use')
                                 p13_model = pickle.load(open(
-                                    "D:/Production_26022020/adelphoi-django/server_adelphoi/sources/new_pickles/R_LR_P13_28feb.sav",
-                                    "rb"))
+                                    os.path.join(SOURCE_DIR, "new_pickles","R_LR_P13_11march.sav",
+                                    "rb")))
                                 p13_model_preds = p13_model.predict(Xtest)
                                 if (drugUse == 0 and ylsSUBAB == 0 and alcholUSe == 0):
                                     condition_program = 3
@@ -964,3 +963,7 @@ def update_logic(request,pk):
                 serializer.save()
                 return JsonResponse({"Result": "Thanx for registering with ADELPHOI"})
             return JsonResponse({"data": "Failure"})
+        else:
+            return JsonResponse({"data": "serializer not allowed"})
+    else:
+        return JsonResponse({"data": "method not allowed"})

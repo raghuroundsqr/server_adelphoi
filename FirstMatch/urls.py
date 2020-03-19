@@ -27,7 +27,7 @@ urlpatterns = [
     path('program_list', views.Program_list.as_view()),  # list of programs
     path('programs/<pk>/', views.ProgramModify.as_view()),  # modify program
 
-    path('location_save', views.loactionSave),  # add new locations
+    path('location_save', views.locationSave),  # add new locations
     path('location_list',
          views.Location_list.as_view()),  # list of locations
     path('locations/<pk>/',

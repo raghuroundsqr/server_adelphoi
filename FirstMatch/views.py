@@ -1,4 +1,5 @@
 # Create your views here.
+import os
 import json
 from django.http import JsonResponse
 from rest_framework.generics import (
@@ -22,6 +23,7 @@ from .serializers import (
 )
 
 from django_filters.rest_framework import DjangoFilterBackend
+from AdelphoiProject.settings import SOURCE_DIR
 
 # import os
 # import weasyprint
@@ -354,8 +356,8 @@ class AdelphoiList(ListCreateAPIView):
                     data[
                         'Screening tool for Trauma--Total score'
                     ] = 14.7244  # 14.634409
-            if data['alcohol Use'] & data['Drug Use'] == 0:
-                data['YLS_Subab_Score'] = 0
+            # if data['Alcohol Use'][0] & data['Drug Use'][0] == 0:
+            #     data['YLS_Subab_Score'][0] = 0
             elif data['YLS_Subab_Score'][0] is None:
                 if data['Gender'][0] == 1:
                     data['YLS_Subab_Score'] = 2.1578  # 2.166667
@@ -368,10 +370,11 @@ class AdelphoiList(ListCreateAPIView):
                 dummies1 = pd.get_dummies(data[column], prefix=column)
                 dummies[dummies1.columns] = dummies1.copy(deep=False)
 
-            cols = ['Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
-                    'LS_Type_3', 'LS_Type_4', 'LS_Type_5', 'CYF_code_1',
-                    'CYF_code_2'
-                    ]
+            cols = [
+                'Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
+                'LS_Type_3', 'LS_Type_4', 'LS_Type_5', 'CYF_code_0',
+                'CYF_code_1', 'CYF_code_2'
+                ]
             # 'RefSourceName_1', 'RefSourceName_2', 'RefSourceName_3',
             # 'RefSourceName_4', 'RefSourceName_5', 'RefSourceName_6',
             # 'RefSourceName_7', 'RefSourceName_8', 'RefSourceName_9',
@@ -397,6 +400,7 @@ class AdelphoiList(ListCreateAPIView):
                     print('present', col)
                 else:
                     dummies[col] = 0
+            data.fillna(0, inplace=True)
             numeric_cols = [
                 'Gender', 'LS_Type', 'CYF_code', 'RefSourceName',
                 'EpisodeNumber', 'Number of foster care placements',
@@ -492,33 +496,28 @@ class AdelphoiList(ListCreateAPIView):
 
             level_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_LR_LC_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_LR_LC_11march.sav"),
                     "rb"
                 )
             )
             program_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_DT_P_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_DT_P_11march.sav"),
                     "rb"
                 )
             )
             facility_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_LR_FT_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_LR_FT_11march.sav"),
                     "rb"
                 )
             )
             PC_model = pickle.load(
                 open(
-                    "D:/Production_26022020/adelphoi-django/server_adelphoi/"
-                    "sources/new_pickles/R_LR_PC_28feb.sav",
+                    os.path.join(SOURCE_DIR, "new_pickles", "R_LR_PC_11march.sav"),
                     "rb"
                 )
             )
-
             level_pred = level_model.predict(Xtest)
             program_pred = program_model.predict(Xtest)
             facility_preds = facility_model.predict(Xtest)
@@ -572,9 +571,11 @@ class AdelphoiList(ListCreateAPIView):
                     Xp['ProgramCompletion'] = 0
                 roc_model = pickle.load(
                     open(
-                        "D:/Production_26022020/adelphoi-django/"
-                        "server_adelphoi/sources/new_pickles/"
-                        "R_LR_RC_28feb.sav",
+                        os.path.join(
+                            SOURCE_DIR,
+                            "new_pickles",
+                            "R_LR_RC_11march.sav"
+                        ),
                         "rb"
                     )
                 )
@@ -809,9 +810,11 @@ class AdelphoiList(ListCreateAPIView):
                             # )
                             p13_model = pickle.load(
                                 open(
-                                    "D:/Production_26022020/adelphoi-django/"
-                                    "server_adelphoi/sources/new_pickles/"
-                                    "R_LR_P13_28feb.sav",
+                                    os.path.join(
+                                        SOURCE_DIR,
+                                        "new_pickles",
+                                        "R_LR_P13_11march.sav"
+                                    ),
                                     "rb"
                                 )
                             )
@@ -1203,7 +1206,7 @@ class AdelphoiList(ListCreateAPIView):
                     })
         else:
             serializer.save()
-            return Response({"Result": "Thanx for registering with ADELPHOI"})
+            return Response({"Result": "Thank you for registering with ADELPHOI"})
         return Response({"data": "Failure"})
 
 
@@ -1602,7 +1605,7 @@ class ProgramModify(RetrieveUpdateAPIView):
 
 # to daa locations to list
 @csrf_exempt
-def loactionSave(request):
+def locationSave(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         try:
@@ -1803,8 +1806,8 @@ class RecommndedProgramPCR(UpdateAPIView):
 
                 cols = [
                     'Gender_1', 'Gender_2', 'LS_Type_1', 'LS_Type_2',
-                    'LS_Type_3', 'LS_Type_4', 'LS_Type_5', 'CYF_code_1',
-                    'CYF_code_2'
+                    'LS_Type_3', 'LS_Type_4', 'LS_Type_5',
+                    'CYF_code_0', 'CYF_code_1', 'CYF_code_2'
                 ]
                 # , 'RefSourceName_1', 'RefSourceName_2', 'RefSourceName_3',
                 # 'RefSourceName_4', 'RefSourceName_5', 'RefSourceName_6',
@@ -1841,9 +1844,11 @@ class RecommndedProgramPCR(UpdateAPIView):
                 # )
                 PC_model = pickle.load(
                     open(
-                        "D:/Production_26022020/adelphoi-django/"
-                        "server_adelphoi/sources/new_pickles/"
-                        "R_LR_PC_28feb.sav",
+                        os.path.join(
+                            SOURCE_DIR,
+                            "new_pickles",
+                            "R_LR_PC_11march.sav",
+                        ),
                         "rb"
                     )
                 )
@@ -1886,15 +1891,17 @@ class RecommndedProgramPCR(UpdateAPIView):
                     Xp['ProgramCompletion'] = 0
                 roc_model = pickle.load(
                     open(
-                        "D:/Production_26022020/adelphoi-django/"
-                        "server_adelphoi/sources/new_pickles/"
-                        "R_LR_RC_28feb.sav",
+                        os.path.join(
+                            SOURCE_DIR,
+                            "new_pickles",
+                            "R_LR_RC_11march.sav"
+                        ),
                         "rb"
                     )
                 )
                 roc_result = roc_model.predict_proba(Xp)
                 result = round(PC_proba[0][1] * 100)
-                roc_results =round(roc_result[0][0]*100)
+                roc_results = round(roc_result[0][1]*100)
                 mt.confidence = result
                 mt.roc_confidence = roc_results
                 mt.save()
