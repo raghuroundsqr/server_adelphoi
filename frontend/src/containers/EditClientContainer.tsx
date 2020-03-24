@@ -1,33 +1,49 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Switch, Route } from "react-router-dom";
 import { withSnackbar, WithSnackbarProps } from "notistack";
-import * as Types from "../api/definitions";
+import { wrap, mainContent } from "../components/styles";
 import { AppState } from "../redux-modules/root";
-import { ContainerProps } from "./Container";
-import * as client from "../redux-modules/client";
 import * as program from "../redux-modules/program";
 import * as referral from "../redux-modules/referral";
 import ReferralList from "../components/ReferralList";
+import { ContainerProps } from "./Container";
+import * as client from "../redux-modules/client";
+import * as Types from "../api/definitions";
 import PredictionFormStep1 from "../components/PredictionFormStep1";
 import PredictionFormStep2 from "../components/PredictionFormStep2";
 import ProgramSelection from "../components/ProgramSelection";
+import { Switch, Route } from "react-router-dom";
+interface MatchParams {
+  index: string;
+}
 
-export interface NewClientContainerState {
+export interface EditClientContainerState {
   isLoading: boolean;
   error: string;
   hasError: boolean;
+  program_completion_response: string | null;
 }
 
-export interface NewClientContainerProp
-  extends ContainerProps,
+export interface EditClientContainerProps
+  extends ContainerProps<MatchParams>,
     WithSnackbarProps {
-  saveClient: (
-    client: Types.Client,
-    page1FormCompleted?: boolean,
-    excludePage2?: boolean
-  ) => void;
-  insertClient: (client: Types.Client) => Promise<void>;
+saveClient: (
+client: Types.Client,
+page1FormCompleted?: boolean,
+excludePage2?: boolean
+) => void;
+updateClient: (
+    client: Types.Client,) => Promise<void>;
+  searchClient: (client_code: string, client_name: string) => Promise<void>;
+  updateProgramCompletion: (
+    client_code: string,
+    program_completion: number | null,
+    returned_to_care: number | null,
+    program_significantly_modified: number,
+    program: string | null,
+    location: string | null
+  ) => Promise<string>;
+  getAvailablePrograms: () => Promise<void>;
   submitPrediction: (client: Types.Client) => Promise<void>;
   getLocations: (
     client_code: string,
@@ -37,17 +53,17 @@ export interface NewClientContainerProp
   saveLocationAndProgram: (selected_location: string) => Promise<void>;
   clearErrors: () => void;
   clearClient: () => void;
-  getAvailablePrograms: () => Promise<void>;
+  getProgramsForClient: (client_code: string) => Promise<void>;
+  updateFormValues: (client_code: string, values: any) => void;
   getReferral: () => Promise<void>;
   Referral: Types.Referral[];
-  isEdit: string;
 }
 
-export class NewClientContainer extends React.Component<
-  NewClientContainerProp,
-  NewClientContainerState
+export class EditClientContainer extends React.Component<
+  EditClientContainerProps,
+  EditClientContainerState
 > {
-  constructor(props: NewClientContainerProp) {
+  constructor(props: EditClientContainerProps) {
     super(props);
     this.state = this.getInitialState();
   }
@@ -55,15 +71,31 @@ export class NewClientContainer extends React.Component<
     return {
       isLoading: false,
       hasError: false,
-      error: ""
+      error: "",
+      program_completion_response: null
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    const { client: clientState } = this.props;
+    const clientList = (clientState && clientState.clientList) || {};
+    const { index } = this.props.match.params;
+    this.setState({ isLoading: true });
+
+    if (!clientList[index]) {
+      await this.searchClient(index, "");
+    }
+    // fetch program for this client
+    await this.props.getProgramsForClient(index);
+    this.setState({ isLoading: false });
     this.props.closeSnackbar();
     this.props.getAvailablePrograms();
     this.props.getReferral();
   }
+
+  searchClient = async (client_code: string, client_name: string) => {
+    await this.props.searchClient(client_code, client_name);
+  };
 
   saveClientStep1 = async (client: Types.Client) => {
     const { history } = this.props;
@@ -75,7 +107,7 @@ export class NewClientContainer extends React.Component<
       try {
         this.setState({ isLoading: true });
         this.props.saveClient(client, true, true);
-        await this.props.insertClient(client);
+        await this.props.updateClient(client);
         this.setState({ isLoading: false });
         this.props.enqueueSnackbar("Thanks for registering with ADELPHOI");
         this.props.clearErrors();
@@ -85,9 +117,10 @@ export class NewClientContainer extends React.Component<
         this.setState({ isLoading: false });
       }
     } else {
+        const { index } = this.props.match.params;
       this.setState({ isLoading: true });
       this.props.saveClient(client, true, false);
-      history.push("/new-client/2");
+      history.push(`/existing-client/edit-details/${index}/2`);
       this.setState({ isLoading: false });
     }
   };
@@ -153,15 +186,15 @@ export class NewClientContainer extends React.Component<
   
 
   saveClientStep2 = async (client: Types.Client) => {
-    
+    const { index } = this.props.match.params;
     const { history } = this.props;
     try {
       this.setState({ isLoading: true });
       this.props.saveClient(client);
-      await this.props.insertClient(client);
+      await this.props.updateClient(client);
       this.setState({ isLoading: false });
       this.props.enqueueSnackbar("New Client Created Successfully.");
-      history.push("/new-client/program-selection");
+      history.push(`/existing-client/edit-details/${index}/program-selection`);
       //this.props.clearClient();
     } catch (error) {
       console.log(error);
@@ -171,17 +204,18 @@ export class NewClientContainer extends React.Component<
   };
 
   render() {
-    const { client: clientState, program: programState, referral: referralState, } = this.props;
+    const { client: clientState,
+            referral: referralState,program: programState,} = this.props;
     const referralList = (referralState && referralState.referralList) || [];
-    const { match: { params } } = this.props;
+    const clientList = (clientState && clientState.clientList) || {};
     let currentClient: Types.Client;
     currentClient = clientState ? clientState.client : Types.emptyClient;
     const availableProgramList =
-      (programState && programState.availableProgramList) || [];
-  
-    return (
-      <Switch>
-        <Route exact path="/new-client/program-selection">
+    (programState && programState.availableProgramList) || [];
+    const { index } = this.props.match.params;
+    return (  
+        <Switch>
+        <Route exact path="/existing-client/edit-details/:index/program-selection">
           <ProgramSelection
             client={currentClient}
             {...this.state}
@@ -194,37 +228,24 @@ export class NewClientContainer extends React.Component<
         </Route>
         <Route
           exact
-          path="/new-client/2"
-          render={routeProps => {
-            // const step1 = clientState
-            //   ? clientState.page1FormCompleted
-            //   : this.state.isLoading;
-            // if (!step1) {
-            //   return (
-            //     <h1>
-            //       Error. First step of the new client form is incomplete.
-            //       <Link to="/new-client">Click here to begin.</Link>
-            //     </h1>
-            //   );
-            // }
-            return (
-              <PredictionFormStep2
+          path="/existing-client/edit-details/:index/2"
+          
+        >
+            <PredictionFormStep2
                 {...this.state}
-                {...routeProps}
-                client={currentClient}
+               // {...routeProps}
+               client={currentClient}
                 onFormSubmit={this.saveClientStep2}
                 errors={(clientState && clientState.errors) || undefined}
               />
-            );
-          }}
-        ></Route>
-        <Route exact path="/new-client">
+        </Route>
+        <Route exact path="/existing-client/edit-details/:index,:isEdit">
           <PredictionFormStep1
             {...this.state}
-            isEdit=""
+            isEdit="true"
             Referral={referralList}
-            client={currentClient.model_program ? Types.emptyClient : currentClient}
-            onFormSubmit={this.saveClientStep1}
+            client= {clientList[index]}
+             onFormSubmit={this.saveClientStep1}
             errors = {(clientState && clientState.errors) || undefined}
           />
         </Route>
@@ -243,18 +264,22 @@ const mapStateToProps = (state: AppState) => {
 
 const mapDispatchToProps = {
   saveClient: client.actions.upsertClient,
-  insertClient: client.actions.insertClient,
+  updateClient: client.actions.updateClient,
+  getReferral: referral.actions.getReferral,
+  searchClient: client.actions.searchClient,
+  updateProgramCompletion: client.actions.updateProgramCompletion,
+  getAvailablePrograms: program.actions.getAvailablePrograms,
   submitPrediction: client.actions.submitPrediction,
   getLocations: client.actions.getLocations,
   getPcr: client.actions.getPcr,
   saveLocationAndProgram: client.actions.saveLocationAndProgram,
   clearErrors: client.actions.clearErrors,
   clearClient: client.actions.clear,
-  getAvailablePrograms: program.actions.getAvailablePrograms,
-  getReferral: referral.actions.getReferral,
+  getProgramsForClient: client.actions.getProgramsForClient,
+  updateFormValues: client.actions.updateFormValues
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withSnackbar(NewClientContainer));
+)(withSnackbar(EditClientContainer));

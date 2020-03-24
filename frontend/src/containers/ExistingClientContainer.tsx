@@ -9,6 +9,7 @@ import { ContainerProps } from "./Container";
 import * as client from "../redux-modules/client";
 import ClientSearch from "../components/ClientSearch";
 import ClientDetailsContainer from "./ClientDetailsContainer";
+import EditClientContainer from "./EditClientContainer" ;
 //import ReferralList from "../components/ReferralList";
 
 interface MatchParams {
@@ -78,8 +79,23 @@ export class ExistingClientContainer extends React.Component<
         </Route>
         <Route
           exact
-          path="/existing-client/client-details/:index"
+          path="/existing-client/client-details/:index" 
           component={ClientDetailsContainer}
+        ></Route>
+        <Route
+          exact
+          path="/existing-client/edit-details/:index/2"
+          component={EditClientContainer}
+        ></Route>
+        <Route
+          exact
+          path="/existing-client/edit-details/:index/program-selection"
+          component={EditClientContainer}
+        ></Route>
+        <Route
+          exact
+          path="/existing-client/edit-details/:index,:isEdit"
+          component={EditClientContainer}
         ></Route>
       </Switch>
     );

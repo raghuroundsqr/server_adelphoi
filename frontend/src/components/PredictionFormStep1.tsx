@@ -8,7 +8,7 @@ import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider
 } from "@material-ui/pickers";
-import { Step1ValidationSchema } from "./ValidationSchema";
+import { Step1ValidationSchema, EditStep1ValidationSchema } from "./ValidationSchema";
 import SnackNotification from "./SnackNotification";
 
 import {
@@ -34,6 +34,7 @@ interface PredictionFormStep1Props {
   isLoading: boolean;
   hasError: boolean;
   error: string;
+  isEdit: string;
   errors: FormikErrors<Types.Client> | undefined;
 }
 
@@ -114,9 +115,9 @@ const DobPicker: React.FC<FormikProps<Types.Client> & FieldProps> = props => {
 };
 
 const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
-  const { Referral  } = props;
- 
-  const renderErrorNotification = () => {
+  const { Referral, isEdit  } = props;
+  
+    const renderErrorNotification = () => {
     const { errors } = props;
     
     if (!errors) {
@@ -132,9 +133,9 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
       <div css={mainContent}>
         <Formik
           initialErrors={props.errors}
-          initialValues={props.client}
+          initialValues={props.client} 
           enableReinitialize
-          validationSchema={Step1ValidationSchema}
+          validationSchema={isEdit ? EditStep1ValidationSchema : Step1ValidationSchema}
           onSubmit={(values, helpers) => {
             const dob = values.dob
               ? format(new Date(values.dob), "yyyy-MM-dd")
@@ -247,13 +248,14 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                     css={fieldBox}
                     style={{ width: "47.8%", display: "inline-block" }}
                   >
+                  
                     <input
                       type="radio"
                       onChange={handleChange}
                       name="gender"
                       id="female"
                       value="1"
-                      checked={values.gender === "1"}
+                      checked={values.gender === "1" || values.gender === 1 } 
                     />{" "}
                     <label htmlFor="female">Female</label>
                   </div>
@@ -267,7 +269,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="gender"
                       id="male"
                       value="2"
-                      checked={values.gender === "2"}
+                      checked={values.gender === "2" || values.gender === 2}
                     />{" "}
                     <label htmlFor="male">Male</label>
                   </div>
@@ -293,95 +295,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                 </div>
                 <div css={twoCol}>
                   <label css={label}>Referral Source</label>
-                  {/* <select
-                    css={selectField}
-                    name="RefSourceCode"
-                    id="referrel_source"
-                    value={values.RefSourceCode || ""}
-                    onChange={handleChange}
-                  >
-                    <option value="">Select</option>
-
-                    <option value="1">Adams</option>
-                    <option value="2">Allegheny</option>
-                    <option value="39">Armstrong</option>
-
-                    <option value="3">Beaver</option>
-                    <option value="4">Bedford</option>
-                    <option value="5">Berks</option>
-                    <option value="6">Blair</option>
-                    <option value="7">Bucks</option>
-                    <option value="8">Butler</option>
-
-                    <option value="9">Cambria</option>
-                    <option value="42">Cayahoga OH</option>
-                    <option value="10">Centre</option>
-                    <option value="11">Chester</option>
-                    <option value="40">Columbia</option>
-                    <option value="41">Crawford</option>
-                    <option value="12">Cumberland</option>
-
-                    <option value="13">Dauphin</option>
-                    <option value="14">Delaware</option>
-
-                    <option value="15">Erie</option>
-
-                    <option value="16">Fayette</option>
-                    <option value="17">Franklin</option>
-                    <option value="43">Franklin OH</option>
-                    <option value="57">Fulton</option>
-
-                    <option value="44">Greene</option>
-
-                    <option value="18">Huntingdon</option>
-
-                    <option value="45">Indiana</option>
-
-                    <option value="19">Juniata</option>
-
-                    <option value="20">Kent</option>
-
-                    <option value="21">Lackawanna</option>
-                    <option value="22">Lancaster</option>
-                    <option value="46">Lawrence</option>
-                    <option value="23">Lebanon</option>
-                    <option value="24">Lehigh</option>
-                    <option value="25">Lycoming</option>
-
-                    <option value="8">Mckean</option>
-                    <option value="49">Mercer</option>
-                    <option value="7">MH</option>
-                    <option value="26">Monroe</option>
-                    <option value="27">Montgomery</option>
-                    <option value="28">Montour</option>
-
-                    <option value="51">Northampton</option>
-                    <option value="29">Northumberland</option>
-
-                    <option value="50">Outside tri-county</option>
-
-                    <option value="30">Perry</option>
-                    <option value="31">Philadelphia</option>
-                    <option value="32">Pike</option>
-                    <option value="52">Pike</option>
-
-                    <option value="53">Schukill</option>
-                    <option value="60">SE PA</option>
-                    <option value="34">Snyder</option>
-                    <option value="54">Somerset</option>
-
-                    <option value="35">Tioga</option>
-
-                    <option value="55">Union</option>
-
-                    <option value="56">Venango</option>
-
-                    <option value="36">Washington</option>
-                    <option value="37">Westmoreland</option>
-                    <option value="59">WV</option>
-
-                    <option value="38">York</option>
-                  </select> */}
+                  
                   <select
                     css={selectField}
                     name="RefSourceCode"
@@ -590,7 +504,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="hist_of_prior_program_SAO"
                       id="hist_of_prior_program_SAO-yes"
                       value="1"
-                      checked={values.hist_of_prior_program_SAO === "1"}
+                      checked={values.hist_of_prior_program_SAO === "1" || values.hist_of_prior_program_SAO === 1}
                     />{" "}
                     <label htmlFor="hist_of_prior_program_SAO-yes">Yes</label>
                   </div>
@@ -601,7 +515,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="hist_of_prior_program_SAO"
                       id="hist_of_prior_program_SAO-no"
                       value="0"
-                      checked={values.hist_of_prior_program_SAO === "0"}
+                      checked={values.hist_of_prior_program_SAO === "0" || values.hist_of_prior_program_SAO === 0}
                     />{" "}
                     <label htmlFor="hist_of_prior_program_SAO-no">No</label>
                   </div>
@@ -622,7 +536,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="autism_Diagnosis"
                       id="autism_Diagnosis-yes"
                       value="1"
-                      checked={values.autism_Diagnosis === "1"}
+                      checked={values.autism_Diagnosis === "1" || values.autism_Diagnosis === 1}
                     />{" "}
                     <label htmlFor="autism_Diagnosis-yes">Yes</label>
                   </div>
@@ -633,7 +547,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="autism_Diagnosis"
                       id="autism_Diagnosis-no"
                       value="0"
-                      checked={values.autism_Diagnosis === "0"}
+                      checked={values.autism_Diagnosis === "0" || values.autism_Diagnosis === 0}
                     />{" "}
                     <label htmlFor="autism_Diagnosis-no">No</label>
                   </div>
@@ -648,7 +562,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="borderline_Personality"
                       id="borderline_Personality-yes"
                       value="1"
-                      checked={values.borderline_Personality === "1"}
+                      checked={values.borderline_Personality === "1" || values.borderline_Personality === 1}
                     />{" "}
                     <label htmlFor="borderline_Personality-yes">Yes</label>
                   </div>
@@ -659,7 +573,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="borderline_Personality"
                       id="borderline_Personality-no"
                       value="0"
-                      checked={values.borderline_Personality === "0"}
+                      checked={values.borderline_Personality === "0" || values.borderline_Personality === 0}
                     />{" "}
                     <label htmlFor="borderline_Personality-no">No</label>
                   </div>
@@ -679,7 +593,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="reactive_Attachment_Disorder"
                       id="reactive_Attachment_Disorder-yes"
                       value="1"
-                      checked={values.reactive_Attachment_Disorder === "1"}
+                      checked={values.reactive_Attachment_Disorder === "1" || values.reactive_Attachment_Disorder === 1}
                     />{" "}
                     <label htmlFor="reactive_Attachment_Disorder-yes">
                       Yes
@@ -692,7 +606,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="reactive_Attachment_Disorder"
                       id="reactive_Attachment_Disorder-no"
                       value="0"
-                      checked={values.reactive_Attachment_Disorder === "0"}
+                      checked={values.reactive_Attachment_Disorder === "0" || values.reactive_Attachment_Disorder === 0}
                     />{" "}
                     <label htmlFor="reactive_Attachment_Disorder-no">No</label>
                   </div>
@@ -710,7 +624,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="animal_cruelty"
                       id="animal_cruelty-yes"
                       value="1"
-                      checked={values.animal_cruelty === "1"}
+                      checked={values.animal_cruelty === "1" || values.animal_cruelty === 1}
                     />{" "}
                     <label htmlFor="animal_cruelty-yes">Yes</label>
                   </div>
@@ -721,7 +635,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="animal_cruelty"
                       id="animal_cruelty-no"
                       value="0"
-                      checked={values.animal_cruelty === "0"}
+                      checked={values.animal_cruelty === "0" || values.animal_cruelty === 0}
                     />{" "}
                     <label htmlFor="animal_cruelty-no">No</label>
                   </div>
@@ -738,7 +652,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="schizophrenia"
                       id="schizophrenia-yes"
                       value="1"
-                      checked={values.schizophrenia === "1"}
+                      checked={values.schizophrenia === "1" || values.schizophrenia === 1}
                     />{" "}
                     <label htmlFor="schizophrenia-yes">Yes</label>
                   </div>
@@ -749,7 +663,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="schizophrenia"
                       id="schizophrenia-no"
                       value="0"
-                      checked={values.schizophrenia === "0"}
+                      checked={values.schizophrenia === "0" || values.schizophrenia === 0}
                     />{" "}
                     <label htmlFor="schizophrenia-no">No</label>
                   </div>
@@ -764,7 +678,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="psychosis"
                       id="psychosis-yes"
                       value="1"
-                      checked={values.psychosis === "1"}
+                      checked={values.psychosis === "1" || values.psychosis === 1}
                     />{" "}
                     <label htmlFor="psychosis-yes">Yes</label>
                   </div>
@@ -775,7 +689,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                       name="psychosis"
                       id="psychosis-no"
                       value="0"
-                      checked={values.psychosis === "0"}
+                      checked={values.psychosis === "0" || values.psychosis === 0}
                     />{" "}
                     <label htmlFor="psychosis-no">No</label>
                   </div>
@@ -898,7 +812,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           onChange={handleChange}
                           name="incarcerated_caregivers"
                           value="1"
-                          checked={values.incarcerated_caregivers === "1"}
+                          checked={values.incarcerated_caregivers === "1" || values.incarcerated_caregivers === 1}
                         />{" "}
                         <label htmlFor="incarcerated_caregivers-yes">Yes</label>
                       </div>
@@ -909,7 +823,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="incarcerated_caregivers"
                           id="incarcerated_caregivers-no"
                           value="0"
-                          checked={values.incarcerated_caregivers === "0"}
+                          checked={values.incarcerated_caregivers === "0" || values.incarcerated_caregivers === 0}
                         />{" "}
                         <label htmlFor="incarcerated_caregivers-no">No</label>
                       </div>
@@ -927,7 +841,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="death_Caregiver"
                           id="death_Caregiver-yes"
                           value="1"
-                          checked={values.death_Caregiver === "1"}
+                          checked={values.death_Caregiver === "1" || values.death_Caregiver === 1}
                         />{" "}
                         <label htmlFor="death_Caregiver-yes">Yes</label>
                       </div>
@@ -938,7 +852,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="death_Caregiver"
                           id="death_Caregiver-no"
                           value="0"
-                          checked={values.death_Caregiver === "0"}
+                          checked={values.death_Caregiver === "0" || values.death_Caregiver === 0}
                         />{" "}
                         <label htmlFor="death_Caregiver-no">No</label>
                       </div>
@@ -955,7 +869,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="incarcerated_siblings"
                           id="incarcerated_siblings-yes"
                           value="1"
-                          checked={values.incarcerated_siblings === "1"}
+                          checked={values.incarcerated_siblings === "1" || values.incarcerated_siblings === 1}
                         />{" "}
                         <label htmlFor="incarcerated_siblings-yes">Yes</label>
                       </div>
@@ -966,7 +880,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="incarcerated_siblings"
                           id="incarcerated_siblings-no"
                           value="0"
-                          checked={values.incarcerated_siblings === "0"}
+                          checked={values.incarcerated_siblings === "0" || values.incarcerated_siblings === 0}
                         />{" "}
                         <label htmlFor="incarcerated_siblings-no">No</label>
                       </div>
@@ -984,7 +898,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="death_Silblings"
                           id="death_Silblings-yes"
                           value="1"
-                          checked={values.death_Silblings === "1"}
+                          checked={values.death_Silblings === "1" || values.death_Silblings === 1}
                         />{" "}
                         <label htmlFor="death_Silblings-yes">Yes</label>
                       </div>
@@ -995,7 +909,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="death_Silblings"
                           id="death_Silblings-no"
                           value="0"
-                          checked={values.death_Silblings === "0"}
+                          checked={values.death_Silblings === "0" || values.death_Silblings === 0}
                         />{" "}
                         <label htmlFor="death_Silblings-no">No</label>
                       </div>
@@ -1012,7 +926,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="alcohol_Use"
                           id="alcohol_Use-yes"
                           value="1"
-                          checked={values.alcohol_Use === "1"}
+                          checked={values.alcohol_Use === "1" || values.alcohol_Use === 1}
                         />{" "}
                         <label htmlFor="alcohol_Use-yes">Yes</label>
                       </div>
@@ -1023,7 +937,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="alcohol_Use"
                           id="alcohol_Use-no"
                           value="0"
-                          checked={values.alcohol_Use === "0"}
+                          checked={values.alcohol_Use === "0" || values.alcohol_Use === 0}
                         />{" "}
                         <label htmlFor="alcohol_Use-no">No</label>
                       </div>
@@ -1038,7 +952,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="drug_Use"
                           id="drug_Use-yes"
                           value="1"
-                          checked={values.drug_Use === "1"}
+                          checked={values.drug_Use === "1" || values.drug_Use === 1}
                         />{" "}
                         <label htmlFor="drug_Use-yes">Yes</label>
                       </div>
@@ -1049,7 +963,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="drug_Use"
                           id="drug_Use-no"
                           value="0"
-                          checked={values.drug_Use === "0"}
+                          checked={values.drug_Use === "0" || values.drug_Use === 0}
                         />{" "}
                         <label htmlFor="drug_Use-no">No</label>
                       </div>
@@ -1066,7 +980,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="abuse_neglect"
                           id="abuse_neglect-yes"
                           value="1"
-                          checked={values.abuse_neglect === "1"}
+                          checked={values.abuse_neglect === "1" || values.abuse_neglect === 1}
                         />{" "}
                         <label htmlFor="abuse_neglect-yes">Yes</label>
                       </div>
@@ -1077,7 +991,7 @@ const PredictionFormStep1: React.FC<PredictionFormStep1Props> = props => {
                           name="abuse_neglect"
                           id="abuse_neglect-no"
                           value="0"
-                          checked={values.abuse_neglect === "0"}
+                          checked={values.abuse_neglect === "0" || values.abuse_neglect === 0} 
                         />{" "}
                         <label htmlFor="abuse_neglect-no">No</label>
                       </div>
