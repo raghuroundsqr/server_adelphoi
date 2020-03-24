@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/core";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useHistory } from "react-router-dom";
 import { format } from "date-fns";
 import { Formik, ErrorMessage, FormikErrors } from "formik";
 import Button from "@material-ui/core/Button";
@@ -32,6 +32,7 @@ import {
 import Dropdown from "./Dropdown";
 import * as Types from "../api/definitions";
 import { baseApiUrl } from "../api/api";
+import color from "@material-ui/core/colors/amber";
 
 
 interface ClientDetailsProps {
@@ -72,6 +73,7 @@ interface FormValues {
 }
 
 const ClientDetails: React.FC<ClientDetailsProps> = props => {
+  const history = useHistory();
   const [predicted_program, setPredictedProgram] = useState<string | null>(
     null
   );
@@ -88,7 +90,7 @@ const ClientDetails: React.FC<ClientDetailsProps> = props => {
       !predicted_program ||
       predicted_program === props.client.selected_program
     ) {
-      setPredictedProgram(props.client.model_program);
+      setPredictedProgram(props.client.model_program); 
     }
   }, [props.client.selected_program]);
   useEffect(() => {
@@ -128,7 +130,7 @@ const ClientDetails: React.FC<ClientDetailsProps> = props => {
   
 })
   
- console.log(props.client,'suggested')
+ 
   const programOptions = props.client.SuggestedPrograms
     ? props.client.SuggestedPrograms.map(p => {
       return {
@@ -707,6 +709,11 @@ const ClientDetails: React.FC<ClientDetailsProps> = props => {
           <div css={txtDetail}>{client.client_selected_program}</div>
         </div>
       </div> */}
+      <h3> Click <a  onClick={() =>
+                      history.push(
+                        `/existing-client/edit-details/${client.client_code},true`
+                      )
+                    }><u style={{color: "red"}}>here</u></a> to Edit Client details Or update below details.</h3> 
 
       <Formik
         initialValues={getInitialValues()}

@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as Types from "./definitions";
 
-export const baseApiUrl = "http://13.233.251.14:8000/first_match";
+export const baseApiUrl = "http://3.6.90.1:8000/first_match";
 
 interface PredictionResponse {
   referred_program: string;
@@ -26,6 +26,7 @@ export const updateConfiguration = async (
 };
 
 export const insertClient = async (client: Types.Client) => {
+  
   try {
     const response = await axios.post(`${baseApiUrl}/list_view/`, client);
     if (response.data["ERROR"] && response.data["ERROR"].trim() !== "") {
@@ -49,6 +50,36 @@ export const insertClient = async (client: Types.Client) => {
       return (clientErrors[key] = data[key][0]);
     });
     console.error("api function insertClient error");
+    console.log(clientErrors);
+    throw clientErrors;
+  }
+};
+
+export const updateClient = async (client: Types.Client) => {
+  try {
+    
+    const response = await axios.put(`${baseApiUrl}/latest_update/${client.client_code}/`, client); 
+    if (response.data["ERROR"] && response.data["ERROR"].trim() !== "") {
+      throw new Error(response.data["ERROR"]);
+    }
+    if (response.data["Result"] && response.data["Result"].trim() !== "") {
+      return response.data;
+    }
+    const r = {
+      ...response.data,
+      program_type: response.data.program_type[0],
+      referred_program: response.data.program_type[0],
+      model_program: response.data.program_type[0]
+    };
+
+    return (r as unknown) as Partial<Types.Client>;
+  } catch (error) {
+    const data = error.response.data;
+    let clientErrors: { [x: string]: any } = {};
+    Object.keys(data).map(key => {
+      return (clientErrors[key] = data[key][0]);
+    });
+    console.error("api function updateClient error");
     console.log(clientErrors);
     throw clientErrors;
   }

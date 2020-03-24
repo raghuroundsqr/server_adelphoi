@@ -8,6 +8,7 @@ import { AppState } from "../redux-modules/root";
 import * as Types from "../api/definitions";
 import {
   insertClient,
+  updateClient,
   insertPrediction,
   fetchLocations,
   saveLocationAndProgram,
@@ -266,6 +267,71 @@ export const actions = {
       let updatedClient: Types.Client;
       try {
         const response = await insertClient(client);
+        if (!response) {
+          throw Error("something went wrong while saving the client");
+        }
+
+        if (response["Result"] && response["Result"].trim() !== "") {
+          return;
+        }
+
+        const cl = {
+          ...client,
+          program_type: response.program_type || null,
+          Confidence: response.Confidence || null,
+          Roc_confidence: response.Roc_confidence || null,
+          referred_program: response.program_type || null,
+          model_program: response.model_program || null,
+          SuggestedPrograms: response.list_program_types || null
+        };
+        dispatch(update({ client: cl }));
+        updatedClient = cl;
+        // return cl;
+      } catch (errors) {
+        dispatch(update({ client, errors: errors }));
+        throw errors;
+      }
+      try {
+        if (!updatedClient.client_code || !updatedClient.program_type) {
+          throw new Error("ERROR OCCURRED WHILE FETCHING PROGRAM LOCATIONS");
+        }
+        const response = await fetchLocations(
+          updatedClient.client_code,
+          updatedClient.program_type
+        );
+        if (response && response["result"] && response["result"] !== "") {
+          throw new Error(response["result"]);
+        }
+        if (response && response["Suggested Locations"]) {
+          locations = response["Suggested Locations"];
+        }
+        if (locations.length > 0) {
+          const cl: Types.Client = {
+            ...updatedClient,
+            SuggestedLocations: [...locations],
+            client_selected_program: updatedClient.program_type
+          };
+          dispatch(update({ client: cl }));
+          // return cl;
+        }
+      } catch (error) {
+        throw error;
+      }
+    };
+  },
+
+  updateClient(
+    client: Types.Client
+  ): ThunkAction<Promise<void>, AppState, null, AnyAction> {
+    return async (dispatch, getState) => {
+      let locations: string[] = [];
+      let updatedClient: Types.Client;
+      client = {
+        ...client,
+        referred_program: client.referred_program || null
+      };
+      try {
+        const response = await updateClient(client);
         if (!response) {
           throw Error("something went wrong while saving the client");
         }

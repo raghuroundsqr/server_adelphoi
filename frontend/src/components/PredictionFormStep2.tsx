@@ -57,13 +57,14 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
             //helpers.resetForm();
           }}
         >
-          {({ values, handleSubmit, handleChange }) => (
+          {({ values, handleSubmit, handleChange,errors}) => (
             <form name="newClientForm2" onSubmit={handleSubmit}>
               <h1 css={subHeading}>Assessment Scores</h1>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Prior/Current Offenses Score</label>
-                </div>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-5</label>
+                  </div>
                 <div css={twoCol}>
                   <input
                     type="text"
@@ -74,15 +75,18 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     onChange={handleChange}
                     
                   />
-                  <ErrorMessage
+                  
+                  <span style={{color: "red"}}>{errors.yls_PriorCurrentOffenses_Score}</span>
+                  {/* <ErrorMessage
                     component="span"
                     name="yls_PriorCurrentOffenses_Score"
-                  />
+                  /> */}
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Family Circumstances Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-6</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -91,17 +95,21 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     css={inputField}
                     placeholder=""
                     value={values.yls_FamCircumstances_Score || ""}
-                    onChange={handleChange}
+                    onChange={e => {
+                      handleChange(e);
+                    }}
                   />
-                  <ErrorMessage
+                   <span style={{color: "red"}}>{errors.yls_FamCircumstances_Score}</span>
+                  {/* <ErrorMessage
                     component="span"
                     name="yls_FamCircumstances_Score"
-                  />
+                  /> */}
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Education/Employment Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-7</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -112,12 +120,14 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.yls_Edu_Employ_Score || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="yls_Edu_Employ_Score" />
+                   <span style={{color: "red"}}>{errors.yls_Edu_Employ_Score}</span>
+                  {/* <ErrorMessage component="span" name="yls_Edu_Employ_Score" /> */}
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Peer Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-4</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -128,12 +138,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.yls_Peer_Score || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="yls_Peer_Score" />
+                   <span style={{color: "red"}}>{errors.yls_Peer_Score}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Substance Abuse Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-5</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -144,12 +155,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.yls_Subab_Score || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="yls_Subab_Score" />
+                   <span style={{color: "red"}}>{errors.yls_Subab_Score}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Leisure Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-3</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -160,12 +172,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.yls_Leisure_Score || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="yls_Leisure_Score" />
+                  <span style={{color: "red"}}>{errors.yls_Leisure_Score}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Personality Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-7</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -176,12 +189,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.yls_Personality_Score || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="yls_Personality_Score" />
+                   <span style={{color: "red"}}>{errors.yls_Personality_Score}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>YLS Attitude Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-5</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -192,13 +206,14 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.yls_Attitude_Score || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="yls_Attitude_Score" />
+                   <span style={{color: "red"}}>{errors.yls_Attitude_Score}</span>
                 </div>
               </div>
               
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>Family Support</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-2</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -209,12 +224,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.family_support || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="family_support" />
+                  <span style={{color: "red"}}>{errors.family_support}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>Fire Setting</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-3</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -225,12 +241,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.fire_setting || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="fire_setting" />
+                   <span style={{color: "red"}}>{errors.fire_setting}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>Level of Aggression</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-9</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -241,12 +258,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.level_of_aggression || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="level_of_aggression" />
+                  <span style={{color: "red"}}>{errors.level_of_aggression}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>Self-Harm</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-3</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -257,12 +275,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.client_self_harm || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="client_self_harm" />
+                  <span style={{color: "red"}}>{errors.client_self_harm}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>Trauma Assessment Score</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-40</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -273,12 +292,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.Screening_tool_Trauma || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="Screening_tool_Trauma" />
+                   <span style={{color: "red"}}>{errors.Screening_tool_Trauma}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>CANS Life Functioning</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-39</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -289,12 +309,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.cans_LifeFunctioning || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="cans_LifeFunctioning" />
+                   <span style={{color: "red"}}>{errors.cans_LifeFunctioning}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>CANS Youth Strengths</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-33</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -305,12 +326,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.cans_YouthStrengths || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="cans_YouthStrengths" />
+                  <span style={{color: "red"}}>{errors.cans_YouthStrengths}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>CANS Caregiver Strengths</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-54</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -321,15 +343,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.cans_CareGiverStrengths || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage
-                    component="span"
-                    name="cans_CareGiverStrengths"
-                  />
+                   <span style={{color: "red"}}>{errors.cans_CareGiverStrengths}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>CANS Culture</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-12</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -340,12 +360,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.cans_Culture || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="cans_Culture" />
+                   <span style={{color: "red"}}>{errors.cans_Culture}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>CANS Youth Behavior</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-30</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -356,12 +377,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.cans_YouthBehavior || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="cans_YouthBehavior" />
+                   <span style={{color: "red"}}>{errors.cans_YouthBehavior}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>CANS Youth Risk</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-36</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -372,12 +394,13 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.cans_YouthRisk || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="cans_YouthRisk" />
+                   <span style={{color: "red"}}>{errors.cans_YouthRisk}</span>
                 </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
                   <label css={label}>CANS Trauma Experience</label>
+                  <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-36</label>
                 </div>
                 <div css={twoCol}>
                   <input
@@ -388,7 +411,7 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                     value={values.cans_Trauma_Exp || ""}
                     onChange={handleChange}
                   />
-                  <ErrorMessage component="span" name="cans_Trauma_Exp" />
+                   <span style={{color: "red"}}>{errors.cans_Trauma_Exp}</span>
                 </div>
               </div>
               <div css={fieldRow}>
