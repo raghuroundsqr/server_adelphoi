@@ -10346,3 +10346,4 @@ IndexError: list index out of range
 2020-03-18 15:12:11,435 1940-FirstMatch.views INFO     -program_condition  -  534     program_condition function
 2020-03-18 15:12:42,734 1940-django.utils.autoreload INFO     -trigger_reload  -  217     D:\RoundSqr\Projects\Adelphoi\server_adelphoi\FirstMatch\views.py changed, reloading.
 2020-03-18 15:14:03,995 7032-django.utils.autoreload INFO     -trigger_reload  -  217     D:\RoundSqr\Projects\Adelphoi\server_adelphoi\FirstMatch\views.py changed, reloading.
+2020-03-18 16:05:30,319 9428-FirstMatch.views INFO     -get  -  52     get method for AdelphoiList
