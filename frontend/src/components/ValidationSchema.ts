@@ -187,28 +187,7 @@ export const EditStep1ValidationSchema = Yup.object().shape({
   primaryRaceCode: Yup.string()
     // .required("Required")
     .nullable(),
-  // client_code: Yup.number()
-  //   .required("Required")
-  //   .positive()
-  //   .integer()
-  //   .typeError("Invalid. Enter numeric code.")
-  //   .test("is-duplicate", "client code already exists", async value => {
-  //     if (!value) {
-  //       return false;
-  //     }
-  //     if (value in clientCodeResponse) {
-  //       return clientCodeResponse[value];
-  //     }
-  //     const response = await searchClient(value);
-  //     if (response && response.length > 0) {
-  //       clientCodeResponse[value] = false;
-  //       return false;
-  //     }
-  //     clientCodeResponse[value] = true;
-  //     return true;
-  //   })
-  //   .nullable(),
-  name: Yup.string()
+    name: Yup.string()
     .required("Required")
     .nullable(),
   last_name: Yup.string()
@@ -219,7 +198,7 @@ export const EditStep1ValidationSchema = Yup.object().shape({
     .nullable(),
   age: Yup.string()
     .required("Required")
-    .nullable(),
+    .nullable(), 
   gender: Yup.string()
     .required("Required")
     .nullable(),
