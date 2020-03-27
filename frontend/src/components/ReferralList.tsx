@@ -34,16 +34,19 @@ interface ReferralListProps {
   error: string;
   createReferral: (referral: Types.Referral) => Promise<void>;
   updateReferral: (referral: Types.Referral) => Promise<void>;
+  deleteReferral: (referral: Types.Referral) => Promise<void>;
 }
 
 interface FormValues {
   referral_name: string;
   editing_referral_name: string;
+  isDelete: boolean;
 }
 
 const initialValues: FormValues = {
   referral_name: "",
-  editing_referral_name: ""
+  editing_referral_name: "",
+  isDelete: false
 };
 
 const ReferralList: React.FC<ReferralListProps> = props => {
@@ -52,6 +55,7 @@ const ReferralList: React.FC<ReferralListProps> = props => {
   const [editingReferral, setEditingReferral] = useState<Types.Referral | null>(
     null
   );
+  
 
   const renderCell = (
     referral: Types.Referral,
@@ -89,8 +93,21 @@ const ReferralList: React.FC<ReferralListProps> = props => {
               size="small"
               variant="contained"
               color="primary"
-            >
+              
+              >
               Update
+            </Button>
+            <Button
+              type="submit"
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={(e)=>{
+                setFieldValue('isDelete',true)
+                
+              }}
+              >
+              Delete
             </Button>
             <Button
               type="button"
@@ -99,7 +116,7 @@ const ReferralList: React.FC<ReferralListProps> = props => {
               color="default"
               onClick={() => setEditingReferral(null)}
             >
-              cancel
+              Cancel
             </Button>
           </TableCell>
         </React.Fragment>
@@ -153,13 +170,20 @@ const ReferralList: React.FC<ReferralListProps> = props => {
             onSubmit={async (values, helpers) => {
               try {
                 if (editingReferral) {
-                  const referral: Types.Referral = {
+                   const referral: Types.Referral = {
                     referral_code: editingReferral.referral_code,
                     referral_name: values.editing_referral_name
                   };
-                  await props.updateReferral(referral);
-                  enqueueSnackbar("Referral Source updated successfully");
-                  helpers.resetForm();
+                  if(values.isDelete){
+                    await props.deleteReferral(referral);
+                    enqueueSnackbar("Referral Source deleted successfully");
+                    helpers.resetForm();
+                  }else{
+                    await props.updateReferral(referral);
+                    enqueueSnackbar("Referral Source updated successfully");
+                    helpers.resetForm();
+                  }
+                 
                   setEditingReferral(null);
                 } else {
                   const referral: Types.Referral = {

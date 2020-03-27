@@ -138,6 +138,7 @@ export const createReferral = async (referral: Types.Referral) => {
 
 export const updateReferral = async (referral: Types.Referral) => {
   try {
+    
     const response = await axios.put(
       `${baseApiUrl}/referral_modify/${referral.referral_code}/`,
       {
@@ -147,6 +148,21 @@ export const updateReferral = async (referral: Types.Referral) => {
     return response.data;
   } catch (error) {
     console.error("api function updateReferral error");
+    throwError(error);
+  }
+};
+
+export const deleteReferral = async (referral: Types.Referral) => {
+  try {
+    const response = await axios.delete(
+      `${baseApiUrl}/referral_modify/${referral.referral_code}/`,
+      {
+        //referral_name: referral.referral_name
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("api function deleteReferral error");
     throwError(error);
   }
 };
@@ -202,6 +218,21 @@ export const updateProgram = async (program: Types.Program) => {
   }
 };
 
+export const deleteProgram = async (program: Types.Program) => {
+  try {
+    const response = await axios.delete(
+      `${baseApiUrl}/programs/${program.program}/`,
+      {
+        //program_name: program.program_name
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("api function deleteProgram error");
+    throwError(error);
+  }
+};
+
 export const fetchLocationsList = async () => {
   try {
     const response = await axios.get(`${baseApiUrl}/location_list`);
@@ -237,6 +268,21 @@ export const updateLocation = async (location: Types.Location) => {
     return response.data;
   } catch (error) {
     console.error("api function updateLocation error");
+    throwError(error);
+  }
+};
+
+export const deleteLocation = async (location: Types.Location) => {
+  try {
+    const response = await axios.delete(
+      `${baseApiUrl}/locations/${location.location}/`,
+      {
+        //location_names: location.location_names
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("api function deleteLocation error");
     throwError(error);
   }
 };

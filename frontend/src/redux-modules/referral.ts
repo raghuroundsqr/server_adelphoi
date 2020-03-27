@@ -8,6 +8,7 @@ import {
   fetchReferral,
   createReferral,
   updateReferral,
+  deleteReferral,
   fetchAvailableReferral
 } from "../api/api";
 
@@ -88,7 +89,25 @@ export const actions = {
       dispatch(update({ referralList }));
     };
   },
-
+  deleteReferral(
+    referral: Types.Referral
+  ): ThunkAction<Promise<void>, AppState, null, AnyAction> {
+    return async (dispatch, getState) => {
+      const response = await deleteReferral(referral);
+      if (!response) {
+        throw Error("something went wrong while updating the referral");
+      }
+      const referralState = getState().referral;
+      let existingList = referralState ? referralState.referralList : [];
+      if (existingList.length > 0) {
+        existingList = existingList.filter(
+          p => p.referral_code !== referral.referral_code
+        );
+      }
+      const referralList = [...existingList];
+      dispatch(update({ referralList }));
+    };
+  },
   clear(): ThunkAction<Promise<void>, AppState, null, AnyAction> {
     return async dispatch => {
       dispatch(update({ referralList: [] }));

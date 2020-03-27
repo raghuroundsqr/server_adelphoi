@@ -8,6 +8,7 @@ import {
   fetchPrograms,
   createProgram,
   updateProgram,
+  deleteProgram,
   fetchAvailablePrograms
 } from "../api/api";
 
@@ -83,6 +84,23 @@ export const actions = {
         existingList = existingList.filter(p => p.program !== program.program);
       }
       const programList = [program, ...existingList];
+      dispatch(update({ programList }));
+    };
+  },
+  deleteProgram(
+    program: Types.Program
+  ): ThunkAction<Promise<void>, AppState, null, AnyAction> {
+    return async (dispatch, getState) => {
+      const response = await deleteProgram(program);
+      if (!response) {
+        throw Error("something went wrong while updating the program");
+      }
+      const programState = getState().program;
+      let existingList = programState ? programState.programList : [];
+      if (existingList.length > 0) {
+        existingList = existingList.filter(p => p.program !== program.program);
+      }
+      const programList = [...existingList];
       dispatch(update({ programList }));
     };
   },

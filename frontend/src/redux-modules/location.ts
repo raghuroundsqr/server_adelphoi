@@ -4,7 +4,7 @@ import createReducer from "./createReducer";
 import { LocationState } from "./definitions/State";
 import { AppState } from "../redux-modules/root";
 import * as Types from "../api/definitions";
-import { fetchLocationsList, createLocation, updateLocation } from "../api/api";
+import { fetchLocationsList, createLocation, updateLocation, deleteLocation } from "../api/api";
 
 const initialState: LocationState = {
   locationList: []
@@ -64,6 +64,26 @@ export const actions = {
         );
       }
       const locationList = [location, ...existingList];
+      dispatch(update({ locationList }));
+    };
+  },
+
+  deleteLocation(
+    location: Types.Location
+  ): ThunkAction<Promise<void>, AppState, null, AnyAction> {
+    return async (dispatch, getState) => {
+      const response = await deleteLocation(location);
+      if (!response) {
+        throw Error("something went wrong while updating the location");
+      }
+      const locationState = getState().programLocation;
+      let existingList = locationState ? locationState.locationList : [];
+      if (existingList.length > 0) {
+        existingList = existingList.filter(
+          p => p.location !== location.location
+        );
+      }
+      const locationList = [...existingList];
       dispatch(update({ locationList }));
     };
   },

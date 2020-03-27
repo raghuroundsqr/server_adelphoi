@@ -31,12 +31,15 @@ export interface ConfigurationContainerProp
   getReferral: () => Promise<void>;
   createReferral: (referral: Types.Referral) => Promise<void>;
   updateReferral: (referral: Types.Referral) => Promise<void>;
+  deleteReferral: (referral: Types.Referral) => Promise<void>;
   getPrograms: () => Promise<void>;
   createProgram: (program: Types.Program) => Promise<void>;
   updateProgram: (program: Types.Program) => Promise<void>;
+  deleteProgram: (program: Types.Program) => Promise<void>;
   getLocations: () => Promise<void>;
   createLocation: (program: Types.Location) => Promise<void>;
   updateLocation: (program: Types.Location) => Promise<void>;
+  deleteLocation: (program: Types.Location) => Promise<void>;
 }
 
 export class ConfigurationContainer extends React.Component<
@@ -79,12 +82,15 @@ export class ConfigurationContainer extends React.Component<
       referral: referralState,
       createReferral,
       updateReferral,
+      deleteReferral,
       program: programState,
       createProgram,
       updateProgram,
+      deleteProgram,
       programLocation: locationState,
       createLocation,
-      updateLocation
+      updateLocation,
+      deleteLocation
     } = this.props;
     const referralList = (referralState && referralState.referralList) || [];
     const programList = (programState && programState.programList) || [];
@@ -129,6 +135,7 @@ export class ConfigurationContainer extends React.Component<
                   {...this.state}
                   createReferral={createReferral}
                   updateReferral={updateReferral}
+                  deleteReferral={deleteReferral}
                 />
               </Route>
               <Route path={`${match.url}/programs`}>
@@ -137,6 +144,7 @@ export class ConfigurationContainer extends React.Component<
                   {...this.state}
                   createProgram={createProgram}
                   updateProgram={updateProgram}
+                  deleteProgram={deleteProgram}
                 />
               </Route>
               <Route path={`${match.url}/locations`}>
@@ -145,6 +153,7 @@ export class ConfigurationContainer extends React.Component<
                   {...this.state}
                   createLocation={createLocation}
                   updateLocation={updateLocation}
+                  deleteLocation={deleteLocation}
                 />
               </Route>
               <Route path={`${match.url}/linking`}>
@@ -179,12 +188,15 @@ const mapDispatchToProps = {
   getReferral: referral.actions.getReferral,
   createReferral: referral.actions.createReferral,
   updateReferral: referral.actions.updateReferral,
+  deleteReferral: referral.actions.deleteReferral,
   getPrograms: program.actions.getPrograms,
   createProgram: program.actions.createProgram,
   updateProgram: program.actions.updateProgram,
+  deleteProgram: program.actions.deleteProgram,
   getLocations: programLocation.actions.getLocations,
   createLocation: programLocation.actions.createLocation,
-  updateLocation: programLocation.actions.updateLocation
+  updateLocation: programLocation.actions.updateLocation,
+  deleteLocation: programLocation.actions.deleteLocation
 };
 
 export default connect(

@@ -34,16 +34,20 @@ interface LocationListProps {
   error: string;
   createLocation: (location: Types.Location) => Promise<void>;
   updateLocation: (location: Types.Location) => Promise<void>;
+  deleteLocation: (location: Types.Location) => Promise<void>;
 }
 
 interface FormValues {
   location_names: string;
   editing_location_names: string;
+  isDelete: boolean;
 }
 
 const initialValues: FormValues = {
   location_names: "",
-  editing_location_names: ""
+  editing_location_names: "",
+  isDelete: false
+
 };
 
 const LocationList: React.FC<LocationListProps> = props => {
@@ -88,6 +92,18 @@ const LocationList: React.FC<LocationListProps> = props => {
               color="primary"
             >
               Update
+            </Button>
+            <Button
+              type="submit"
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={(e)=>{
+                setFieldValue('isDelete',true)
+                
+              }}
+              >
+              Delete
             </Button>
             <Button
               type="button"
@@ -154,9 +170,16 @@ const LocationList: React.FC<LocationListProps> = props => {
                     location: editingLocation.location,
                     location_names: values.editing_location_names
                   };
-                  await props.updateLocation(location);
-                  enqueueSnackbar("location updated successfully");
+                  if(values.isDelete){
+                    await props.deleteLocation(location);
+                  enqueueSnackbar("location deleted successfully");
                   helpers.resetForm();
+                  }else{
+                    await props.updateLocation(location);
+                    enqueueSnackbar("location updated successfully");
+                    helpers.resetForm();
+                  }
+                  
                   setEditingLocation(null);
                 } else {
                   const location: Types.Location = {

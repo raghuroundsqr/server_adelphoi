@@ -34,16 +34,19 @@ interface ProgramListProps {
   error: string;
   createProgram: (program: Types.Program) => Promise<void>;
   updateProgram: (program: Types.Program) => Promise<void>;
+  deleteProgram: (program: Types.Program) => Promise<void>;
 }
 
 interface FormValues {
   program_name: string;
   editing_program_name: string;
+  isDelete: boolean;
 }
 
 const initialValues: FormValues = {
   program_name: "",
-  editing_program_name: ""
+  editing_program_name: "",
+  isDelete: false
 };
 
 const ProgramList: React.FC<ProgramListProps> = props => {
@@ -89,6 +92,18 @@ const ProgramList: React.FC<ProgramListProps> = props => {
               color="primary"
             >
               Update
+            </Button>
+            <Button
+              type="submit"
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={(e)=>{
+                setFieldValue('isDelete',true)
+                
+              }}
+              >
+              Delete
             </Button>
             <Button
               type="button"
@@ -155,10 +170,16 @@ const ProgramList: React.FC<ProgramListProps> = props => {
                     program: editingProgram.program,
                     program_name: values.editing_program_name
                   };
-                  await props.updateProgram(program);
-                  enqueueSnackbar("program updated successfully");
-                  helpers.resetForm();
-                  setEditingProgram(null);
+                  if(values.isDelete){
+                    await props.deleteProgram(program);
+                    enqueueSnackbar("program deleted successfully");
+                    helpers.resetForm();
+                  }else{
+                    await props.updateProgram(program);
+                    enqueueSnackbar("program updated successfully");
+                    helpers.resetForm();
+                  }
+                 setEditingProgram(null);
                 } else {
                   const program: Types.Program = {
                     program: 0,
