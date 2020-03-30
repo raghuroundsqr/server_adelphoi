@@ -326,6 +326,8 @@ export const EditStep1ValidationSchema = Yup.object().shape({
 
 // unused - all fields on step2 are optional. 
 export const Step2ValidationSchema = Yup.object().shape({
+  yls_PriorCurrentOffenses_Score: Yup.number().max(5, "Score range should be between 0-5")
+  .nullable(),
    yls_FamCircumstances_Score: Yup.number().max(6, "Score range should be between 0-6")
   .nullable(),
    yls_Edu_Employ_Score: Yup.number().max(7, "Score range should be between 0-7")
@@ -340,9 +342,7 @@ export const Step2ValidationSchema = Yup.object().shape({
     .nullable(),
   yls_Attitude_Score: Yup.number().max(5, "Score range should be between 0-5")
     .nullable(),
-  yls_PriorCurrentOffenses_Score: Yup.number().max(5, "Score range should be between 0-5")
-    .nullable(),
-  family_support: Yup.number().max(2, "Score range should be between 0-2")
+   family_support: Yup.number().max(2, "Score range should be between 0-2")
     .nullable(),
   fire_setting: Yup.number().max(3, "Score range should be between 0-3")
     .nullable(),

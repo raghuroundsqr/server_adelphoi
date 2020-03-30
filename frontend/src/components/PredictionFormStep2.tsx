@@ -89,22 +89,17 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                   <label style={{display:"flex",fontSize:"14px"}}>Range should be 0-6</label>
                 </div>
                 <div css={twoCol}>
-                  <input
+                <input
                     type="text"
-                    name="yls_FamCircumstances_Score"
+                    name="yls_FamCircumstances_Score" 
                     css={inputField}
                     placeholder=""
                     value={values.yls_FamCircumstances_Score || ""}
-                    onChange={e => {
-                      handleChange(e);
-                    }}
+                    onChange={handleChange}
+                    
                   />
                    <span style={{color: "red"}}>{errors.yls_FamCircumstances_Score}</span>
-                  {/* <ErrorMessage
-                    component="span"
-                    name="yls_FamCircumstances_Score"
-                  /> */}
-                </div>
+                   </div>
               </div>
               <div css={fieldRow}>
                 <div css={twoCol}>
@@ -133,7 +128,7 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                   <input
                     type="text"
                     name="yls_Peer_Score"
-                    css={inputField}
+                    css={inputField} 
                     placeholder=""
                     value={values.yls_Peer_Score || ""}
                     onChange={handleChange}
