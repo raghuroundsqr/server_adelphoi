@@ -1,5 +1,14 @@
 // Model definitions
-
+export interface User {
+  email: string;
+  password: string;
+  accessToken: string;
+  role_type: string;
+}
+export interface Credential {
+  email: string;
+  password: string;
+}
 export interface Client {
   client_code: string | null;
   episode_start: string | null;

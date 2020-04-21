@@ -2,14 +2,21 @@
 import React from "react";
 import { jsx, css } from "@emotion/core";
 import { withRouter, Route } from "react-router-dom";
+import { Link as RouterLink, useHistory } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
+import {connect} from "react-redux";
+import * as user from "./redux-modules/user";
+import { AppState } from "./redux-modules/root";
+import {  Global } from "@emotion/core";
+
 import {
   ConfigIcon,
   NewClientIcon,
   ExistingClientIcon
 } from "./components/icons";
-
+import { domainPath } from "./App"
 const App = css`
   margin: 80px auto;
   width: 100%;
@@ -92,16 +99,28 @@ const firstMatchLogo = css`
 const adelphoiLogo = css`
   position: absolute;
   top: -25px;
+  left: -25px;
+  @media all and (max-width: 520px) {
+    top: 0;
+    right: 0;
+  }
+`;
+const logout = css`
+  position: absolute;
+  top: -25px;
   right: -25px;
+  radius: 2px;
   @media all and (max-width: 520px) {
     top: 0;
     right: 0;
   }
 `;
 
-const AppShell: React.FC = ({ children }) => {
+const AppShell: React.FC = ({children} ) => {
+ 
   return (
     <Paper css={App} elevation={3}>
+      
       <div css={logo}>
         <img
           css={firstMatchLogo}
@@ -113,15 +132,21 @@ const AppShell: React.FC = ({ children }) => {
           alt="Adelphoi Logo"
           src="/img/adelphoi_logo.png"
         />
+                <a
+              href="/adelphoi/logout"
+              css={logout}
+            >
+              Logout
+            </a>
       </div>
       <div css={nav}>
         <Route
-          path="/new-client"
+          path={`/${domainPath}/new-client`}
           // exact={activeOnlyWhenExact}
           children={({ match, history }) => (
             <Link
               onClick={() => {
-                history.push("/new-client");
+                history.push(`/${domainPath}/new-client`);
               }}
               // href="#"
               css={menuButton}
@@ -141,12 +166,12 @@ const AppShell: React.FC = ({ children }) => {
         />
 
         <Route
-          path="/existing-client"
+          path={`/${domainPath}/existing-client`}
           // exact={activeOnlyWhenExact}
           children={({ match, history }) => (
             <Link
               onClick={() => {
-                history.push("/existing-client");
+                history.push(`/${domainPath}/existing-client`);
               }}
               css={menuButton}
               style={
@@ -164,12 +189,12 @@ const AppShell: React.FC = ({ children }) => {
           )}
         />
         <Route
-          path="/configuration"
+          path={`/${domainPath}/configuration`}
           // exact={activeOnlyWhenExact}
           children={({ match, history }) => (
             <Link
               onClick={() => {
-                history.push("/configuration/programs");
+                history.push(`/${domainPath}/configuration/programs`);
               }}
               css={menuButton}
               style={
@@ -189,7 +214,11 @@ const AppShell: React.FC = ({ children }) => {
       </div>
       {children}
     </Paper>
+    
   );
 };
 
+
+
 export default withRouter(AppShell);
+ 

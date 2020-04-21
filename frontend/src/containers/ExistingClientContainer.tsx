@@ -11,7 +11,7 @@ import ClientSearch from "../components/ClientSearch";
 import ClientDetailsContainer from "./ClientDetailsContainer";
 import EditClientContainer from "./EditClientContainer" ;
 //import ReferralList from "../components/ReferralList";
-
+import { domainPath } from "../App"
 interface MatchParams {
   index: string;
 }
@@ -70,7 +70,7 @@ export class ExistingClientContainer extends React.Component<
     
     return (
       <Switch>
-        <Route exact path="/existing-client">
+        <Route exact path={`/${domainPath}/existing-client`}>
           <ClientSearch
             clientList={Object.values(clientList)}
             {...this.state}
@@ -79,22 +79,22 @@ export class ExistingClientContainer extends React.Component<
         </Route>
         <Route
           exact
-          path="/existing-client/client-details/:index" 
+          path={`/${domainPath}/existing-client/client-details/:index`} 
           component={ClientDetailsContainer}
         ></Route>
         <Route
           exact
-          path="/existing-client/edit-details/:index/2"
+          path={`/${domainPath}/existing-client/edit-details/:index/2`}
           component={EditClientContainer}
         ></Route>
         <Route
           exact
-          path="/existing-client/edit-details/:index/program-selection"
+          path={`/${domainPath}/existing-client/edit-details/:index/program-selection`}
           component={EditClientContainer}
         ></Route>
         <Route
           exact
-          path="/existing-client/edit-details/:index,:isEdit"
+          path={`/${domainPath}/existing-client/edit-details/:index,:isEdit`}
           component={EditClientContainer}
         ></Route>
       </Switch>

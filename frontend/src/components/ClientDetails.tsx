@@ -33,7 +33,7 @@ import Dropdown from "./Dropdown";
 import * as Types from "../api/definitions";
 import { baseApiUrl } from "../api/api";
 import color from "@material-ui/core/colors/amber";
-
+import { domainPath } from "../App"
 
 interface ClientDetailsProps {
   client: Types.Client;
@@ -711,7 +711,7 @@ const ClientDetails: React.FC<ClientDetailsProps> = props => {
       </div> */}
       <h3> Click <a  onClick={() =>
                       history.push(
-                        `/existing-client/edit-details/${client.client_code},true`
+                        `/${domainPath}/existing-client/edit-details/${client.client_code},true`
                       )
                     }><u style={{color: "red"}}>here</u></a> to Edit Client details Or update below details.</h3> 
 

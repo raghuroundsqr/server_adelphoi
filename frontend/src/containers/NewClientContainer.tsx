@@ -12,6 +12,7 @@ import ReferralList from "../components/ReferralList";
 import PredictionFormStep1 from "../components/PredictionFormStep1";
 import PredictionFormStep2 from "../components/PredictionFormStep2";
 import ProgramSelection from "../components/ProgramSelection";
+import { domainPath } from "../App"
 
 export interface NewClientContainerState {
   isLoading: boolean;
@@ -63,6 +64,7 @@ export class NewClientContainer extends React.Component<
     this.props.closeSnackbar();
     this.props.getAvailablePrograms();
     this.props.getReferral();
+    
   }
 
   saveClientStep1 = async (client: Types.Client) => {
@@ -87,7 +89,7 @@ export class NewClientContainer extends React.Component<
     } else {
       this.setState({ isLoading: true });
       this.props.saveClient(client, true, false);
-      history.push("/new-client/2");
+      history.push(`/${domainPath}/new-client/2`);
       this.setState({ isLoading: false });
     }
   };
@@ -161,7 +163,7 @@ export class NewClientContainer extends React.Component<
       await this.props.insertClient(client);
       this.setState({ isLoading: false });
       this.props.enqueueSnackbar("New Client Created Successfully.");
-      history.push("/new-client/program-selection");
+      history.push(`/${domainPath}/new-client/program-selection`);
       //this.props.clearClient();
     } catch (error) {
       console.log(error);
@@ -178,10 +180,10 @@ export class NewClientContainer extends React.Component<
     currentClient = clientState ? clientState.client : Types.emptyClient;
     const availableProgramList =
       (programState && programState.availableProgramList) || [];
-  
+      console.log(domainPath,"path")
     return (
-      <Switch>
-        <Route exact path="/new-client/program-selection">
+            <Switch>
+        <Route exact path={`/${domainPath}/new-client/program-selection`}>
           <ProgramSelection
             client={currentClient}
             {...this.state}
@@ -194,7 +196,7 @@ export class NewClientContainer extends React.Component<
         </Route>
         <Route
           exact
-          path="/new-client/2"
+          path={`/${domainPath}/new-client/2`}
           render={routeProps => {
             // const step1 = clientState
             //   ? clientState.page1FormCompleted
@@ -218,7 +220,7 @@ export class NewClientContainer extends React.Component<
             );
           }}
         ></Route>
-        <Route exact path="/new-client">
+        <Route exact path={`/${domainPath}/new-client`}>
           <PredictionFormStep1
             {...this.state}
             isEdit=""

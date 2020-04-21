@@ -1,19 +1,20 @@
 import { History } from "history";
 import { applyMiddleware, compose, createStore, Store } from "redux";
 import thunk from "redux-thunk";
-// import { persistStore, persistReducer, Persistor } from "redux-persist";
-// import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
-// import { AppState } from "./root";
+import { persistStore, persistReducer, Persistor } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+ import { AppState } from "./root";
 import { rootReducer } from "./root";
 
-// const persistConfig = {
-//   key: "firstMatch",
-//   storage
-// };
+const persistConfig = {
+  key: "firstMatch",
+  storage
+};
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
+const reducer = rootReducer;
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-export default (history: History): { store: Store<any, any> } => {
+export default (history: History): { store: Store<any, any>; persistor: Persistor } => {
   // store: Store<any, any>; persistor: Persistor
   let composeEnhancers = compose;
   /* istanbul ignore next */
@@ -26,13 +27,7 @@ export default (history: History): { store: Store<any, any> } => {
 
   const enhancer = composeEnhancers(applyMiddleware(thunk));
 
-  //return createStore<AppState, any, unknown, unknown>(persistedReducer, enhancer as any);
-
-  let store = createStore<any, any, unknown, unknown>(
-    rootReducer,
-    enhancer as any
-  );
-  //let persistor = persistStore(store);
-  // return { store, persistor };
-  return { store };
+  let store = createStore<any, any, unknown, unknown>(persistedReducer, enhancer as any);
+  let persistor = persistStore(store)
+  return { store, persistor }
 };

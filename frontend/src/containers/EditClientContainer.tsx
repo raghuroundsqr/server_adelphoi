@@ -13,6 +13,7 @@ import PredictionFormStep1 from "../components/PredictionFormStep1";
 import PredictionFormStep2 from "../components/PredictionFormStep2";
 import ProgramSelection from "../components/ProgramSelection";
 import { Switch, Route } from "react-router-dom";
+import { domainPath } from "../App"
 interface MatchParams {
   index: string;
 }
@@ -120,7 +121,7 @@ export class EditClientContainer extends React.Component<
         const { index } = this.props.match.params;
       this.setState({ isLoading: true });
       this.props.saveClient(client, true, false);
-      history.push(`/existing-client/edit-details/${index}/2`);
+      history.push(`/${domainPath}/existing-client/edit-details/${index}/2`);
       this.setState({ isLoading: false });
     }
   };
@@ -194,7 +195,7 @@ export class EditClientContainer extends React.Component<
       await this.props.updateClient(client);
       this.setState({ isLoading: false });
       this.props.enqueueSnackbar("New Client Created Successfully.");
-      history.push(`/existing-client/edit-details/${index}/program-selection`);
+      history.push(`/${domainPath}/existing-client/edit-details/${index}/program-selection`);
       //this.props.clearClient();
     } catch (error) {
       console.log(error);
@@ -215,7 +216,7 @@ export class EditClientContainer extends React.Component<
     const { index } = this.props.match.params;
     return (  
         <Switch>
-        <Route exact path="/existing-client/edit-details/:index/program-selection">
+        <Route exact path={`/${domainPath}/existing-client/edit-details/:index/program-selection`}>
           <ProgramSelection
             client={currentClient}
             {...this.state}
@@ -228,7 +229,7 @@ export class EditClientContainer extends React.Component<
         </Route>
         <Route
           exact
-          path="/existing-client/edit-details/:index/2"
+          path={`/${domainPath}/existing-client/edit-details/:index/2`}
           
         >
             <PredictionFormStep2
@@ -239,7 +240,7 @@ export class EditClientContainer extends React.Component<
                 errors={(clientState && clientState.errors) || undefined}
               />
         </Route>
-        <Route exact path="/existing-client/edit-details/:index,:isEdit">
+        <Route exact path={`/${domainPath}/existing-client/edit-details/:index,:isEdit`}>
           <PredictionFormStep1
             {...this.state}
             isEdit="true"

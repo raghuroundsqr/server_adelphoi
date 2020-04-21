@@ -10,7 +10,7 @@ import { ContainerProps } from "./Container";
 import * as client from "../redux-modules/client";
 import * as Types from "../api/definitions";
 import ClientDetails from "../components/ClientDetails";
-
+import { domainPath } from "../App"
 interface MatchParams {
   index: string;
 }

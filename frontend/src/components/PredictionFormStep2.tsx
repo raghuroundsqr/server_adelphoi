@@ -8,7 +8,7 @@ import SnackNotification from "./SnackNotification";
 import { Step2ValidationSchema } from "./ValidationSchema";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
+import { domainPath } from "../App"
 import {
   wrap,
   subHeading,
@@ -435,7 +435,7 @@ const PredictionFormStep2: React.FC<PredictionFormStep2Props> = props => {
                   variant="contained"
                   size="large"
                   style={{ marginRight: 10 }}
-                  onClick={() => history.push("/new-client")}
+                  onClick={() => history.push(`/${domainPath}/new-client`)}
                 >
                   Previous
                 </Button>

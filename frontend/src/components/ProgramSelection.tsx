@@ -22,7 +22,7 @@ import {
 import Dropdown from "./Dropdown";
 import { baseApiUrl } from "../api/api";
 import * as Types from "../api/definitions";
-
+import { domainPath } from "../App"
 interface ProgramSelectionProps {
   client: Types.Client;
   programList: Types.Program[];
@@ -115,7 +115,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = props => {
                     style={{ display: "flex", marginRight: 15 }}
                     rel="noopener noreferrer"
                     target="_blank"
-                    onClick={() => history.push("/new-client")}
+                    onClick={() => history.push(`/${domainPath}/new-client`)}
                     href={`${baseApiUrl}/index/${clientCode}`}
                   >
                     <PictureAsPdfIcon /> Download Report 

@@ -18,7 +18,7 @@ import ReferralList from "../components/ReferralList";
 import LocationList from "../components/LocationList";
 import ConfigurationForm from "../components/ConfigurationForm";
 import { updateConfiguration } from "../api/api";
-
+import { domainPath } from "../App"
 export interface ConfigurationContainerState {
   isLoading: boolean;
   error: string;
@@ -98,7 +98,7 @@ export class ConfigurationContainer extends React.Component<
     const { match, location } = this.props;
     return (
       <Switch>
-        <Route path="/configuration">
+        <Route path={`/${domainPath}/configuration`}>
           <React.Fragment>
             <Paper style={{ flexGrow: 1, marginTop: 30 }}>
               <Tabs value={location.pathname} centered>

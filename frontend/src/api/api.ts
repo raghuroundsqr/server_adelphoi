@@ -1,7 +1,12 @@
 import axios from "axios";
 import * as Types from "./definitions";
+import createAuthRefreshInterceptor from "axios-auth-refresh";
+import { store } from "../index";
+import * as user from "../redux-modules/user";
 
 export const baseApiUrl = "http://3.6.90.1:8000/first_match";
+export const loginApiUrl = "http://3.6.90.1:8005"; 
+
 
 interface PredictionResponse {
   referred_program: string;
@@ -12,6 +17,60 @@ interface LocationsResponse {
   result?: string;
   "Suggested Locations": string[];
 }
+
+const refreshAuthLogic = (failedRequest: {
+  response: { config: { headers: { [x: string]: string } } };
+}) => {
+  console.log("refresh-user")
+  const userState = store.getState().user;
+  const currentUser = userState.user;
+  console.log(currentUser,'userState')
+  // const refreshToken = localStorage.getItem("refreshToken");
+  if (!userState) {
+    return Promise.reject();
+  }
+
+  return axios
+    .post(`${loginApiUrl}/login/refresh/`, {
+      refresh: currentUser.refreshToken
+    })
+    .then(tokenRefreshResponse => {
+      // localStorage.setItem("refresh", tokenRefreshResponse.data.token);
+      const accessToken = tokenRefreshResponse.data.access_token;
+      store.dispatch(
+        user.actions.update({
+          user: {
+            ...currentUser,
+            accessToken
+          }
+        })
+      );
+      failedRequest.response.config.headers["Authorization"] =
+        "Bearer " + accessToken;
+      return Promise.resolve();
+    });
+};
+// Instantiate the interceptor (you can chain it as it returns the axios instance)
+createAuthRefreshInterceptor(axios as any, refreshAuthLogic);
+
+// Make a call. If it returns a 401 error, the refreshAuthLogic will be run,
+// and the request retried with the new token
+export const login = async (email: string,password: string) => {
+  try {
+    const response = await axios.post(`${loginApiUrl}/adelphoi/admin/login`, {
+      username: email,
+      password: password
+      
+    });
+    console.log(response,"login")
+    localStorage.setItem("refreshToken", response.data.refresh_token);
+    return response;
+  } catch (error) {
+    console.error("api function login error");
+    throwError(error);
+  }
+};
+
 
 export const updateConfiguration = async (
   configuration: Types.Configuration
