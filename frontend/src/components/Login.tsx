@@ -159,7 +159,9 @@ const Login: React.FC<LoginFormProps> = props => {
         <Toolbar className={classes.toolbar}>
           <div className={classes.toolbarTitle}>
             <RouterLink to="/" className={classes.brand}>
+            <a className="navbar-brand" href="http://3.6.90.1:8002/"> 
               <img src="/img/logo_stroke.png" alt="" className={classes.logo} />
+              </a>
               <Typography
                 variant="h6"
                 color="inherit"
