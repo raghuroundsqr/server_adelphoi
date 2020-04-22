@@ -6,16 +6,13 @@ import { AppState } from "./redux-modules/root";
 import * as user from "./redux-modules/user";
 import AppShell from "./AppShell";
 import { css, jsx, Global } from "@emotion/core";
+import { domainPath } from "./App"
 export interface PrivateRouteProps extends RouteProps {
   appState: AppState;
 }
 
 
 const PRoute: React.FC<PrivateRouteProps> = (props) => {
-  const url = typeof window !== 'undefined' ? window.location.pathname : '';
-  console.log(url,"url")
-  let str1 = url.split('/');
-  let dom = str1[1];
   const { appState, ...routeProps } = props;
   console.log(routeProps.location,"loc")
   const { user } = appState;
@@ -46,7 +43,7 @@ const PRoute: React.FC<PrivateRouteProps> = (props) => {
       /> 
          <Redirect
         to={{
-          pathname: `/${dom}/login`,
+          pathname: `/${domainPath}/login`,
           state: { from: routeProps.location }
         }}
       />
@@ -76,7 +73,7 @@ const PRoute: React.FC<PrivateRouteProps> = (props) => {
           }
         `}
       />   */}
-      <AppShell> <Route {...routeProps} /></AppShell>
+     <AppShell> <Route {...routeProps} /></AppShell>
     </React.Fragment>    
   
       

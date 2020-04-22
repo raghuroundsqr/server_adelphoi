@@ -5,6 +5,7 @@ import { jsx, css } from "@emotion/core";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import { AppState } from "../redux-modules/root";
 import * as user from "../redux-modules/user";
+import { domainPath } from "../App" 
 
 
 export interface LogoutProps {
@@ -19,13 +20,13 @@ const Logout: React.FC<LogoutProps> = props => {
   useEffect(() => {
     console.log("logout")
     logout();
-    history.push("/adelphoi/login");
+    history.push(`/${domainPath}/login`);
   });
   console.log(logout,"log")
   const onLogoutClick = () => {
     console.log("logout")
     logout();
-    history.push("/adelphoi/login");
+    history.push(`/${domainPath}/login`);
   };
   return (
     <div>

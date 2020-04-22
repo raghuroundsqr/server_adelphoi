@@ -22,8 +22,9 @@ export class LoginContainer extends React.Component<
     const isLoggedIn = props.user && props.user.user;
     console.log(props,"props")
     if (isLoggedIn && isLoggedIn.accessToken !== "") {
-      console.log(props,'props')
-      this.props.history.push(`/${domainPath}/new-client`);
+      console.log(domainPath,'domainPath')
+      this.props.history.push(domainPath !== "adelphoi" ? (`/${domainPath}/welcomepage`) :
+      (`/${domainPath}/new-client`));
     }
     this.state = this.getInitialState();
   }
@@ -50,7 +51,8 @@ export class LoginContainer extends React.Component<
       //let { from } = location.state || { from: { pathname: "/select" } };
        //history.push(from);
        console.log(r,"login")
-     history.push(`/${domainPath}/new-client`);
+     history.push(domainPath !== "adelphoi" ? (`/${domainPath}/welcomepage`) :
+     (`/${domainPath}/new-client`));;
     } catch (e) {
       console.log(e,"error");
       const error = e.data.message;

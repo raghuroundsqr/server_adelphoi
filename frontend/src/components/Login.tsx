@@ -16,7 +16,7 @@ import logo from "../image/logo.png";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { Link as RouterLink, useHistory } from "react-router-dom";
-
+import { domainPath } from "../App"
 
 import {
   wrap,
@@ -146,7 +146,7 @@ const Login: React.FC<LoginFormProps> = props => {
   const classes = useStyles();
   const initialValues: LoginFormValues = { email: "", password: "" };
   const { error } = props;
-
+  const domain = domainPath.charAt(0).toUpperCase() + domainPath.substr(1).toLowerCase();
   return (
     <div >
       
@@ -181,7 +181,7 @@ const Login: React.FC<LoginFormProps> = props => {
         </Avatar> */}
         <Typography component="div" variant="h5"
           className={classes.brandTitle}>
-              Login to First Match for Adelphoi
+              Login to First Match for {domain}
         </Typography >
               {error && (
                 <Typography

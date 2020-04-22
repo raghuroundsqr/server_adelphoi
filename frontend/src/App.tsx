@@ -19,6 +19,7 @@ import ConfigurationContainer from "./containers/ConfigurationContainer";
 import LoginContainer from "./containers/LoginContainer";
 import Logout from "./components/Logout"; 
 import PrivateRoute from './PrivateRoute';
+import Welcomepage from './components/welcomepage'
 export const { store } = configureStore(createHistory());
 const url = typeof window !== 'undefined' ? window.location.pathname : '';
   let str1 = url.split('/');
@@ -59,8 +60,13 @@ const App: React.FC = () => {
           <Switch>
          
                 <Route exact path={`/${dom}`}>
-               
-                  <Redirect to={`/${dom}/new-client`} /> 
+                {dom == "adelphoi" ? (
+                    <Redirect to={`/${dom}/new-client`} /> 
+                  ):(
+                    <Redirect to={`/${dom}/welcomepage`} /> 
+                    
+                  )}
+                  
                 </Route>
                 <Route
                   path={`/${dom}/login`}
@@ -68,8 +74,7 @@ const App: React.FC = () => {
                 />
                 </Switch>
                 <Switch>
-                
-                  
+                <PrivateRoute path={`/${dom}/welcomepage`} component={Welcomepage} />
                 <PrivateRoute path={`/${dom}/new-client`} component={NewClientContainer} />
                 <PrivateRoute
                   path={`/${dom}/existing-client`}

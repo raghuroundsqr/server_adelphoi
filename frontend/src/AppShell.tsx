@@ -10,13 +10,13 @@ import {connect} from "react-redux";
 import * as user from "./redux-modules/user";
 import { AppState } from "./redux-modules/root";
 import {  Global } from "@emotion/core";
-
+import { domainPath } from "./App"
 import {
   ConfigIcon,
   NewClientIcon,
   ExistingClientIcon
 } from "./components/icons";
-import { domainPath } from "./App"
+
 const App = css`
   margin: 80px auto;
   width: 100%;
@@ -129,89 +129,92 @@ const AppShell: React.FC = ({children} ) => {
         />
         <img
           css={adelphoiLogo}
-          alt="Adelphoi Logo"
-          src="/img/adelphoi_logo.png"
+          alt={`${domainPath} Logo`}
+          src={`/img/${domainPath}_logo.png`}
         />
                 <a
-              href="/adelphoi/logout"
+              href={`/${domainPath}/logout`}
               css={logout}
             >
               Logout
             </a>
       </div>
-      <div css={nav}>
-        <Route
-          path={`/${domainPath}/new-client`}
-          // exact={activeOnlyWhenExact}
-          children={({ match, history }) => (
-            <Link
-              onClick={() => {
-                history.push(`/${domainPath}/new-client`);
-              }}
-              // href="#"
-              css={menuButton}
-              style={
-                match
-                  ? { backgroundColor: "#8284e5", color: "white" }
-                  : { backgroundColor: "#f5f5f5", color: "#9d9d9d" }
-              }
-            >
-              <NewClientIcon
-                css={menuIcon}
-                fillColor={match ? "white" : "#9d9d9d"}
-              />
-              New Client
-            </Link>
-          )}
-        />
-
-        <Route
-          path={`/${domainPath}/existing-client`}
-          // exact={activeOnlyWhenExact}
-          children={({ match, history }) => (
-            <Link
-              onClick={() => {
-                history.push(`/${domainPath}/existing-client`);
-              }}
-              css={menuButton}
-              style={
-                match
-                  ? { backgroundColor: "#8284e5", color: "white" }
-                  : { backgroundColor: "#f5f5f5", color: "#9d9d9d" }
-              }
-            >
-              <ExistingClientIcon
-                css={menuIcon}
-                fillColor={match ? "white" : "#9d9d9d"}
-              />
-              Existing Client
-            </Link>
-          )}
-        />
-        <Route
-          path={`/${domainPath}/configuration`}
-          // exact={activeOnlyWhenExact}
-          children={({ match, history }) => (
-            <Link
-              onClick={() => {
-                history.push(`/${domainPath}/configuration/programs`);
-              }}
-              css={menuButton}
-              style={
-                match
-                  ? { backgroundColor: "#8284e5", color: "white" }
-                  : { backgroundColor: "#f5f5f5", color: "#9d9d9d" }
-              }
-            >
-              <ConfigIcon
-                css={menuIcon}
-                fillColor={match ? "white" : "#9d9d9d"}
-              />
-              Configuration
-            </Link>
-          )}
-        />
-      </div>
+      {domainPath == "adelphoi" ? (
+                 <div css={nav}>
+                 <Route
+                   path={`/${domainPath}/new-client`}
+                   // exact={activeOnlyWhenExact}
+                   children={({ match, history }) => (
+                     <Link
+                       onClick={() => {
+                         history.push(`/${domainPath}/new-client`);
+                       }}
+                       // href="#"
+                       css={menuButton}
+                       style={
+                         match
+                           ? { backgroundColor: "#8284e5", color: "white" }
+                           : { backgroundColor: "#f5f5f5", color: "#9d9d9d" }
+                       }
+                     >
+                       <NewClientIcon
+                         css={menuIcon}
+                         fillColor={match ? "white" : "#9d9d9d"}
+                       />
+                       New Client
+                     </Link>
+                   )}
+                 />
+         
+                 <Route
+                   path={`/${domainPath}/existing-client`}
+                   // exact={activeOnlyWhenExact}
+                   children={({ match, history }) => (
+                     <Link
+                       onClick={() => {
+                         history.push(`/${domainPath}/existing-client`);
+                       }}
+                       css={menuButton}
+                       style={
+                         match
+                           ? { backgroundColor: "#8284e5", color: "white" }
+                           : { backgroundColor: "#f5f5f5", color: "#9d9d9d" }
+                       }
+                     >
+                       <ExistingClientIcon
+                         css={menuIcon}
+                         fillColor={match ? "white" : "#9d9d9d"}
+                       />
+                       Existing Client
+                     </Link>
+                   )}
+                 />
+                 <Route
+                   path={`/${domainPath}/configuration`}
+                   // exact={activeOnlyWhenExact}
+                   children={({ match, history }) => (
+                     <Link
+                       onClick={() => {
+                         history.push(`/${domainPath}/configuration/programs`);
+                       }}
+                       css={menuButton}
+                       style={
+                         match
+                           ? { backgroundColor: "#8284e5", color: "white" }
+                           : { backgroundColor: "#f5f5f5", color: "#9d9d9d" }
+                       }
+                     >
+                       <ConfigIcon
+                         css={menuIcon}
+                         fillColor={match ? "white" : "#9d9d9d"}
+                       />
+                       Configuration
+                     </Link>
+                   )}
+                 />
+               </div>
+      ) : ""}
+      
       {children}
     </Paper>
     
