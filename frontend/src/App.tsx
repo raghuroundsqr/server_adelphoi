@@ -19,7 +19,7 @@ import ConfigurationContainer from "./containers/ConfigurationContainer";
 import LoginContainer from "./containers/LoginContainer";
 import Logout from "./components/Logout"; 
 import PrivateRoute from './PrivateRoute';
-import Welcomepage from './components/WelcomePage'
+import Welcomepage from './components/welcomepage'
 export const { store } = configureStore(createHistory());
 const url = typeof window !== 'undefined' ? window.location.pathname : '';
   let str1 = url.split('/');
