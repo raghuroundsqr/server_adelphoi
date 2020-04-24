@@ -19,7 +19,7 @@ import ConfigurationContainer from "./containers/ConfigurationContainer";
 import LoginContainer from "./containers/LoginContainer";
 import Logout from "./components/Logout"; 
 import PrivateRoute from './PrivateRoute';
-import Welcomepage from './components/welcomepage'
+import Welcomepage from './components/WelcomePage'
 export const { store } = configureStore(createHistory());
 const url = typeof window !== 'undefined' ? window.location.pathname : '';
   let str1 = url.split('/');
@@ -32,7 +32,11 @@ const App: React.FC = () => {
       
       
       <Provider store={store}> 
-      <Global
+      
+        <SnackbarProvider
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          {/* <Global
         styles={css`
           *,
           *::before,
@@ -51,10 +55,7 @@ const App: React.FC = () => {
             font-family: "Quicksand", Helvetica, sans-serif;
           }
         `}
-      />  
-        <SnackbarProvider
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        >
+      />   */}
           <Router>
           
           <Switch>

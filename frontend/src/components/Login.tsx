@@ -81,6 +81,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     backgroundColor: "#fff",
+    width: "200px",
     paddingTop: 10,
     paddingLeft: 8
   },
@@ -158,19 +159,19 @@ const Login: React.FC<LoginFormProps> = props => {
       >
         <Toolbar className={classes.toolbar}>
           <div className={classes.toolbarTitle}>
-            <RouterLink to="/" className={classes.brand}>
-            <a className="navbar-brand" href="http://3.6.90.1:8002/"> 
+            {/* <RouterLink to="https://firstmatchcom.wpcomstaging.com/" className={classes.brand}> */}
+            <a className={classes.brand} href="https://firstmatchcom.wpcomstaging.com/"> 
               <img src="/img/logo_stroke.png" alt="" className={classes.logo} />
               </a>
-              <Typography
+              {/* <Typography
                 variant="h6"
                 color="inherit"
                 noWrap
                 className={classes.brandTitle}
               >
                
-              </Typography>
-            </RouterLink>
+              </Typography> */}
+            {/* </RouterLink> */}
           </div>
           
           

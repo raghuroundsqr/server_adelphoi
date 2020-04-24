@@ -59,10 +59,9 @@ export const login = async (email: string,password: string) => {
   try {
     const response = await axios.post(`${loginApiUrl}/adelphoi/admin/login`, {
       username: email,
-      password: password
-      
+      password: password      
     });
-    console.log(response,"login")
+    console.log(response,"login");
     localStorage.setItem("refreshToken", response.data.refresh_token);
     return response;
   } catch (error) {

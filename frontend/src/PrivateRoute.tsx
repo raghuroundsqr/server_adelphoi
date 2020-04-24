@@ -21,7 +21,7 @@ const PRoute: React.FC<PrivateRouteProps> = (props) => {
   if (!user ||user.user.accessToken === "") {
     return (
       <React.Fragment>
-        <Global
+        {/* <Global
         styles={css`
           *,
           *::before,
@@ -40,7 +40,7 @@ const PRoute: React.FC<PrivateRouteProps> = (props) => {
             font-family: "Quicksand", Helvetica, sans-serif;
           }
         `}
-      /> 
+      />  */}
          <Redirect
         to={{
           pathname: `/${domainPath}/login`,

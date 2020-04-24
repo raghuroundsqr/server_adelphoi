@@ -110,7 +110,7 @@ export class EditClientContainer extends React.Component<
         this.props.saveClient(client, true, true);
         await this.props.updateClient(client);
         this.setState({ isLoading: false });
-        this.props.enqueueSnackbar("Thanks for registering with ADELPHOI");
+        this.props.enqueueSnackbar(`Thanks for registering with ${domainPath}`);
         this.props.clearErrors();
         this.props.clearClient();
       } catch (error) {
