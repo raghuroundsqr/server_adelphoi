@@ -4,8 +4,8 @@ import createAuthRefreshInterceptor from "axios-auth-refresh";
 import { store } from "../index";
 import * as user from "../redux-modules/user";
 import { domainPath } from "../App"
-export const baseApiUrl = "http://3.6.90.1:8000/first_match";
-export const loginApiUrl = "http://3.6.90.1:8005"; 
+export const baseApiUrl = "http://3.7.135.210:8000/first_match";
+export const loginApiUrl = "http://3.7.135.210:8005"; 
 
 
 interface PredictionResponse {
